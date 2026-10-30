@@ -1,0 +1,11 @@
+--extra-index-url https://download.pytorch.org/whl/cu128
+torch
+transformers
+accelerate
+bitsandbytes
+datasets
+scikit-learn
+matplotlib
+gradio
+openai
+python-dotenv
