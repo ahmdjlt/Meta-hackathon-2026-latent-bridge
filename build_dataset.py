@@ -13,7 +13,7 @@ import time
 import torch
 from datasets import load_dataset
 
-from common import (DATA, DEVICE, SENDER_ID, SENDER_LAYERS, gold_number, load_model,
+from common import (DATA, DEVICE, SENDER_ID, SENDER_LAYERS, clean_solution, gold_number, load_model,
                     sender_prompt, split_question)
 
 
@@ -25,7 +25,8 @@ def make_rows(split, n, offset=0):
         if ctx is None:
             continue
         rows.append({"id": f"{split}-{i}", "question": ds[i]["question"], "context": ctx,
-                     "final_q": fq, "answer": gold_number(ds[i]["answer"])})
+                     "final_q": fq, "answer": gold_number(ds[i]["answer"]),
+                     "solution": clean_solution(ds[i]["answer"])})
         if len(rows) == n:
             break
     return rows
@@ -64,7 +65,7 @@ def build(name, rows, model, tok, args):
     ctx_len = []
     for r, m in zip(rows, msgs):
         r["msg"] = m
-        r["query"] = f"Using the info above: {r['final_q']} Answer:"
+        r["query"] = f"Using the info above: {r['final_q']}"
         r["msg_tokens"] = len(tok(m, add_special_tokens=False).input_ids)
         h, c = sender_hidden(model, tok, r["context"], m)
         for L in SENDER_LAYERS:

@@ -76,8 +76,8 @@ USER_HDR = "<|begin_of_text|><|start_header_id|>user<|end_header_id|>\n\n"
 ASSIST_HDR = "<|eot_id|><|start_header_id|>assistant<|end_header_id|>\n\n"
 
 SENDER_INSTR = (
-    "List the key quantities in the text below and compute any partial results "
-    "that follow directly from them. Be brief, use short lines, do not ask questions.\n\nText: "
+    "Rewrite the facts in the text below as short bullet points for a teammate. Keep every number "
+    "and unit exactly as written. Do not calculate anything and do not add facts.\n\nText: "
 )
 
 
@@ -90,16 +90,20 @@ RECV_PRE = USER_HDR + "Notes from a teammate:\n"
 RECV_PRE_NONE = USER_HDR
 
 
+ANSWER_FMT = "Solve it in a few short steps, then end with '#### <number>'."
+
+
 def recv_post(final_q):
-    return f"\n\nUsing the info above: {final_q} Answer:" + ASSIST_HDR
+    return f"\n\nUsing the info above: {final_q}\n{ANSWER_FMT}" + ASSIST_HDR
 
 
 def recv_post_none(final_q):
-    return f"{final_q} Answer:" + ASSIST_HDR
+    return f"{final_q}\n{ANSWER_FMT}" + ASSIST_HDR
 
 
-def answer_text(ans):
-    return f"{ans}<|eot_id|>"
+def answer_text(solution):
+    """Training target: the gold GSM8K step-by-step solution ending in '#### N'."""
+    return f"{solution}<|eot_id|>"
 
 
 # ---------------------------------------------------------------- GSM8K helpers
@@ -112,6 +116,15 @@ def split_question(q):
     if len(sents) < 2:
         return None, None
     return " ".join(sents[:-1]), sents[-1]
+
+
+_CALC = re.compile(r"<<[^>]*>>")
+
+
+def clean_solution(answer_field):
+    """GSM8K solution without the <<calculator>> annotations, ending in '#### N'."""
+    body, num = answer_field.split("####")
+    return _CALC.sub("", body).strip() + f"\n#### {normalize_num(num)}"
 
 
 def gold_number(answer_field):
@@ -131,5 +144,11 @@ _NUM = re.compile(r"-?\d[\d,]*\.?\d*")
 
 
 def extract_number(text):
-    m = _NUM.search(text.replace("$", ""))
-    return normalize_num(m.group(0).rstrip(".")) if m else ""
+    """Number after the last '####' if present, else the last number in the text."""
+    text = text.replace("$", "")
+    if "####" in text:
+        m = _NUM.search(text.rsplit("####", 1)[1])
+        if m:
+            return normalize_num(m.group(0).rstrip("."))
+    nums = _NUM.findall(text)
+    return normalize_num(nums[-1].rstrip(".")) if nums else ""

@@ -165,7 +165,7 @@ def main():
     ap.add_argument("--ckpt", type=Path, default=CKPT / "bridge_k16_L16_ctx.pt")
     ap.add_argument("--modes", default="none,text,latent,context")
     ap.add_argument("--n", type=int, default=100)
-    ap.add_argument("--max_new", type=int, default=16)
+    ap.add_argument("--max_new", type=int, default=256)
     ap.add_argument("--ablate", type=Path, nargs="*")
     ap.add_argument("--tag", default=None)
     args = ap.parse_args()

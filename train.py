@@ -14,7 +14,7 @@ import torch
 import torch.nn.functional as F
 
 from bridge import LatentBridge
-from common import CKPT, DATA, DEVICE, RECEIVER_ID, RESULTS, load_model
+from common import CKPT, DATA, DEVICE, RECEIVER_ID, RESULTS, answer_text, load_model
 from receiver_io import Receiver
 
 
@@ -26,26 +26,31 @@ def sender_states(hid, i, layer, src):
 
 
 def tail_logits(model, x, n_prefix):
-    """Logits that predict the tail tokens (positions n_prefix-1 .. L-2)."""
-    return model(inputs_embeds=x).logits[0, n_prefix - 1:-1].float()
+    """Logits that predict the tail tokens (positions n_prefix-1 .. L-2). Only those positions go
+    through lm_head (logits_to_keep), which keeps the 128k-vocab logits small."""
+    keep = x.shape[1] - n_prefix + 1
+    return model(inputs_embeds=x, logits_to_keep=keep, use_cache=False).logits[0, :-1].float()
 
 
 def losses(rec, bridge, row, h, args):
     with torch.no_grad():
-        xt, nt = rec.text_inputs(row["msg"], row["final_q"], row["answer"])
+        if args.teacher == "msg":   # teacher = receiver reading the sender's text message (plan default)
+            xt, nt = rec.text_inputs(row["msg"], row["final_q"], row["solution"])
+        else:                       # teacher = receiver reading the original context (privileged teacher)
+            xt, nt = rec.text_inputs(row["context"], row["final_q"], row["solution"])
         t_logits = tail_logits(rec.model, xt, nt)
     lat = bridge(h)
-    xs, ns = rec.latent_inputs(lat, row["final_q"], row["answer"])
+    xs, ns = rec.latent_inputs(lat, row["final_q"], row["solution"])
     s_logits = tail_logits(rec.model, xs, ns)
     T = args.temp
     kl = F.kl_div(F.log_softmax(s_logits / T, -1), F.log_softmax(t_logits / T, -1),
                   log_target=True, reduction="batchmean") * T * T
-    ans_ids = torch.tensor(rec.ids(f"{row['answer']}<|eot_id|>"), device=DEVICE)
+    ans_ids = torch.tensor(rec.ids(answer_text(row["solution"])), device=DEVICE)
     n_ans = len(ans_ids)
     ce = F.cross_entropy(s_logits[-n_ans:], ans_ids)
-    # teacher-forced exact match on the answer tokens (cheap accuracy proxy)
-    s_hit = bool((s_logits[-n_ans:].argmax(-1) == ans_ids).all())
-    t_hit = bool((t_logits[-n_ans:].argmax(-1) == ans_ids).all())
+    # teacher-forced token accuracy on the gold solution (cheap proxy for answer quality)
+    s_hit = (s_logits[-n_ans:].argmax(-1) == ans_ids).float().mean().item()
+    t_hit = (t_logits[-n_ans:].argmax(-1) == ans_ids).float().mean().item()
     return kl, ce, s_hit, t_hit
 
 
@@ -56,6 +61,9 @@ def main():
     ap.add_argument("--src", choices=["ctx", "full"], default="ctx",
                     help="ctx: sender only reads the context (one forward pass, no decoding); "
                          "full: sender states over context + its generated message")
+    ap.add_argument("--teacher", choices=["msg", "context"], default="msg",
+                    help="msg: receiver reading the text message; context: receiver reading the raw context")
+    ap.add_argument("--no_ckpt", action="store_true", help="disable gradient checkpointing")
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--accum", type=int, default=8)
     ap.add_argument("--lr", type=float, default=2e-4)
@@ -68,7 +76,7 @@ def main():
     ap.add_argument("--tag", default=None)
     ap.add_argument("--seed", type=int, default=0)
     args = ap.parse_args()
-    tag = args.tag or f"k{args.k}_L{args.layer}_{args.src}"
+    tag = args.tag or f"k{args.k}_L{args.layer}_{args.src}_{args.teacher}"
     torch.manual_seed(args.seed)
     random.seed(args.seed)
 
@@ -81,6 +89,9 @@ def main():
 
     model, tok = load_model(RECEIVER_ID)
     rec = Receiver(model, tok)
+    if not args.no_ckpt:  # recompute receiver activations in backward to stay under 4 GB
+        model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={"use_reentrant": False})
+        model.train()  # checkpointing only runs in train mode; Llama has no dropout so outputs are unchanged
     d_in = hid["layers"][args.layer][0].shape[-1]
     bridge = LatentBridge(d_in, rec.emb.weight.shape[1], k=args.k, d=args.d, depth=args.depth,
                           target_norm=rec.mean_embed_norm()).to(DEVICE)
@@ -139,7 +150,7 @@ def main():
         print(f"  [val ep {ep}] " + " ".join(f"{k} {x:.3f}" for k, x in v.items() if k != "epoch"), flush=True)
         if v["val_loss"] < best:
             best = v["val_loss"]
-            bridge.save(CKPT / f"bridge_{tag}.pt", layer=args.layer, src=args.src, receiver=RECEIVER_ID, val=v, args=vars(args))
+            bridge.save(CKPT / f"bridge_{tag}.pt", layer=args.layer, src=args.src, teacher=args.teacher, receiver=RECEIVER_ID, val=v, args=vars(args))
     logf.close()
     peak = torch.cuda.max_memory_allocated() / 2**20 if DEVICE == "cuda" else 0
     summary = {"tag": tag, "args": vars(args), "history": history, "best_val_loss": best,

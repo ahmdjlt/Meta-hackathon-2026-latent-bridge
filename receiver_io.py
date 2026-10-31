@@ -45,7 +45,7 @@ class Receiver:
         return self.text_inputs(context, final_q)
 
     @torch.no_grad()
-    def generate(self, x, max_new_tokens=16):
+    def generate(self, x, max_new_tokens=256):
         out = self.model.generate(inputs_embeds=x, attention_mask=torch.ones(x.shape[:2], dtype=torch.long, device=DEVICE),
                                   max_new_tokens=max_new_tokens, do_sample=False, temperature=None, top_p=None,
                                   pad_token_id=self.tok.pad_token_id)

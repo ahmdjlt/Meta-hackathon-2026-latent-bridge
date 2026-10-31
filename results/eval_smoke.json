@@ -1,0 +1,22 @@
+{
+ "text": {
+  "n": 8,
+  "accuracy": 0.375,
+  "mean_sender_s": 3.1438482249996014,
+  "mean_receiver_s": 9.808740500000567,
+  "mean_total_s": 12.952588725000169,
+  "mean_tokens_sent": 68.375,
+  "mean_bytes_sent": 272.75,
+  "mean_receiver_input_len": 120.5
+ },
+ "_meta": {
+  "ckpt": "bridge_smoke.pt",
+  "layer": 16,
+  "src": "ctx",
+  "k": 16,
+  "sender": "meta-llama/Llama-3.2-1B-Instruct",
+  "receiver": "meta-llama/Llama-3.2-3B-Instruct",
+  "n": 8,
+  "peak_vram_mb": 3321
+ }
+}
