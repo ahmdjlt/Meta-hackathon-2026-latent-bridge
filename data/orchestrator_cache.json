@@ -33,5 +33,40 @@
     "text_tokens": null
    }
   }
+ },
+ "0e84e0a778652cdc": {
+  "facts": "Ann has 3 cats. Each cat eats 2 cans of food a day. A can costs $1.50.",
+  "question": "How much does Ann spend on cat food in a week?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract cat count, cans per cat per day, and cost per can and pass to solver."
+   },
+   {
+    "agent": "solver",
+    "task": "Calculate weekly spending using reader data and answer with one number."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 4.02,
+  "usage": {
+   "completion_tokens": 496,
+   "prompt_tokens": 194,
+   "total_tokens": 690,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 384,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
  }
 }
