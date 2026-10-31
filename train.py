@@ -101,7 +101,10 @@ def main():
                     help="token: one soft token per context token (or per --stride tokens), anchored to the "
                          "receiver's embeddings; perceiver: K learned queries (collapses, see README)")
     ap.add_argument("--stride", type=int, default=1, help="token arch: pool this many positions per soft token")
-    ap.add_argument("--align_w", type=float, default=1.0, help="token arch: weight of the embedding alignment loss")
+    ap.add_argument("--align_w", type=float, default=0.2, help="token arch: weight of the embedding alignment loss")
+    ap.add_argument("--no_ridge", action="store_true", help="token arch: random init instead of fit_ridge.py")
+    ap.add_argument("--lin_lr_mult", type=float, default=1.0, help="lr multiplier for the ridge-initialized path")
+    ap.add_argument("--vram_gb", type=float, default=3.9, help="cap on CUDA memory (GB)")
     ap.add_argument("--k", type=int, default=16, help="perceiver arch: number of soft tokens")
     ap.add_argument("--layer", type=int, default=8)
     ap.add_argument("--src", choices=["ctx", "full"], default="ctx",
@@ -117,7 +120,7 @@ def main():
     ap.add_argument("--no_ckpt", action="store_true", help="disable gradient checkpointing")
     ap.add_argument("--epochs", type=int, default=3)
     ap.add_argument("--accum", type=int, default=8)
-    ap.add_argument("--lr", type=float, default=2e-4)
+    ap.add_argument("--lr", type=float, default=2e-5)
     ap.add_argument("--temp", type=float, default=2.0)
     ap.add_argument("--n_val", type=int, default=50)
     ap.add_argument("--val_gen", type=int, default=20, help="validation problems answered by free generation")
@@ -141,6 +144,9 @@ def main():
     if args.limit:
         tr_idx = tr_idx[:args.limit]
 
+    if DEVICE == "cuda":
+        # stay inside the real 4 GB: without a cap Windows spills the CUDA cache into system RAM
+        torch.cuda.set_per_process_memory_fraction(min(1.0, args.vram_gb * 2**30 / torch.cuda.get_device_properties(0).total_memory))
     model, tok = load_model(RECEIVER_ID)
     rec = Receiver(model, tok)
     skip = not args.no_skip_template
@@ -158,10 +164,19 @@ def main():
     else:
         bridge = LatentBridge(d_in, rec.emb.weight.shape[1], k=args.k, d=args.d, depth=args.depth,
                               target_norm=rec.mean_embed_norm(), pos=not args.no_pos)
-    bridge.set_input_stats([sender_states(hid, i, args.layer, args.src, start, content_end)[0].cpu()
-                            for i in tr_idx[:300]])
+    if args.arch == "token" and not args.no_ridge:
+        rp = CKPT / f"ridge_L{args.layer}.pt"
+        assert rp.exists(), f"run: python fit_ridge.py --layer {args.layer}"
+        bridge.init_from_ridge(torch.load(rp))
+    else:
+        bridge.set_input_stats([sender_states(hid, i, args.layer, args.src, start, content_end)[0].cpu()
+                                for i in tr_idx[:300]])
     bridge = bridge.to(DEVICE)
-    opt = torch.optim.AdamW(bridge.parameters(), lr=args.lr, weight_decay=0.01)
+    # the closed-form linear path is already good: refine it gently, train the rest at full lr
+    lin = [p for n, p in bridge.named_parameters() if n.startswith("lin.")]
+    rest = [p for n, p in bridge.named_parameters() if not n.startswith("lin.")]
+    opt = torch.optim.AdamW([{"params": rest, "lr": args.lr}, {"params": lin, "lr": args.lr * args.lin_lr_mult}],
+                            weight_decay=0.01)
     total = math.ceil(len(tr_idx) * args.epochs / args.accum)
     warm = max(1, total // 20)
     sched = torch.optim.lr_scheduler.LambdaLR(
@@ -218,6 +233,8 @@ def main():
             if (j + 1) % args.accum == 0 or j == len(tr_idx) - 1:
                 torch.nn.utils.clip_grad_norm_(bridge.parameters(), 1.0)
                 opt.step(); sched.step(); opt.zero_grad(set_to_none=True)
+                if DEVICE == "cuda" and step % 5 == 0:
+                    torch.cuda.empty_cache()
                 step += 1
                 mean = [sum(c) / len(run) for c in zip(*run)]
                 log.writerow([step, ep, *[f"{x:.4f}" for x in mean], f"{sched.get_last_lr()[0]:.2e}", f"{time.time() - t0:.0f}"])

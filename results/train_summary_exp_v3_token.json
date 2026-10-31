@@ -1,0 +1,44 @@
+{
+ "tag": "exp_v3_token",
+ "args": {
+  "arch": "token",
+  "stride": 1,
+  "align_w": 1.0,
+  "k": 16,
+  "layer": 8,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 1,
+  "accum": 8,
+  "lr": 0.0002,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 400,
+  "tag": "exp_v3_token",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 1.0224276119470597,
+   "val_ce": 1.2549371218681336,
+   "val_recon": 2.3469752502441406,
+   "val_align": 0.9286195123195649,
+   "val_loss": 4.92549090385437,
+   "val_ce_shuffled": 1.2574956464767455,
+   "val_shuffle_gap": 0.002558524608611945,
+   "val_gen_acc": 0.05,
+   "epoch": 0
+  }
+ ],
+ "train_seconds": 720,
+ "peak_vram_mb": 3711
+}

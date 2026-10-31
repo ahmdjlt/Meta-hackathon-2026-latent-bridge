@@ -142,6 +142,7 @@ def run_ablate(args, rows):
     for ck in args.ablate:
         bridge, meta = LatentBridge.load(ck, DEVICE)
         hits = 0
+        n_sent = 0
         for i, r in enumerate(rows):
             h = hid["layers"][meta["layer"]][i]
             if meta["src"] == "ctx":
@@ -151,18 +152,22 @@ def run_ablate(args, rows):
             elif meta.get("skip_template"):
                 h = h[ctx_start(rec.tok):]
             lat = bridge(h.unsqueeze(0).to(DEVICE))
+            n_sent += lat.shape[1]
             out = rec.generate(rec.latent_inputs(lat, r["final_q"])[0], args.max_new)
             hits += extract_number(out) == r["answer"]
         acc = hits / len(rows)
         out_rows.append({"ckpt": ck.name, "arch": meta.get("arch", "perceiver"), "stride": bridge.config.get("stride"),
                          "k": bridge.config["k"], "layer": meta["layer"], "src": meta["src"],
-                         "accuracy": acc, "val_kl": meta.get("val", {}).get("val_kl")})
+                         "accuracy": acc, "mean_vectors_sent": n_sent / len(rows),
+                         "val_shuffle_gap": meta.get("val", {}).get("val_shuffle_gap")})
         print(f"  {ck.name}: acc {acc:.1%}", flush=True)
     tag = args.tag or "ablation"
     (RESULTS / f"{tag}.json").write_text(json.dumps(out_rows, indent=1))
-    lines = ["| K | Layer | Source | Accuracy | Val KL |", "|---|---|---|---|---|"]
+    lines = ["| Bridge | Sender layer | Vectors sent (mean) | Accuracy | Val shuffle gap |", "|---|---|---|---|---|"]
     for o in out_rows:
-        lines.append(f"| {o['k']} | {o['layer']} | {o['src']} | {o['accuracy']:.1%} | {o['val_kl']:.3f} |")
+        name = f"token, stride {o['stride']}" if o["arch"] == "token" else f"perceiver, K={o['k']}"
+        gap = "n/a" if o["val_shuffle_gap"] is None else f"{o['val_shuffle_gap']:.3f}"
+        lines.append(f"| {name} | {o['layer']} | {o['mean_vectors_sent']:.1f} | {o['accuracy']:.1%} | {gap} |")
     (RESULTS / f"{tag}.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
 

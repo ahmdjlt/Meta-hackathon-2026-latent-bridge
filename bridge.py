@@ -94,10 +94,11 @@ class LatentBridge(nn.Module):
 class TokenBridge(LatentBridge):
     """Token-aligned bridge: one soft token per sender position (or per `stride` positions).
 
-    standardize -> per-token MLP -> one self-attention layer (mixes context) -> mean-pool groups of
-    `stride` positions -> project to receiver width -> L2-normalize * mean embedding norm.
-    Sender and receiver share the Llama 3 tokenizer, so during training each soft token can be
-    anchored to the receiver's embedding of the same token (alignment loss in train.py).
+    out = linear(standardized h)                      <- initialized in closed form (fit_ridge.py)
+        + residual(MLP -> causal self-attention -> proj) <- starts at exactly zero, learns corrections
+    then mean-pool groups of `stride` positions, L2-normalize, scale to the receiver's mean embedding norm.
+    Sender and receiver share the Llama 3 tokenizer, so the linear path can be fit to map each sender
+    state to the receiver's embedding of the same token. Random init never found this map (see README).
     """
 
     def __init__(self, d_in, d_out, d=1024, heads=8, stride=1, target_norm=1.0, **_):
@@ -108,27 +109,42 @@ class TokenBridge(LatentBridge):
         self.register_buffer("in_mean", torch.zeros(d_in))
         self.register_buffer("in_std", torch.ones(d_in))
         self.register_buffer("target_norm", torch.tensor(float(target_norm)))
+        self.lin = nn.Linear(d_in, d_out)
         self.in_norm = nn.LayerNorm(d_in)
         self.mlp = nn.Sequential(nn.Linear(d_in, d), nn.GELU(), nn.Linear(d, d))
         self.ln_s = nn.LayerNorm(d)
         self.sattn = nn.MultiheadAttention(d, heads, batch_first=True)
         self.out_norm = nn.LayerNorm(d)
         self.out_proj = nn.Linear(d, d_out)
+        # residual path starts at zero and stays small: Adam moves every weight by ~lr per step, so an
+        # unscaled zero-init path outgrows the (norm ~1) ridge embeddings within a few steps
+        self.res_scale = 0.1
+        nn.init.zeros_(self.out_proj.weight)
+        nn.init.zeros_(self.out_proj.bias)
+
+    @torch.no_grad()
+    def init_from_ridge(self, ridge):
+        """ridge: dict from fit_ridge.py with W ((d_in+1) x d_out, last row bias), mu, sd."""
+        self.in_mean.copy_(ridge["mu"])
+        self.in_std.copy_(ridge["sd"])
+        self.lin.weight.copy_(ridge["W"][:-1].T)
+        self.lin.bias.copy_(ridge["W"][-1])
 
     def forward(self, h, mask=None):
         h = (h.float() - self.in_mean) / self.in_std
+        base = self.lin(h)
         x = self.mlp(self.in_norm(h))
         s = self.ln_s(x)
         T = x.shape[1]
         causal = torch.triu(torch.ones(T, T, dtype=torch.bool, device=x.device), 1)
         x = x + self.sattn(s, s, s, attn_mask=causal, need_weights=False)[0]
+        x = base + self.res_scale * self.out_proj(self.out_norm(x))
         if self.stride > 1:  # compress: average each group of `stride` neighbouring positions
             pad = (-T) % self.stride
             if pad:
                 x = torch.cat([x, x[:, -1:].expand(-1, pad, -1)], dim=1)
             x = x.view(x.shape[0], -1, self.stride, x.shape[-1]).mean(2)
-        out = self.out_proj(self.out_norm(x))
-        return F.normalize(out, dim=-1) * self.target_norm
+        return F.normalize(x, dim=-1) * self.target_norm
 
 
 if __name__ == "__main__":

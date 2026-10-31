@@ -1,0 +1,47 @@
+{
+ "tag": "exp_v4_ridge",
+ "args": {
+  "arch": "token",
+  "stride": 1,
+  "align_w": 0.2,
+  "no_ridge": false,
+  "lin_lr_mult": 1.0,
+  "vram_gb": 3.9,
+  "k": 16,
+  "layer": 8,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 1,
+  "accum": 8,
+  "lr": 2e-05,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 400,
+  "tag": "exp_v4_ridge",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 0.191558542996645,
+   "val_ce": 0.8847983771562576,
+   "val_recon": 0.068700849134475,
+   "val_align": 0.47332956492900846,
+   "val_loss": 0.7973244869709015,
+   "val_ce_shuffled": 1.602440927028656,
+   "val_shuffle_gap": 0.7176425498723983,
+   "val_gen_acc": 0.6,
+   "epoch": 0
+  }
+ ],
+ "train_seconds": 674,
+ "peak_vram_mb": 3784
+}
