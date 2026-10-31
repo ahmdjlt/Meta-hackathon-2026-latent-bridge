@@ -1,0 +1,57 @@
+[
+ {
+  "ckpt": "bridge_abl_s1_L16.pt",
+  "arch": "token",
+  "stride": 1,
+  "k": 0,
+  "layer": 16,
+  "src": "ctx",
+  "accuracy": 0.63,
+  "mean_vectors_sent": 39.97,
+  "val_shuffle_gap": 0.7134551841020584
+ },
+ {
+  "ckpt": "bridge_abl_s1_L8.pt",
+  "arch": "token",
+  "stride": 1,
+  "k": 0,
+  "layer": 8,
+  "src": "ctx",
+  "accuracy": 0.69,
+  "mean_vectors_sent": 39.97,
+  "val_shuffle_gap": 0.7671567571163177
+ },
+ {
+  "ckpt": "bridge_abl_s2_L8.pt",
+  "arch": "token",
+  "stride": 2,
+  "k": 0,
+  "layer": 8,
+  "src": "ctx",
+  "accuracy": 0.6,
+  "mean_vectors_sent": 20.25,
+  "val_shuffle_gap": 0.6446429556608199
+ },
+ {
+  "ckpt": "bridge_abl_s4_L8.pt",
+  "arch": "token",
+  "stride": 4,
+  "k": 0,
+  "layer": 8,
+  "src": "ctx",
+  "accuracy": 0.21,
+  "mean_vectors_sent": 10.37,
+  "val_shuffle_gap": 0.3951852607727051
+ },
+ {
+  "ckpt": "bridge_k16_L16_ctx_context.pt",
+  "arch": "perceiver",
+  "stride": null,
+  "k": 16,
+  "layer": 16,
+  "src": "ctx",
+  "accuracy": 0.04,
+  "mean_vectors_sent": 16.0,
+  "val_shuffle_gap": null
+ }
+]

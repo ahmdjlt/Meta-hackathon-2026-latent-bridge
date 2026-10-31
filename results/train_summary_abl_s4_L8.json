@@ -1,0 +1,47 @@
+{
+ "tag": "abl_s4_L8",
+ "args": {
+  "arch": "token",
+  "stride": 4,
+  "align_w": 0.2,
+  "no_ridge": false,
+  "lin_lr_mult": 1.0,
+  "vram_gb": 3.9,
+  "k": 16,
+  "layer": 8,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 1,
+  "accum": 8,
+  "lr": 2e-05,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 0,
+  "tag": "abl_s4_L8",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 0.6060684034228325,
+   "val_ce": 1.0854057312011718,
+   "val_recon": 1.0466475611925126,
+   "val_align": 0.7373086428642273,
+   "val_loss": 2.3428805613517762,
+   "val_ce_shuffled": 1.480590991973877,
+   "val_shuffle_gap": 0.3951852607727051,
+   "val_gen_acc": 0.1,
+   "epoch": 0
+  }
+ ],
+ "train_seconds": 1846,
+ "peak_vram_mb": 3838
+}

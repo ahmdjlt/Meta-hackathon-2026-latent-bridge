@@ -3,6 +3,10 @@
 **Small Llama agents that talk in vectors instead of text.**
 Built for the Meta Global AI Developer Hackathon (track: *Push the Frontier*).
 
+**The idea.** Small models will always make some mistakes. But small specialists that are good at different
+things should be able to work together *like one model*, sharing what they understood instead of
+squeezing it through a written summary. LatentBridge lets them do that on consumer hardware.
+
 Multi-agent LLM systems pass messages as text: one model writes a message token by token, the next model
 reads it back. LatentBridge replaces that text channel with a learned **latent channel**. The reader model
 reads its input once, and a small trained *bridge* maps the reader's hidden states straight into the
@@ -119,7 +123,23 @@ Training: 3 epochs × 1,450 problems, 95 min on the laptop, peak 3.85 GB VRAM.
 
 ### Ablations
 
-_Compression stride (1/2/4 positions per vector) and reader layer (8 vs 16): filled in when the runs finish._
+One epoch each (the main bridge has three), same 100 test problems, cached reader states.
+
+| Bridge | Reader layer | Vectors sent (mean) | Accuracy | Val shuffle gap |
+|---|---|---|---|---|
+| Token bridge, stride 1 | 8 | 40 | **69%** | 0.77 |
+| Token bridge, stride 1 | 16 (last) | 40 | 63% | 0.71 |
+| Token bridge, stride 2 | 8 | 20 | 60% | 0.65 |
+| Token bridge, stride 4 | 8 | 10 | 21% | 0.40 |
+| Perceiver, K=16 (original plan) | 16 | 16 | 4% | ≈0 |
+| *Text message (for reference)* | — | *60 tokens* | *59%* | — |
+| *No message (for reference)* | — | *0* | *2%* | — |
+
+- **Middle layer beats last layer** (69% vs 63%): mid-depth states keep the facts in a form that transfers
+  better; the last layer is already specialized for predicting the 1B's own next token.
+- **Compression:** halving the message (stride 2, 20 vectors) still matches the 60-token text message after one
+  epoch. Quartering it (stride 4) loses most of the reasoning-relevant detail.
+- **The Perceiver collapse** shows up as 4%, the same as sending nothing.
 
 ## Reproduce
 
