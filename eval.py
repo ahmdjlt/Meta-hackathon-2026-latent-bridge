@@ -14,7 +14,7 @@ import time
 import torch
 
 from bridge import LatentBridge
-from common import (CKPT, DATA, DEVICE, RECEIVER_ID, RESULTS, SENDER_ID, extract_number, load_model)
+from common import (CKPT, DATA, DEVICE, RECEIVER_ID, RESULTS, SENDER_ID, content_span, ctx_start, extract_number, load_model)
 from receiver_io import Receiver, Sender
 
 
@@ -43,6 +43,7 @@ def run_live(args, rows):
     rec = Receiver(*load_model(RECEIVER_ID))
     print(f"loaded all models, VRAM {torch.cuda.memory_allocated() / 2**20 if DEVICE == 'cuda' else 0:.0f} MB")
     layer, src, K = meta["layer"], meta["src"], bridge.config["k"]
+    skip = meta.get("skip_template", False)
     d_out = bridge.config["d_out"]
     modes = args.modes.split(",")
     res = {m: [] for m in modes}
@@ -70,7 +71,8 @@ def run_live(args, rows):
                                     bytes_sent=len(msg.encode()), receiver_input_len=x.shape[1], msg=msg))
         if "latent" in modes:
             t0 = now()
-            h = sender.hidden(r["context"], layer, msg if src == "full" else None)
+            h = sender.hidden(r["context"], layer, msg if src == "full" else None, skip_template=skip,
+                              content_only=meta.get("content_only", False))
             with torch.no_grad():
                 lat = bridge(h)
             s_s = now() - t0 + (msg_s if src == "full" else 0.0)
@@ -79,8 +81,8 @@ def run_live(args, rows):
             out = rec.generate(x, args.max_new)
             recv_s = now() - t0
             res["latent"].append(dict(id=r["id"], out=out, correct=extract_number(out) == gold, sender_s=s_s,
-                                      receiver_s=recv_s, total_s=s_s + recv_s, tokens_sent=K,
-                                      bytes_sent=K * d_out * 2, receiver_input_len=x.shape[1]))
+                                      receiver_s=recv_s, total_s=s_s + recv_s, tokens_sent=lat.shape[1],
+                                      bytes_sent=lat.shape[1] * d_out * 2, receiver_input_len=x.shape[1]))
             pooled.append(lat[0].mean(0).float().cpu())
             labels.append(r["id"])
         if "none" in modes:
@@ -117,7 +119,8 @@ def run_live(args, rows):
     if pooled:
         torch.save({"pooled": torch.stack(pooled), "ids": labels,
                     "correct": [x["correct"] for x in res["latent"]]}, RESULTS / f"latents_{tag}.pt")
-    names = {"none": "B: no message", "text": "A: text message", "latent": f"Ours: latent (K={K}, L{layer}, {src})",
+    names = {"none": "B: no message", "text": "A: text message", "latent": (f"Ours: latent (token bridge, stride {bridge.config.get('stride', 1)}, L{layer})"
+                         if meta.get("arch") == "token" else f"Ours: latent (K={K}, L{layer}, {src})"),
              "context": "Ref: raw context text"}
     lines = ["| Condition | Accuracy | Tokens sent | Bytes sent | Receiver input len | Sender s | Receiver s | Total s |",
              "|---|---|---|---|---|---|---|---|"]
@@ -143,11 +146,16 @@ def run_ablate(args, rows):
             h = hid["layers"][meta["layer"]][i]
             if meta["src"] == "ctx":
                 h = h[:hid["ctx_len"][i]]
+            if meta.get("content_only"):
+                h = h[ctx_start(rec.tok):content_span(rec.tok, hid["ctx_len"][i])[1]]
+            elif meta.get("skip_template"):
+                h = h[ctx_start(rec.tok):]
             lat = bridge(h.unsqueeze(0).to(DEVICE))
             out = rec.generate(rec.latent_inputs(lat, r["final_q"])[0], args.max_new)
             hits += extract_number(out) == r["answer"]
         acc = hits / len(rows)
-        out_rows.append({"ckpt": ck.name, "k": bridge.config["k"], "layer": meta["layer"], "src": meta["src"],
+        out_rows.append({"ckpt": ck.name, "arch": meta.get("arch", "perceiver"), "stride": bridge.config.get("stride"),
+                         "k": bridge.config["k"], "layer": meta["layer"], "src": meta["src"],
                          "accuracy": acc, "val_kl": meta.get("val", {}).get("val_kl")})
         print(f"  {ck.name}: acc {acc:.1%}", flush=True)
     tag = args.tag or "ablation"

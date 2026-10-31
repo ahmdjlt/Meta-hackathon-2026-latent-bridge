@@ -106,7 +106,8 @@ class Pipeline:
                            "reader_s": t1 - t0, "solver_s": t2 - t1, "total_s": t2 - t0}
         if "latent" in modes:
             t0 = self._t()
-            h = self.sender.hidden(facts, self.meta["layer"])
+            h = self.sender.hidden(facts, self.meta["layer"], skip_template=self.meta.get("skip_template", False),
+                                   content_only=self.meta.get("content_only", False))
             with torch.no_grad():
                 lat = self.bridge(h)
             t1 = self._t()

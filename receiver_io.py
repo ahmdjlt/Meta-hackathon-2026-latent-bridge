@@ -1,7 +1,7 @@
 """Build receiver inputs for the three message types: text, latent (soft tokens), none."""
 import torch
 
-from common import (DEVICE, mean_embed_norm, RECV_PRE, RECV_PRE_NONE, answer_text, recv_post, recv_post_none,
+from common import (DEVICE, RECON_POST, content_span, ctx_start, mean_embed_norm, RECV_PRE, RECV_PRE_NONE, answer_text, recv_post, recv_post_none,
                     sender_prompt)
 
 
@@ -36,6 +36,13 @@ class Receiver:
         x = torch.cat([pre, latents.to(self.dtype), self.embed(tail)], dim=1)
         return x, pre.shape[1] + latents.shape[1]
 
+    def recon_inputs(self, latents, context):
+        """Auxiliary task: receiver must repeat the original context from the latents alone."""
+        pre = self.embed(self.ids(RECV_PRE))
+        tail = self.ids(RECON_POST) + self.tok(context + "<|eot_id|>", add_special_tokens=False).input_ids
+        x = torch.cat([pre, latents.to(self.dtype), self.embed(tail)], dim=1)
+        return x, pre.shape[1] + latents.shape[1] + len(self.ids(RECON_POST))
+
     def none_inputs(self, final_q):
         ids = self.ids(RECV_PRE_NONE) + self.ids(recv_post_none(final_q))
         return self.embed(ids), 0
@@ -57,13 +64,20 @@ class Sender:
         self.model, self.tok = model, tok
 
     @torch.no_grad()
-    def hidden(self, context, layer, msg=None):
-        """Sender hidden states at `layer` over its prompt (+ message if given), BOS dropped: [1, T, d]."""
+    def hidden(self, context, layer, msg=None, skip_template=False, content_only=False):
+        """Sender hidden states at `layer` over its prompt (+ message if given), BOS dropped: [1, T, d].
+        skip_template drops the fixed instruction tokens before the context (same for every input);
+        content_only keeps just the context text (no instruction, no assistant header)."""
         ids = self.tok(sender_prompt(context), add_special_tokens=False).input_ids
+        n_prompt = len(ids) - 1
         if msg:
             ids = ids + self.tok(msg, add_special_tokens=False).input_ids
         hs = self.model(torch.tensor([ids], device=DEVICE), output_hidden_states=True).hidden_states
-        return hs[layer][:, 1:]
+        h = hs[layer][:, 1:]
+        if content_only:
+            s, e = content_span(self.tok, n_prompt)
+            return h[:, s:e]
+        return h[:, ctx_start(self.tok):] if skip_template else h
 
     @torch.no_grad()
     def message(self, context, max_new_tokens=96):

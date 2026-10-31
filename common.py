@@ -85,6 +85,35 @@ def sender_prompt(context):
     return USER_HDR + SENDER_INSTR + context + ASSIST_HDR
 
 
+_CTX_START = {}
+
+
+def ctx_start(tok):
+    """Index (in BOS-dropped sender states) where the context text starts. The instruction tokens
+    before it are identical for every example (causal attention), so they carry no information."""
+    key = tok.name_or_path
+    if key not in _CTX_START:
+        _CTX_START[key] = len(tok(USER_HDR + SENDER_INSTR.rstrip(), add_special_tokens=False).input_ids) - 1
+    return _CTX_START[key]
+
+
+def content_span(tok, ctx_len):
+    """(start, end) of the context text inside BOS-dropped sender prompt states: drops the fixed
+    instruction before it and the 5 assistant-header tokens after it."""
+    hdr = len(tok(ASSIST_HDR, add_special_tokens=False).input_ids)
+    return ctx_start(tok), ctx_len - hdr
+
+
+def content_token_ids(tok, context):
+    """Token ids of the context exactly as they appear in the sender prompt (for alignment)."""
+    ids = tok(sender_prompt(context), add_special_tokens=False).input_ids
+    s, e = content_span(tok, len(ids) - 1)
+    return ids[1 + s:1 + e]
+
+
+RECON_POST ="\n\nRepeat the notes above word for word." + ASSIST_HDR
+
+
 # Receiver prompt = PRE + <message: text, latents, or nothing> + POST(final_q) + answer
 RECV_PRE = USER_HDR + "Notes from a teammate:\n"
 RECV_PRE_NONE = USER_HDR

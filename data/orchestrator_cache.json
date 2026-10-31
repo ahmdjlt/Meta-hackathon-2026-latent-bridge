@@ -1,0 +1,37 @@
+{
+ "eee070c90ee240aa": {
+  "facts": "A bakery sells muffins for $3 each and cookies for $2 each. On Monday it sold 40 muffins and 25 cookies. On Tuesday it sold twice as many muffins and the same number of cookies.",
+  "question": "How much money did the bakery make on Tuesday?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract muffin price, cookie price, and Tuesday sales quantities from facts."
+   },
+   {
+    "agent": "solver",
+    "task": "Calculate Tuesday total revenue from prices and quantities."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.49,
+  "usage": {
+   "completion_tokens": 549,
+   "prompt_tokens": 209,
+   "total_tokens": 758,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 429,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ }
+}

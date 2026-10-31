@@ -1,0 +1,40 @@
+{
+ "tag": "exp_v1_L16_recon",
+ "args": {
+  "k": 16,
+  "layer": 16,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 1,
+  "accum": 8,
+  "lr": 0.0002,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 400,
+  "tag": "exp_v1_L16_recon",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 1.0421225923299788,
+   "val_ce": 1.2508106899261475,
+   "val_recon": 2.3532837629318237,
+   "val_loss": 4.020811691284179,
+   "val_ce_shuffled": 1.2508877336978912,
+   "val_shuffle_gap": 7.704377174366783e-05,
+   "val_gen_acc": 0.0,
+   "epoch": 0
+  }
+ ],
+ "train_seconds": 681,
+ "peak_vram_mb": 3935
+}
