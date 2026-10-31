@@ -175,7 +175,7 @@ def run_ablate(args, rows):
 def main():
     from pathlib import Path
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ckpt", type=Path, default=CKPT / "bridge_k16_L16_ctx.pt")
+    ap.add_argument("--ckpt", type=Path, default=CKPT / "bridge_main_token.pt")
     ap.add_argument("--modes", default="none,text,latent,context")
     ap.add_argument("--n", type=int, default=100)
     ap.add_argument("--max_new", type=int, default=256)

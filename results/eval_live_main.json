@@ -1,0 +1,52 @@
+{
+ "none": {
+  "n": 100,
+  "accuracy": 0.02,
+  "mean_sender_s": 0.0,
+  "mean_receiver_s": 8.272618899999797,
+  "mean_total_s": 8.272618899999797,
+  "mean_tokens_sent": 0.0,
+  "mean_bytes_sent": 0.0,
+  "mean_receiver_input_len": 43.38
+ },
+ "text": {
+  "n": 100,
+  "accuracy": 0.59,
+  "mean_sender_s": 2.723995400000713,
+  "mean_receiver_s": 10.972750864999544,
+  "mean_total_s": 13.696746265000256,
+  "mean_tokens_sent": 59.9,
+  "mean_bytes_sent": 242.64,
+  "mean_receiver_input_len": 114.28
+ },
+ "latent": {
+  "n": 100,
+  "accuracy": 0.68,
+  "mean_sender_s": 0.05770841300021857,
+  "mean_receiver_s": 9.82821011300024,
+  "mean_total_s": 9.88591852600046,
+  "mean_tokens_sent": 39.97,
+  "mean_bytes_sent": 245575.68,
+  "mean_receiver_input_len": 94.35
+ },
+ "context": {
+  "n": 100,
+  "accuracy": 0.73,
+  "mean_sender_s": 0.0,
+  "mean_receiver_s": 10.889058799999038,
+  "mean_total_s": 10.889058799999038,
+  "mean_tokens_sent": 40.3,
+  "mean_bytes_sent": 163.4,
+  "mean_receiver_input_len": 94.68
+ },
+ "_meta": {
+  "ckpt": "bridge_main_token.pt",
+  "layer": 8,
+  "src": "ctx",
+  "k": 0,
+  "sender": "meta-llama/Llama-3.2-1B-Instruct",
+  "receiver": "meta-llama/Llama-3.2-3B-Instruct",
+  "n": 100,
+  "peak_vram_mb": 3277
+ }
+}

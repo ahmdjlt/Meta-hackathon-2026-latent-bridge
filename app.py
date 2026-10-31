@@ -18,7 +18,7 @@ from sklearn.decomposition import PCA
 from common import CKPT, DATA, RESULTS
 from pipeline import Pipeline
 
-CKPT_PATH = os.getenv("BRIDGE_CKPT", str(CKPT / "bridge_k16_L16_ctx.pt"))
+CKPT_PATH = os.getenv("BRIDGE_CKPT", str(CKPT / "bridge_main_token.pt"))
 pipe = Pipeline(CKPT_PATH)
 
 # background points for the latent-space plot: pooled latents from the eval run

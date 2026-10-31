@@ -4,9 +4,10 @@
 Built for the Meta Global AI Developer Hackathon (track: *Push the Frontier*).
 
 Multi-agent LLM systems pass messages as text: one model writes a message token by token, the next model
-reads it back. LatentBridge replaces that text channel with a learned **latent channel**. A sender model
-reads its input once, and a small trained *bridge* maps the sender's hidden states into the receiver's
-input-embedding space as **K soft tokens**. Both LLMs stay frozen; only the bridge (30M params) trains.
+reads it back. LatentBridge replaces that text channel with a learned **latent channel**. The reader model
+reads its input once, and a small trained *bridge* maps the reader's hidden states straight into the
+solver's input-embedding space as **soft tokens**. The reader never decodes a single token. Both LLMs stay
+frozen; only the bridge (17M params) trains.
 
 ```
             Muse Spark (Meta Model API)            plans the task, routes subtasks
@@ -15,9 +16,9 @@ input-embedding space as **K soft tokens**. Both LLMs stay frozen; only the brid
           │                    │
  Llama 3.2 1B (reader)         │
    one forward pass            │
-          │ hidden states      │
+          │ layer-8 hidden states
    ┌──────▼──────┐             │
-   │   Bridge    │ K=16 soft tokens
+   │   Bridge    │ soft tokens │
    └──────┬──────┘             │
           └──────► Llama 3.2 3B (solver) ──► answer
 ```
@@ -28,35 +29,97 @@ Text pipeline for comparison: the 1B *writes* a ~60-token message, the 3B reads 
 
 | Model | Role |
 |---|---|
-| **Muse Spark** (`muse-spark-1.1`, Meta Model API) | Orchestrator: splits each task into reader/solver subtasks |
+| **Muse Spark** (`muse-spark-1.1`, Meta Model API) | Orchestrator: splits each task into reader/solver subtasks (~2.5 s, ~760 tokens per plan, cached) |
 | **Llama 3.2 1B Instruct** (`meta-llama/Llama-3.2-1B-Instruct`) | Reader / sender, 4-bit NF4 |
 | **Llama 3.2 3B Instruct** (`meta-llama/Llama-3.2-3B-Instruct`) | Solver / receiver, 4-bit NF4 |
 
-Everything runs on a laptop **RTX 3050 with 4 GB VRAM** (both models + bridge: ~3.2 GB; training peak ~3.4 GB).
+Everything runs on a laptop **RTX 3050 with 4 GB VRAM** (both models + bridge ~3.2 GB at inference;
+training capped at 3.9 GB).
 
 ## How it works
 
 **Task.** GSM8K word problems. Each question is split into *context* (all sentences but the last) and
 *final question* (last sentence). The reader sees only the context; the solver sees only the final question
-plus the reader's message. So the solver can only succeed if the message carries the facts.
+plus the reader's message, then reasons in a few steps and ends with `#### <number>`. The solver can only
+succeed if the message carries the facts.
 
-**Bridge** (`bridge.py`). Perceiver-style resampler: LayerNorm + Linear on the 1B's hidden states
-(last layer, 2048-d), K learned queries, 2 blocks of cross-attention + self-attention + MLP at width 1024,
-projection to 3072-d, each soft token L2-normalized and scaled to the 3B's mean token-embedding norm.
+**Bridge** (`bridge.py`, `TokenBridge`). One soft token per context token (or per `stride` tokens, which
+compresses the message). The reader's layer-8 hidden states are standardized per dimension, then
 
-**Training** (`train.py`). Both LLMs frozen. Loss = KL distillation (temperature 2) + 0.5 × cross-entropy
-on the gold GSM8K solution. The *student* is the 3B reading the latent message; the *teacher* is the
-same 3B reading text: either the 1B's text message (`--teacher msg`, as in the original plan) or the raw
-context (`--teacher context`). AdamW 2e-4, wd 0.01, grad clip 1.0, batch 1 × 8 accumulation, gradient
-checkpointing through the frozen 4-bit receiver. Sender hidden states are cached once
-(`build_dataset.py`), so training only keeps the 3B on the GPU.
+```
+soft_token = normalize( Linear(h)  +  0.1 · Residual(h) ) · mean_embedding_norm
+```
 
-**Latent source.** By default (`--src ctx`) the bridge reads the 1B's hidden states from a single forward
-pass over the context: the reader never decodes a single token. That is where the latency win comes from.
+- **Linear** is initialized in closed form (`fit_ridge.py`): ridge regression from the reader's hidden states
+  to the solver's embedding of the *same* token. Llama 3.2 1B and 3B share one tokenizer, so this target
+  exists for free. On held-out tokens the fit reaches cosine 0.72 and recovers the exact token 80% of the time.
+- **Residual** (MLP + causal self-attention) starts at zero and learns what the linear map misses.
+
+**Training** (`train.py`). Both LLMs frozen. Loss = KL distillation from a teacher (the 3B reading the
+original context, temperature 2) + 0.5 × CE on the gold solution + CE for *reconstructing* the context from
+the latents + 0.2 × cosine alignment to the token embeddings. AdamW 2e-5, wd 0.01, grad clip 1.0,
+batch 1 × 8 accumulation, gradient checkpointing through the frozen 4-bit receiver. Reader hidden states are
+cached once (`build_dataset.py`), so training keeps only the 3B on the GPU.
+
+**Validation that cannot be fooled.** Besides the losses, every epoch reports
+(1) the *shuffle gap*: solution loss when the solver gets **another problem's** latents minus the loss with
+the right latents (≈0 means the message carries nothing problem-specific), and
+(2) accuracy of the solver's own free-running answers on 20 validation problems.
+
+## What did not work: the Perceiver bridge collapses
+
+The original plan used a Perceiver-style resampler (K=16 learned queries cross-attending to the reader's
+states). It trained smoothly and its teacher-forced token accuracy rose from 65% to 73%, but **free-running
+accuracy was 0/10**. Diagnosis (`debug_latent.py`):
+
+- Its outputs were nearly identical for every input (cosine 0.994–0.999 between different problems), and
+  another problem's latents worked as well as the right ones (shuffle gap ≈ 0). The solver received a generic
+  "here is a math problem" prompt and invented the numbers.
+- Cause: LLM hidden states are strongly anisotropic. Mean-pooled reader states of two unrelated problems have
+  cosine 0.85 (≈0 after per-dimension standardization), and ~40 of the input states were the fixed instruction
+  prompt, which is identical for every input under causal attention. A generic soft prompt is the easiest
+  way to lower the loss, and training settled there.
+- Dropping the constant states, adding position encodings, a reconstruction loss, and input standardization
+  did not fix it (shuffle gap 0.000 → 0.002). A token-aligned bridge trained from random init also failed
+  (gap 0.003): gradient descent never found the token mapping.
+- The fix was to stop asking gradient descent to discover the mapping: a closed-form ridge fit gives a
+  working latent channel **with zero training** (45% vs 55% for exact token embeddings, 20 problems), and
+  fine-tuning from there reaches 60% validation accuracy with a shuffle gap of 0.72 after one short epoch.
+
+Takeaway: teacher-forced metrics are blind to message collapse. Always check a shuffled-message control.
 
 ## Results
 
-_Filled in from `results/` after the runs finish._
+100 held-out GSM8K test problems, run live end to end on the RTX 3050 (both models + bridge loaded,
+greedy decoding, every stage timed). Bridge: `checkpoints/bridge_main_token.pt` (stride 1, reader layer 8).
+
+| Condition | Accuracy | Sent to solver | Reader time | Solver time | **Total** | Solver input length |
+|---|---|---|---|---|---|---|
+| No message | 2% | nothing | — | 8.27 s | 8.27 s | 43 |
+| Text message (1B writes, 3B reads) | 59% | 60 tokens | 2.72 s | 10.97 s | 13.70 s | 114 |
+| **Latent message (ours)** | **68%** | **40 vectors** | **0.06 s** | 9.83 s | **9.89 s** | 94 |
+| Raw context text (reference) | 73% | 40 tokens | — | 10.89 s | 10.89 s | 95 |
+
+![accuracy](results/fig_accuracy.png) ![latency](results/fig_latency.png)
+
+- **More accurate than text: +9 points** (68% vs 59%). The 1B's written summaries sometimes drop or garble a
+  fact or add a wrong calculation; its hidden states do not have that bottleneck. The latent message
+  recovers most of the gap to the 3B reading the original context (73%).
+- **28% faster end to end** (9.9 s vs 13.7 s per question). The reader's step drops from 2.72 s to 0.06 s
+  (**47×**) because it runs one forward pass and never decodes. The solver also reads a shorter input.
+- **The message really is the information.** No message: 2%. Another problem's latents in place of the right
+  ones raise the solution loss from 0.74 to 1.52 nats/token (validation shuffle gap 0.77).
+- **Honest trade-off: bytes.** One latent message is 40 × 3072 fp16 values ≈ 245 KB, versus ≈ 240 bytes of
+  text. The win is compute and latency inside one machine (or one GPU cluster), not network bandwidth.
+- n = 100, so ±~9 points at 95% confidence on each accuracy: the latent-vs-text gain is suggestive, the latency
+  gain is large and consistent. Per-problem outputs: `results/preds_live_main.jsonl`.
+
+Training: 3 epochs × 1,450 problems, 95 min on the laptop, peak 3.85 GB VRAM.
+![training loss](results/fig_training_loss.png)
+
+### Ablations
+
+_Compression stride (1/2/4 positions per vector) and reader layer (8 vs 16): filled in when the runs finish._
 
 ## Reproduce
 
@@ -65,8 +128,9 @@ python -m venv .venv && .venv/Scripts/pip install -r requirements.txt   # torch 
 cp .env.example .env        # HF_TOKEN (gated Llama repos) and MODEL_API_KEY (Muse Spark)
 python check_gpu.py         # Phase 0: GPU + both models + random-latent sanity test
 python build_dataset.py     # Phase 1: 1500 train / 100 test pairs + cached sender hidden states
-bash run_experiments.sh     # Phase 2: main bridges + ablations
-python eval.py --ckpt checkpoints/bridge_k16_L16_ctx_context.pt   # Phase 3: live, timed evaluation
+python fit_ridge.py --layer 8   # closed-form init for the bridge (seconds, CPU)
+bash run_experiments.sh     # Phase 2-3: main bridge, live timed eval, ablations
+python eval.py --ckpt checkpoints/bridge_main_token.pt   # Phase 3 alone
 python pipeline.py "your word problem"                             # Phase 4: Muse Spark + agents
 python app.py               # Phase 6: Gradio demo at http://127.0.0.1:7860
 ```
@@ -78,7 +142,9 @@ python app.py               # Phase 6: Gradio demo at http://127.0.0.1:7860
 | `common.py` | config, 4-bit model loading, prompts, GSM8K helpers |
 | `check_gpu.py` | Phase 0 environment check |
 | `build_dataset.py` | Phase 1 dataset + cached sender hidden states |
-| `bridge.py` | the latent bridge module |
+| `bridge.py` | `TokenBridge` (used) and the Perceiver `LatentBridge` (collapses; kept for the comparison) |
+| `fit_ridge.py` | closed-form ridge initialization of the bridge |
+| `debug_latent.py`, `debug_ridge.py` | collapse diagnosis; zero-training ridge check |
 | `receiver_io.py` | builds receiver inputs for text / latent / no message |
 | `train.py` | Phase 2 training |
 | `eval.py` | Phase 3 evaluation and ablations |

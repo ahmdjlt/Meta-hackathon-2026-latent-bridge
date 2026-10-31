@@ -80,7 +80,7 @@ class Orchestrator:
 
 
 class Pipeline:
-    def __init__(self, ckpt=CKPT / "bridge_k16_L16_ctx.pt", sender=None, receiver=None):
+    def __init__(self, ckpt=CKPT / "bridge_main_token.pt", sender=None, receiver=None):
         self.bridge, self.meta = LatentBridge.load(ckpt, DEVICE)
         self.sender = sender or Sender(*load_model(SENDER_ID))
         self.receiver = receiver or Receiver(*load_model(RECEIVER_ID))
@@ -126,7 +126,7 @@ def main():
         "A bakery sells muffins for $3 each and cookies for $2 each. On Monday it sold 40 muffins and "
         "25 cookies. On Tuesday it sold twice as many muffins and the same number of cookies. "
         "How much money did the bakery make on Tuesday?"))
-    ap.add_argument("--ckpt", default=str(CKPT / "bridge_k16_L16_ctx.pt"))
+    ap.add_argument("--ckpt", default=str(CKPT / "bridge_main_token.pt"))
     ap.add_argument("--plan_only", action="store_true", help="only call the orchestrator (no GPU needed)")
     args = ap.parse_args()
     if args.plan_only:

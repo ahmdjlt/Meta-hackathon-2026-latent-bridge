@@ -8,6 +8,7 @@ import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import matplotlib.ticker
 
 from common import RESULTS
 
@@ -36,11 +37,13 @@ def training_curves(tags):
         x = [int(r["step"]) for r in rows]
         y = smooth([float(r["loss"]) for r in rows])
         ax.plot(x, y, color=c, lw=2, label=tag)
-        ax.annotate(tag, (x[-1], y[-1]), xytext=(4, 0), textcoords="offset points", color=INK2, fontsize=8, va="center")
+        if len(tags) > 1:
+            ax.annotate(tag, (x[-1], y[-1]), xytext=(4, 0), textcoords="offset points", color=INK2, fontsize=8, va="center")
     ax.set_xlabel("optimizer step")
-    ax.set_ylabel("loss (KL + 0.5 CE), smoothed")
+    ax.set_ylabel("total training loss (smoothed)")
     ax.set_title("Bridge training loss", loc="left", color=INK)
-    ax.legend(frameon=False, fontsize=8)
+    if len(tags) > 1:
+        ax.legend(frameon=False, fontsize=8)
     fig.tight_layout()
     fig.savefig(RESULTS / "fig_training_loss.png", dpi=150)
 
@@ -58,6 +61,8 @@ def bars(path, key, title, fmt, out):
     ax.set_title(title, loc="left", color=INK)
     ax.grid(axis="x", visible=False)
     ax.set_ylim(0, max(vals) * 1.18 if max(vals) > 0 else 1)
+    if key == "accuracy":
+        ax.yaxis.set_major_formatter(matplotlib.ticker.PercentFormatter(1.0))
     fig.tight_layout()
     fig.savefig(RESULTS / out, dpi=150)
 

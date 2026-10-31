@@ -1,0 +1,69 @@
+{
+ "tag": "main_token",
+ "args": {
+  "arch": "token",
+  "stride": 1,
+  "align_w": 0.2,
+  "no_ridge": false,
+  "lin_lr_mult": 1.0,
+  "vram_gb": 3.9,
+  "k": 16,
+  "layer": 8,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 3,
+  "accum": 8,
+  "lr": 2e-05,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 0,
+  "tag": "main_token",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 0.1313812679052353,
+   "val_ce": 0.8140195447206497,
+   "val_recon": 0.030498779793269933,
+   "val_align": 0.5681316149234772,
+   "val_loss": 0.6825161373615265,
+   "val_ce_shuffled": 1.5581083416938781,
+   "val_shuffle_gap": 0.7440887969732284,
+   "val_gen_acc": 0.8,
+   "epoch": 0
+  },
+  {
+   "val_kl": 0.09336952548474073,
+   "val_ce": 0.759553536772728,
+   "val_recon": 0.008671526028192602,
+   "val_align": 0.5163497734069824,
+   "val_loss": 0.585087776184082,
+   "val_ce_shuffled": 1.5324879574775696,
+   "val_shuffle_gap": 0.7729344207048416,
+   "val_gen_acc": 0.65,
+   "epoch": 1
+  },
+  {
+   "val_kl": 0.09495317339897155,
+   "val_ce": 0.7430268809199333,
+   "val_recon": 0.007133495877933455,
+   "val_align": 0.49404720425605775,
+   "val_loss": 0.5724095463752746,
+   "val_ce_shuffled": 1.5162034475803374,
+   "val_shuffle_gap": 0.7731765666604041,
+   "val_gen_acc": 0.75,
+   "epoch": 2
+  }
+ ],
+ "train_seconds": 5692,
+ "peak_vram_mb": 3847
+}
