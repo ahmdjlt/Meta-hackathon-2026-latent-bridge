@@ -1,0 +1,50 @@
+{
+ "tag": "k16_L16_ctx_msg",
+ "args": {
+  "k": 16,
+  "layer": 16,
+  "src": "ctx",
+  "teacher": "msg",
+  "no_ckpt": false,
+  "epochs": 3,
+  "accum": 8,
+  "lr": 0.0002,
+  "temp": 2.0,
+  "ce_w": 0.5,
+  "n_val": 50,
+  "d": 1024,
+  "depth": 2,
+  "limit": 0,
+  "tag": null,
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_loss": 1.4465068966150283,
+   "val_kl": 0.8326883375644684,
+   "val_ce": 1.22763711810112,
+   "val_tf_acc_latent": 0.7205355620384216,
+   "val_tf_acc_text": 0.7762676298618316,
+   "epoch": 0
+  },
+  {
+   "val_loss": 1.3992874950170517,
+   "val_kl": 0.8040211749076843,
+   "val_ce": 1.1905326402187348,
+   "val_tf_acc_latent": 0.7212425172328949,
+   "val_tf_acc_text": 0.7762676298618316,
+   "epoch": 1
+  },
+  {
+   "val_loss": 1.3709088319540024,
+   "val_kl": 0.7863607966899872,
+   "val_ce": 1.1690960705280304,
+   "val_tf_acc_latent": 0.7260162913799286,
+   "val_tf_acc_text": 0.7762676298618316,
+   "epoch": 2
+  }
+ ],
+ "best_val_loss": 1.3709088319540024,
+ "train_seconds": 3556,
+ "peak_vram_mb": 3906
+}

@@ -48,10 +48,14 @@ def plot(lat):
     if bg is None:
         ax.text(0.5, 0.5, "run eval.py first for background points", ha="center")
     else:
-        c = ["#2a9d8f" if ok else "#e76f51" for ok in bg["correct"]]
-        ax.scatter(bg_xy[:, 0], bg_xy[:, 1], c=c, s=18, alpha=0.6, label="test messages (green = solved)")
+        ok = torch.tensor(bg["correct"]).numpy()
+        ax.scatter(bg_xy[ok, 0], bg_xy[ok, 1], c="#2a78d6", s=24, alpha=0.75, edgecolors="#fcfcfb",
+                   linewidths=1, label="test message, solved")
+        ax.scatter(bg_xy[~ok, 0], bg_xy[~ok, 1], c="#eb6834", s=24, alpha=0.75, edgecolors="#fcfcfb",
+                   linewidths=1, label="test message, missed")
         p = pca.transform(lat.mean(0, keepdim=True).numpy())
-        ax.scatter(p[:, 0], p[:, 1], c="black", marker="*", s=250, label="this message")
+        ax.scatter(p[:, 0], p[:, 1], c="#0b0b0b", marker="*", s=260, edgecolors="#fcfcfb", linewidths=1.5,
+                   label="this message")
         ax.legend(fontsize=8, loc="best")
     ax.set_title("Latent messages (PCA of mean soft token)")
     ax.set_xticks([]); ax.set_yticks([])

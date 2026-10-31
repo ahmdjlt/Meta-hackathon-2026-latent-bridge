@@ -133,7 +133,7 @@ def run_live(args, rows):
 
 @torch.no_grad()
 def run_ablate(args, rows):
-    hid = torch.load(DATA / "hidden_test.pt", weights_only=False)
+    hid = torch.load(DATA / "hidden_test.pt", weights_only=False, mmap=True)
     rec = Receiver(*load_model(RECEIVER_ID))
     out_rows = []
     for ck in args.ablate:

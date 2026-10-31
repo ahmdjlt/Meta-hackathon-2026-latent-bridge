@@ -81,7 +81,9 @@ def main():
     random.seed(args.seed)
 
     rows = json.loads((DATA / "pairs.json").read_text(encoding="utf-8"))
-    hid = torch.load(DATA / "hidden_train.pt", weights_only=False)
+    # mmap: tensors stay on disk until used, so the unused sender layer never fills RAM
+    hid = torch.load(DATA / "hidden_train.pt", weights_only=False, mmap=True)
+    hid["layers"] = {args.layer: hid["layers"][args.layer]}
     idx = list(range(len(rows)))
     val_idx, tr_idx = idx[-args.n_val:], idx[:-args.n_val]
     if args.limit:
