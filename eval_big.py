@@ -108,7 +108,7 @@ def report(n_rows):
     lines += ["", "McNemar (exact, two-sided) vs text message:", "",
               "| Condition | Text wrong, it right | Text right, it wrong | p |", "|---|---|---|---|"]
     for c, m in out["mcnemar_vs_text"].items():
-        lines.append(f"| {names[c]} | {m['text_wrong_other_right']} | {m['text_right_other_wrong']} | {m['p_value']:.4f} |")
+        lines.append(f"| {names[c]} | {m['text_wrong_other_right']} | {m['text_right_other_wrong']} | {m['p_value']:.2g} |")
     (RESULTS / "big_eval.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines))
 

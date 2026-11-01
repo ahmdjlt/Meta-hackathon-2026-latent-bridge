@@ -153,8 +153,31 @@ Same 100 test problems; message size = positions the solver reads for the messag
 
 ### 500-problem evaluation with fair timing
 
-_Running overnight (`eval_big.py`): text, latent stride 1 and 2, raw context; timing split into reader,
-3B prefill and 3B decode, with answer-token counts; McNemar paired test vs text._
+500 GSM8K test problems (the first 100 are the ones above), all conditions run live on the laptop
+(`eval_big.py`, per-problem results in `results/big_preds.jsonl`). The 3B's time is split into
+**prefill** (reading its input, one forward pass) and **decode** (writing its answer token by token).
+
+| Condition | Accuracy | Msg size | Solver input | Reader | 3B prefill | 3B decode | Answer tokens | **Total** |
+|---|---|---|---|---|---|---|---|---|
+| Text message | 60.2% | 59 tokens | 114 | 2.73 s | 0.17 s | 10.48 s | 139 | 13.38 s |
+| **Latent, stride 1** | **70.4%** | 41 vectors | 96 | **0.06 s** | 0.13 s | 9.95 s | 132 | **10.13 s** |
+| Latent, stride 2 | 58.6% | 21 vectors | 75 | 0.06 s | 0.12 s | 9.79 s | 130 | 9.96 s |
+| Raw context (reference) | 77.6% | 41 tokens | 96 | — | 0.14 s | 10.71 s | 142 | 10.84 s |
+
+Paired McNemar test (exact, two-sided) against the text message, same 500 problems:
+
+| Condition | Text wrong, it right | Text right, it wrong | p |
+|---|---|---|---|
+| **Latent, stride 1** | 94 | 43 | **1.6 × 10⁻⁵** |
+| Latent, stride 2 | 75 | 83 | 0.58 (no difference) |
+| Raw context | 111 | 24 | 1.4 × 10⁻¹⁴ |
+
+- **Latent (stride 1) beats the text message by 10.2 points, p = 1.6 × 10⁻⁵.**
+- **Stride 2 ties the text message** (58.6% vs 60.2%, p = 0.58) with about a third of the message length.
+- **Where the time goes.** The 3B's decode time is similar in every condition (≈75 ms per answer token, similar
+  answer lengths), so the end-to-end gain (13.4 s → 10.1 s, −24%) comes almost entirely from the reader
+  not generating a message (2.73 s → 0.06 s), plus a slightly shorter prefill.
+- The raw context still leads (77.6%): at full length the bridge loses some information relative to the source.
 
 Training: 3 epochs × 1,450 problems, 95 min on the laptop, peak 3.85 GB VRAM.
 ![training loss](results/fig_training_loss.png)

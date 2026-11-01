@@ -116,5 +116,125 @@
     "text_tokens": null
    }
   }
+ },
+ "v-49a867596e648ec3": {
+  "verdict": "accept",
+  "reason": "Correctly computes 16-3-4=9 eggs left and 9*2=18 dollars.",
+  "verify_s": 1.77,
+  "usage": {
+   "completion_tokens": 287,
+   "prompt_tokens": 252,
+   "total_tokens": 539,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 244,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-ce1ced525c507cb6": {
+  "verdict": "accept",
+  "reason": "Total is correctly calculated as 2 blue + 1 white = 3 bolts.",
+  "verify_s": 2.29,
+  "usage": {
+   "completion_tokens": 170,
+   "prompt_tokens": 158,
+   "total_tokens": 328,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 132,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-4f418a135080917e": {
+  "verdict": "reject",
+  "reason": "Value increase applies to the $80k purchase price (new value $200k), not the $130k total cost, so correct profit is $70k not $195k.",
+  "verify_s": 2.8,
+  "usage": {
+   "completion_tokens": 538,
+   "prompt_tokens": 262,
+   "total_tokens": 800,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 480,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-ff5c7663624da7e4": {
+  "verdict": "accept",
+  "reason": "Calculation correctly computes 3 sprints * 3 times/week * 60 meters = 540 meters.",
+  "verify_s": 1.64,
+  "usage": {
+   "completion_tokens": 233,
+   "prompt_tokens": 175,
+   "total_tokens": 408,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 191,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-631ac5080a89a0d6": {
+  "verdict": "reject",
+  "reason": "Total daily need is 20*3=60 cups, so final meal is 60-15-25=20, not 120; solution misuses 40 as daily total and multiplies incorrectly.",
+  "verify_s": 1.42,
+  "usage": {
+   "completion_tokens": 417,
+   "prompt_tokens": 418,
+   "total_tokens": 835,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 355,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
  }
 }

@@ -1,0 +1,66 @@
+{
+ "n_complete": 500,
+ "conditions": {
+  "text": {
+   "accuracy": 0.602,
+   "reader_s": 2.725214104400482,
+   "prefill_s": 0.172635994000535,
+   "decode_s": 10.484819450999261,
+   "total_s": 13.382669549400278,
+   "gen_tokens": 139.328,
+   "msg_size": 59.426,
+   "solver_input_len": 113.928,
+   "decode_s_per_token": 0.07525278085524274
+  },
+  "latent_s1": {
+   "accuracy": 0.704,
+   "reader_s": 0.05886030180036323,
+   "prefill_s": 0.12809092220006277,
+   "decode_s": 9.946010156400618,
+   "total_s": 10.132961380401044,
+   "gen_tokens": 132.32,
+   "msg_size": 41.042,
+   "solver_input_len": 95.544,
+   "decode_s_per_token": 0.07516634035973865
+  },
+  "latent_s2": {
+   "accuracy": 0.586,
+   "reader_s": 0.05880444780096877,
+   "prefill_s": 0.11709015620034188,
+   "decode_s": 9.785958170199418,
+   "total_s": 9.961852774200729,
+   "gen_tokens": 130.18,
+   "msg_size": 20.758,
+   "solver_input_len": 75.26,
+   "decode_s_per_token": 0.07517251628667551
+  },
+  "context": {
+   "accuracy": 0.776,
+   "reader_s": 0.0,
+   "prefill_s": 0.13804830600047716,
+   "decode_s": 10.706739314598904,
+   "total_s": 10.844787620599382,
+   "gen_tokens": 142.322,
+   "msg_size": 41.31,
+   "solver_input_len": 95.812,
+   "decode_s_per_token": 0.07522898297240697
+  }
+ },
+ "mcnemar_vs_text": {
+  "latent_s1": {
+   "text_wrong_other_right": 94,
+   "text_right_other_wrong": 43,
+   "p_value": 1.567942262150112e-05
+  },
+  "latent_s2": {
+   "text_wrong_other_right": 75,
+   "text_right_other_wrong": 83,
+   "p_value": 0.5777428358653729
+  },
+  "context": {
+   "text_wrong_other_right": 111,
+   "text_right_other_wrong": 24,
+   "p_value": 1.432322294872245e-14
+  }
+ }
+}

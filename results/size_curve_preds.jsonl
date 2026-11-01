@@ -1298,3 +1298,4 @@
 {"cond": "ctx_full", "id": "test-98", "size": 64, "correct": true, "source": "preds_live_main.jsonl"}
 {"cond": "ctx_full", "id": "test-99", "size": 70, "correct": true, "source": "preds_live_main.jsonl"}
 {"cond": "ctx_full", "id": "test-100", "size": 68, "correct": true, "source": "preds_live_main.jsonl"}
+{"cond": "trunc_t10", "id": "test-0", "size": 10, "correct": false, "msg": "* Janet's ducks lay 16 eggs per day", "out": "To solve this, we need to know the price of each egg. Let's assume it's $1 per egg.\n\nJanet's ducks lay 16 eggs per day, so she collects 16 eggs per day.\n\n16 eggs/day \u00d7 $1/egg = $16/day\n\n#### 16"}
