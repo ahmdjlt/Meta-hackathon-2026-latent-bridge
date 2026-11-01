@@ -131,13 +131,13 @@ greedy decoding, every stage timed). Bridge: `checkpoints/bridge_main_token.pt` 
 Same 100 test problems; message size = positions the solver reads for the message. (`size_curve.py`,
 `results/size_curve.csv`)
 
-| Size (positions) | Latent (ours) | Text, budget in prompt | Original context, truncated |
-|---|---|---|---|
-| ~10 | **21%** (stride 4) | 4% | 4% |
-| ~14 | **32%** (stride 3) | — | — |
-| ~20 | **60%** (stride 2) | 20% | 25% |
-| ~33–40 | **68%** (stride 1) | 33% (37) | 55% (33), 62% (38), 73% (full, 40) |
-| ~48 | — | 36% | — |
+| Size (positions) | Latent (ours) | Text: normal message, truncated | Text: budget in prompt | Original context, truncated |
+|---|---|---|---|---|
+| ~10 | **21%** (stride 4) | 5% | 4% | 4% |
+| ~14 | **32%** (stride 3) | — | — | — |
+| ~20 | **60%** (stride 2) | 22% | 20% | 25% |
+| ~33–40 | **68%** (stride 1) | 44% (38) | 33% (37) | 55% (33), 62% (38), 73% (full, 40) |
+| ~47–48 | — | 52% (47) | 36% (48) | — |
 
 ![size curve](results/size_curve.png)
 
@@ -145,11 +145,12 @@ Same 100 test problems; message size = positions the solver reads for the messag
   either text option. At ~10: 21% vs 4%.
 - At full length (stride 1, ~40 vectors) the latent channel is close to verbatim context transfer and the full
   original context is slightly ahead (73% vs 68%). **The gain is compression, not beating the source.**
-- Caveats: strides 3 and 4 trained 1 epoch (stride 2 showed 1 vs 3 epochs makes no difference). The
-  "budget in prompt" text series is pessimistic: telling the 1B "at most N tokens" makes it invent facts even
-  when it stays under budget (e.g. "1 robe uses 2 bolts of white fiber"). A fairer text series, the normal
-  message hard-truncated to N tokens, is running and will be added. Cutting the context at 60 tokens drops
-  facts in the 16 problems longer than that, hence 62% vs 73% for the full context.
+- Caveats: strides 3 and 4 trained 1 epoch (stride 2 showed 1 vs 3 epochs makes no difference). Two text
+  series are shown. "Budget in prompt" tells the 1B to use at most N tokens; this makes it invent facts even
+  under budget (e.g. "1 robe uses 2 bolts of white fiber"), so it is pessimistic. "Normal message, truncated"
+  cuts the regular message (preamble removed) at N tokens and is the fairer text baseline; uncapped, that
+  message averages ~60 tokens and scores 59%. Cutting the context at 60 tokens drops facts in the 16 problems
+  longer than that, hence 62% vs 73% for the full context.
 
 ### 500-problem evaluation with fair timing
 

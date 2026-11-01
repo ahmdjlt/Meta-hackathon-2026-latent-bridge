@@ -12,3 +12,7 @@ text_b10,text,100,9.85,0.04
 text_b20,text,100,19.8,0.2
 text_b40,text,100,37.13,0.33
 text_b60,text,100,48.24,0.36
+trunc_t10,trunc,100,10.0,0.05
+trunc_t20,trunc,100,20.0,0.22
+trunc_t40,trunc,100,37.72,0.44
+trunc_t60,trunc,100,46.62,0.52
