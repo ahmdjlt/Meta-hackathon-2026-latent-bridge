@@ -16,3 +16,6 @@ $PY size_curve.py --n 100 > results/_size_curve.log 2>&1 || echo "FAILED size cu
 step "big eval (n=500)"
 $PY eval_big.py --n 500 > results/_eval_big.log 2>&1 || echo "FAILED big eval"
 step "done"
+step "size curve: truncated normal text messages"
+$PY size_curve.py --n 100 --strides "" > results/_size_curve2.log 2>&1 || echo "FAILED size curve 2"
+step "done (2)"

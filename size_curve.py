@@ -91,8 +91,9 @@ def plot(summary):
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     import matplotlib.ticker
-    names = {"latent": ("Latent (ours)", "#2a78d6", "o"), "text": ("Text message, token budget", "#eb6834", "s"),
-             "ctx": ("Original context, truncated", "#1baf7a", "^")}
+    names = {"latent": ("Latent (ours)", "#2a78d6", "o"), "text": ("Text message, budget in prompt", "#eb6834", "s"),
+             "trunc": ("Text message, normal prompt, truncated", "#eda100", "D"),
+             "ctx": ("Original context (truncated; full at right)", "#1baf7a", "^")}
     fig, ax = plt.subplots(figsize=(6.4, 3.8))
     fig.patch.set_facecolor("#fcfcfb"); ax.set_facecolor("#fcfcfb")
     for fam, (label, color, marker) in names.items():
@@ -161,6 +162,32 @@ def main():
             ctx = rec.tok.decode(ids_)
             out = rec.generate(rec.text_inputs(ctx, r["final_q"])[0], args.max_new)
             append({"cond": cond, "id": r["id"], "size": len(ids_), "correct": extract_number(out) == r["answer"], "out": out})
+            done[(cond, r["id"])] = True
+        print(f"{cond} done", flush=True)
+
+    # Text, best case: the normal (unbudgeted) 1B message from the main live eval, preamble stripped,
+    # hard-truncated to N tokens. The "at most N tokens" instruction makes the 1B invent facts, so this
+    # series gives the text channel its strongest showing at each size.
+    normal = {}
+    live_path = RESULTS / "preds_live_main.jsonl"
+    if live_path.exists():
+        for line in live_path.read_text(encoding="utf-8").splitlines():
+            x = json.loads(line)
+            if x["mode"] == "text":
+                normal[x["id"]] = x["msg"]
+    for n in [int(x) for x in args.budgets.split(",")] if normal else []:
+        cond = f"trunc_t{n}"
+        for r in rows:
+            if (cond, r["id"]) in done or r["id"] not in normal:
+                continue
+            msg = normal[r["id"]]
+            if msg.lower().startswith("here are") and "\n" in msg:  # drop the "Here are the facts..." line
+                msg = msg.split("\n", 1)[1].lstrip()
+            ids_ = rec.tok(msg, add_special_tokens=False).input_ids[:n]
+            msg = rec.tok.decode(ids_)
+            out = rec.generate(rec.text_inputs(msg, r["final_q"])[0], args.max_new)
+            append({"cond": cond, "id": r["id"], "size": len(ids_), "correct": extract_number(out) == r["answer"],
+                    "msg": msg, "out": out})
             done[(cond, r["id"])] = True
         print(f"{cond} done", flush=True)
 

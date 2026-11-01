@@ -1,0 +1,47 @@
+{
+ "tag": "abl_s3_L8",
+ "args": {
+  "arch": "token",
+  "stride": 3,
+  "align_w": 0.2,
+  "no_ridge": false,
+  "lin_lr_mult": 1.0,
+  "vram_gb": 3.9,
+  "k": 16,
+  "layer": 8,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 1,
+  "accum": 8,
+  "lr": 2e-05,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 0,
+  "tag": "abl_s3_L8",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 0.47587048560380935,
+   "val_ce": 0.9949199485778809,
+   "val_recon": 0.6523009160161019,
+   "val_align": 0.7130734169483185,
+   "val_loss": 1.7682460629940033,
+   "val_ce_shuffled": 1.5185350942611695,
+   "val_shuffle_gap": 0.5236151456832886,
+   "val_gen_acc": 0.2,
+   "epoch": 0
+  }
+ ],
+ "train_seconds": 2009,
+ "peak_vram_mb": 3839
+}

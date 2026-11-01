@@ -1,0 +1,14 @@
+condition,family,n,mean_size,accuracy
+ctx_full,ctx,100,40.3,0.73
+ctx_t10,ctx,100,10.0,0.04
+ctx_t20,ctx,100,19.63,0.25
+ctx_t40,ctx,100,32.65,0.55
+ctx_t60,ctx,100,38.05,0.62
+latent_s1,latent,100,39.97,0.68
+latent_s2,latent,100,20.25,0.6
+latent_s3,latent,100,13.67,0.32
+latent_s4,latent,100,10.37,0.21
+text_b10,text,100,9.85,0.04
+text_b20,text,100,19.8,0.2
+text_b40,text,100,37.13,0.33
+text_b60,text,100,48.24,0.36
