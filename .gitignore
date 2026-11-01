@@ -6,3 +6,4 @@ data/hidden_*.pt
 results/latents_*.pt
 results/_*.log
 *.pyc
+checkpoints/best_backup/
