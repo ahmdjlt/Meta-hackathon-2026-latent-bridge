@@ -1,0 +1,4018 @@
+{
+ "n": 500,
+ "rejects": 151,
+ "unavailable": 0,
+ "reject_and_latent_wrong": 144,
+ "reject_and_latent_right": 7,
+ "acc_before": 352,
+ "acc_after": 390,
+ "verify_tokens": 295682,
+ "verify_s": 630.0699999999996,
+ "trigger_rate": 0.302,
+ "accuracy_before": 0.704,
+ "accuracy_after": 0.78,
+ "reject_precision": 0.9536423841059603,
+ "latent_errors_caught": 0.972972972972973,
+ "details": [
+  {
+   "id": "test-0",
+   "verdict": "accept",
+   "reason": "Correctly computes 16-3-4=9 eggs left and 9*2=18 dollars.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-1",
+   "verdict": "accept",
+   "reason": "Total is correctly calculated as 2 blue + 1 white = 3 bolts.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-2",
+   "verdict": "reject",
+   "reason": "Value increase applies to the $80k purchase price (new value $200k), not the $130k total cost, so correct profit is $70k not $195k.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-3",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 3 sprints * 3 times/week * 60 meters = 540 meters.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-4",
+   "verdict": "reject",
+   "reason": "Total daily need is 20*3=60 cups, so final meal is 60-15-25=20, not 120; solution misuses 40 as daily total and multiplies incorrectly.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-5",
+   "verdict": "reject",
+   "reason": "Every second glass is discounted, so 8 glasses cost $3 not just one; correct total is 8*5+8*3=64, not 78.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-6",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 20 + 80 + 160 = 260 total sheep.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-7",
+   "verdict": "reject",
+   "reason": "Correct total is 40min initial (80GB) +20min restart +100min full re-download =160min, not 60; solution assumes resume instead of restart from beginning.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-8",
+   "verdict": "reject",
+   "reason": "Calculates total distance traveled instead of distance remaining from home; correct remaining is 180-15-120=45 miles, and no valid final #### number is given.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-9",
+   "verdict": "accept",
+   "reason": "Calculation correctly applies $10 for 40 hours and $12 for 5 overtime hours to get $460.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-10",
+   "verdict": "accept",
+   "reason": "Calculations for months 1-3 and total 366 are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-11",
+   "verdict": "accept",
+   "reason": "Calculations 3*68=204, 2*80=160, 6*55=330 sum to 694 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-12",
+   "verdict": "reject",
+   "reason": "Annual net profit is 7*1.5-3=$7.5, so $90/7.5=12 years to break even, not 2; solution also doubles lemons and costs incorrectly.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-13",
+   "verdict": "reject",
+   "reason": "Solving (1/2)*(2x/3 - 2)=5 gives x=18, not 15; proposed solution ignored the -2 when computing the final remainder.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-14",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds 12/20 = 60% enrolled in hip-hop.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-15",
+   "verdict": "reject",
+   "reason": "Max profit is purchase value times percent rise, $5000*2.5%=$125 vs $8000*1.2%=$96, not $8000-$5000.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-16",
+   "verdict": "accept",
+   "reason": "Total path length is 80+150=230 miles per train, matching final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-17",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes weekly pay $1150 and annual total $57,500.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-18",
+   "verdict": "accept",
+   "reason": "84 eggs over 28 days equals 7 dozens, so final answer 7 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-19",
+   "verdict": "accept",
+   "reason": "Total time for 4 mph average is 3h, leaving 1h for remaining 6 miles = 6 mph.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-20",
+   "verdict": "reject",
+   "reason": "Spilling 1 L of orange drink removes only 2/3 L water, not 1 L, so the remaining water is 15 L, not 46.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-21",
+   "verdict": "reject",
+   "reason": "Raymond is 6 years older than Samantha, so he is 37, not 25; his son is 37-23=14 years old, born 14 years ago.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-22",
+   "verdict": "accept",
+   "reason": "Calculation correctly sums 3*1 + 2*2 + 3*0 = 7 DVDs.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-23",
+   "verdict": "accept",
+   "reason": "4 hours * 2 cm/hour = 8 cm correctly calculated.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-24",
+   "verdict": "accept",
+   "reason": "19.50 is 75% of original, so 19.50/0.75=26 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-25",
+   "verdict": "accept",
+   "reason": "Calculations 12+15+6=33, 50-33=17, 17/8.5=2 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-26",
+   "verdict": "accept",
+   "reason": "Calculations 49.50 + 67.50 + 126 = 243 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-27",
+   "verdict": "accept",
+   "reason": "60 servings requires 4 cartons at $4 each, totaling $16 as calculated.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-28",
+   "verdict": "reject",
+   "reason": "Second stop is at 60-15=45 miles from start, so distance between stops is 45-20=25, not 5.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-29",
+   "verdict": "reject",
+   "reason": "Misreads relationship: heels cost $5 less than boots, so boots = $99+$5=104, not $99-$5.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-30",
+   "verdict": "reject",
+   "reason": "Uses 5x for Allen instead of 11x from the 7:11 ratio, so total equation is wrong and 77.5 is incorrect; correct Allen age in 10 years is 109.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-31",
+   "verdict": "accept",
+   "reason": "Average calculation is correct: (80+60+100)/3 = 80.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-32",
+   "verdict": "accept",
+   "reason": "10 dogs at 0.5h/day is 5h/day, which is 35h/week.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-33",
+   "verdict": "accept",
+   "reason": "70+40=110 and 70-40=30, so the equations and final answer are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-34",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 40/2+5=25 and 25-2=23.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-35",
+   "verdict": "accept",
+   "reason": "25% more than 4 is 5, so 4+5=9 total points is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-36",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 60 yogurts needed and cost as 15 sets at $5 = $75.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-37",
+   "verdict": "reject",
+   "reason": "He sold all 13 sets so 0 remain, but solution calculates $35 left contradicting the $5 stated and does not arrive at 0.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-38",
+   "verdict": "accept",
+   "reason": "Total time correctly calculated as 6 hours, 60/6 = 10 mph matches final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-39",
+   "verdict": "accept",
+   "reason": "Running speed 6 mph and walking speed 1.5 mph yield 2*6+4*1.5=18 miles, matching final answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-40",
+   "verdict": "reject",
+   "reason": "Ben's being 'two times older than' Suzy means 3 times as old, so Ben is 3 and Brandon is 12, not 8.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-41",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds throw distance 3*400=1200 and safe distance outside flames 1200-1000=200.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-42",
+   "verdict": "accept",
+   "reason": "5 pies * 8 pieces = 40 total, 40 - 14 remaining = 26 taken is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-43",
+   "verdict": "reject",
+   "reason": "Serving size is 300g/5=60g not 5g, so 0.8 servings is 48g not 4g.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-44",
+   "verdict": "accept",
+   "reason": "Revenue $40 minus cost $20 for 2 pounds correctly yields $20 profit despite wording slip.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-45",
+   "verdict": "accept",
+   "reason": "Total articles 5+7+14=26 times 4 hours =104 matches proposed total.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-46",
+   "verdict": "reject",
+   "reason": "Correct equation is 80+P-220=23 giving P=163, not 57; solution ignores both the 220 used and the purchased package.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-47",
+   "verdict": "reject",
+   "reason": "Blue ties are 5, so red ties are 10 at $60 each = $600, total $800 not $260.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-48",
+   "verdict": "accept",
+   "reason": "Correctly converts 4 feet to 48 inches and divides by 6 to get 8 pieces.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-49",
+   "verdict": "accept",
+   "reason": "15*8=120 total units, 1/4 unoccupied = 30, matches final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-50",
+   "verdict": "reject",
+   "reason": "252 eggs is 21 dozen, so daily is 21*2=$42 and weekly $294, not $353.80; solution mis-converts $2/dozen to $0.20.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-51",
+   "verdict": "reject",
+   "reason": "Distance is 3 hours * 10 mph = 30 miles, not 3 miles, so return time is 5 hours not 0.5 hours.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-52",
+   "verdict": "accept",
+   "reason": "30 comics weigh 7.5 lbs, leaving 7.5 lbs to reach 15 lbs, which requires 7.5 / 0.5 = 15 toys.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-53",
+   "verdict": "reject",
+   "reason": "Thursday revenue $520 exceeds Friday $480, so difference is $40 not -$40; solution reverses inequality.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-54",
+   "verdict": "reject",
+   "reason": "Total must include the 7 adopted kittens: 7+21+12=40, not 33.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-55",
+   "verdict": "accept",
+   "reason": "30-2=28 and 28/2=14 correctly computes the number of bags.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-56",
+   "verdict": "reject",
+   "reason": "Correct calculation is 42 / (7+7) = 3, not 2; solution erroneously subtracts $14 before dividing.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-57",
+   "verdict": "accept",
+   "reason": "Calculation 5000-3755=1245 and 1245/15=83 is correct and meets weight limit exactly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-58",
+   "verdict": "accept",
+   "reason": "Calculation correctly applies 25% to $40 and adds $3 delivery and $4 tip for $57 total.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-59",
+   "verdict": "accept",
+   "reason": "Calculation 6*20+67=187 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-60",
+   "verdict": "accept",
+   "reason": "20% of 25 is 5, and 25-1-5-2 equals 17, so final count is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-61",
+   "verdict": "accept",
+   "reason": "1300 total before insurance plus 10% insurance (130) correctly equals 1430.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-62",
+   "verdict": "reject",
+   "reason": "Solution treats pension as cumulative total instead of annual benefit; 10 years after vesting gives 50% of $50k = $25k annual, not $1,025,000.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-63",
+   "verdict": "accept",
+   "reason": "Calculations for $140*6 and 10% discounted $126*6 correctly sum to $1596.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-64",
+   "verdict": "reject",
+   "reason": "Correct answer is 300 miles (100 miles / 4 gal = 25 mpg * 12 gal), not 8; solution invents gas price and misinterprets tank usage.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-65",
+   "verdict": "accept",
+   "reason": "Each session is 3 hours, 3 times/week is 9 hours/week, 9*4=36 is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-66",
+   "verdict": "reject",
+   "reason": "Coach count is 2 per school * 4 schools = 8, not 4, so total should be 48, not 44.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-67",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 175 diamonds + 140 rubies + 280 emeralds = 595 total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-68",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 60 girls implies 120 boys, 180 total, 180/5 = 36 teachers.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-69",
+   "verdict": "accept",
+   "reason": "Allowance total is $40 and $100-$40=$60 is correct, matching final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-70",
+   "verdict": "reject",
+   "reason": "495*15 equals 7425, not 7475, so final total is miscalculated.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-71",
+   "verdict": "accept",
+   "reason": "Total is correctly calculated as 20 + 40 = 60.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-72",
+   "verdict": "accept",
+   "reason": "43*3=129 and 23*4=92 sum to 221 correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-73",
+   "verdict": "accept",
+   "reason": "Total $750 plus 2% interest ($15) = $765, divided by 3 months = $255, which matches the proposed total and monthly calculation.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-74",
+   "verdict": "accept",
+   "reason": "Rounding and multiplication are correct: 12*3+9*2+17*2=88.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-75",
+   "verdict": "reject",
+   "reason": "Going down levels should double, not halve; top=16 implies bottom=128, total 240, average 60, not 7.5.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-76",
+   "verdict": "accept",
+   "reason": "Correctly computes 180*1+185*2=550 cups =5 bags for 365-day year.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-78",
+   "verdict": "accept",
+   "reason": "Calculation correctly identifies $9 vs $15 cost and $6 savings.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-79",
+   "verdict": "accept",
+   "reason": "30% discount on $100 is $30, so final cost $70 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-80",
+   "verdict": "accept",
+   "reason": "Correct leftover is 24 - 2*4 - 6 = 10, matching final number despite flawed intermediate steps.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-81",
+   "verdict": "accept",
+   "reason": "Calculation 10+21+23-9-28=17 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-82",
+   "verdict": "accept",
+   "reason": "Alex is 4*125-2=498, combined 125+498=623 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-83",
+   "verdict": "accept",
+   "reason": "Calculation 3*25*8=600 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-84",
+   "verdict": "accept",
+   "reason": "Equation x+(x+8)=22 correctly gives x=7 losses and 15 wins.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-85",
+   "verdict": "reject",
+   "reason": "Correct total is 4*(34-23)=44 blocks; solution incorrectly multiplies by years twice to get 484.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-86",
+   "verdict": "accept",
+   "reason": "Calculations 4 + 12 + 6 = 22 are correct for the stated conditions.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-87",
+   "verdict": "reject",
+   "reason": "Final 966 is a monthly figure after 5 compounded raises, but question asks annual salary after 3 raises of 10% of initial salary (should be 780*12).",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-88",
+   "verdict": "accept",
+   "reason": "Calculation correctly solves x+10x=88000 yielding 8000 for Harald.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-89",
+   "verdict": "reject",
+   "reason": "Solution double-counts no-shows: needs 0.75*16=12 bags costing $24, not 0.75*12=9 bags costing $18.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-90",
+   "verdict": "accept",
+   "reason": "20 adults need 200 lbs and 5 children need 25 lbs, total 225 lbs is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-91",
+   "verdict": "accept",
+   "reason": "Total correctly calculated as 4 + 6 + 18 = 28.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-92",
+   "verdict": "accept",
+   "reason": "Calculations correctly derive Corey=11, Amy=9, Jackson=4.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-93",
+   "verdict": "reject",
+   "reason": "Gerald originally took 40s (38+2), not 36s, and 10% faster speed means time = 40/1.1 not 36+3.6.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-94",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes cats=120, rabbits=168, total=348.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-95",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 120 girls total, 80 in scouts, leaving 40 not in scouts.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-96",
+   "verdict": "accept",
+   "reason": "James slept 2/3*9=6 hours, so Harry slept 3 hours more, matching final answer 3.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-97",
+   "verdict": "accept",
+   "reason": "Volume correctly doubled to 64 oz, converted to 4 cans, then to 12 tomatoes.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-98",
+   "verdict": "accept",
+   "reason": "Total cars through jam is 30-5=25; subtracting 20 in last 15 minutes leaves 5 for first 15, so final number 5 is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-99",
+   "verdict": "accept",
+   "reason": "Total 18+2*40=98 minus giveaway 40 equals 58, arithmetic is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-100",
+   "verdict": "reject",
+   "reason": "Total incorrectly omitted first friend's 20 presses; correct sum is 20+25+70+60=175, not 155.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-101",
+   "verdict": "accept",
+   "reason": "Calculations for total pages (39), remaining pages (24), and average over 4 days (6) are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-102",
+   "verdict": "reject",
+   "reason": "Correct count is 4 glasses x5 weekdays =20 plus 3 glasses x2 weekend days =6 for total 26, not 17; solution omits glasses.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-103",
+   "verdict": "accept",
+   "reason": "Correctly calculates 42/3=14 intervals times 10 minutes = 140 minutes.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-104",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 1000-250=750 and 750-250=500 left.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-105",
+   "verdict": "accept",
+   "reason": "Calculation is correct: Amir 5 + Cody 15 = 20 total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-106",
+   "verdict": "reject",
+   "reason": "Solution uses outer volume and ignores 1-inch wall thickness; inner dimensions are 3x4x2 not 5x6x4.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-107",
+   "verdict": "reject",
+   "reason": "Known days sum to 5.5 hours not 4.5, so Wednesday is 1.5 hours = 3 episodes, not 5.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-108",
+   "verdict": "reject",
+   "reason": "Solution ignored the 15 extra cookies baked; correct equation is 2x+15-5=110 giving x=50, not 57.5.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-109",
+   "verdict": "accept",
+   "reason": "Correctly calculates $30 cost minus $2 cashback equals $28 final cost.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-110",
+   "verdict": "accept",
+   "reason": "Calculations are correct: (3*14+2*24)/2 = 45.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-111",
+   "verdict": "accept",
+   "reason": "64 seconds at 20 ft per 16 sec is 80 ft total, at 2L per 10 ft equals 16L.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-112",
+   "verdict": "accept",
+   "reason": "4 teachers * 2 lessons per day * 3 cleans per lesson = 24 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-113",
+   "verdict": "accept",
+   "reason": "Correctly calculates 2*15=30 planted minus 5 failed = 25 grown.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-114",
+   "verdict": "accept",
+   "reason": "Calculations 1800/6=300 and 300/50=6 correctly solve the chain.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-115",
+   "verdict": "reject",
+   "reason": "Correct profit is 50% of $180 cost = $90, not $60; solution misidentifies $180 as selling price then divides by 1.5.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-116",
+   "verdict": "reject",
+   "reason": "Correct total parts is 7+13=20, so sugar is 7/20*120=42, not 70; solution incorrectly uses 7+5=12.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-117",
+   "verdict": "accept",
+   "reason": "6 pairs at $60 per pair totals $360, so final number is correct despite labeling pairs as shoes.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-118",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds 10 vehicles day 1, 20 vehicles day 2, which is 4 containers.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-119",
+   "verdict": "reject",
+   "reason": "Proposed solution incorrectly adds a 30% increase to Adrien's $40k base and then a 40% increase again, misreading that $40k is already 30% higher, and truncates before providing a valid total.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-120",
+   "verdict": "accept",
+   "reason": "2 pads*30 sheets=60 sheets/week, 60*4 weeks=240 sheets/month is correct under standard 4-week assumption.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-121",
+   "verdict": "accept",
+   "reason": "Calculation correctly sums 13+14=27 fruits.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-122",
+   "verdict": "reject",
+   "reason": "Misinterprets rest-of-week as daily incrementing 5,6,7,8 instead of constant 1 hour more than Tue/Wed, and also applies 2-hour reduction cumulatively.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-123",
+   "verdict": "accept",
+   "reason": "Calculation correctly sums 30 miles plus 20 miles for 7 hours to get 50 miles.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-124",
+   "verdict": "accept",
+   "reason": "20 letters stamped, 30-20=10 initially, matches final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-125",
+   "verdict": "accept",
+   "reason": "Under disposable interpretation, equation x+5-3=12 gives x=10, matching final number.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-126",
+   "verdict": "accept",
+   "reason": "Calculation 38+6=44 fish and 38+44=82 total is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-127",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds Amy has 70 friends and total 50+70=120.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-128",
+   "verdict": "accept",
+   "reason": "Calculations for watermelon ($45), orange ($40), and total ($180+$300+$400=$880) are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-129",
+   "verdict": "reject",
+   "reason": "Correct profit is (200-150)*200 = $10,000, not $0; solution incorrectly adds both streams as both revenue and cost.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-130",
+   "verdict": "accept",
+   "reason": "60-20=40 remaining, 40-10=30 left; math is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-131",
+   "verdict": "accept",
+   "reason": "Total correctly calculated as $500 + ($500-$60) = $940.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-132",
+   "verdict": "accept",
+   "reason": "Total rides = (2+4)+ (2+2)=10, 10*6=60 matches final answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-133",
+   "verdict": "accept",
+   "reason": "Wednesday miles correctly calculated as 41-(4+24)=13.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-134",
+   "verdict": "accept",
+   "reason": "4*15=60 per month, 60*12=720 per year is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-135",
+   "verdict": "accept",
+   "reason": "Solution correctly adjusts Brian's count to 15 then computes 3*15-5=40.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-136",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds 1/3 of 27 is 9 and 2/3 of 9 is 6.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-137",
+   "verdict": "accept",
+   "reason": "Calculations are correct: $20 food + $4 delivery fee (20%) + $5 tip = $29.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-138",
+   "verdict": "reject",
+   "reason": "Incomplete count should be (75-40)+(100-30)=105, not 75-70 and 100-70; solution subtracts total completed from each test.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-139",
+   "verdict": "reject",
+   "reason": "Correct count is 4*12+22=70, not 12; solution misapplied equation and solved incorrectly.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-140",
+   "verdict": "accept",
+   "reason": "4 semi-automatic cars out of 20 is correctly calculated as 20%.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-141",
+   "verdict": "accept",
+   "reason": "Math is correct yielding Q=100, B=200, W=400 for total 700, so final worker count is 400.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-142",
+   "verdict": "accept",
+   "reason": "Correctly calculates 2 hours * $10/hour * 7 days = $140.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-143",
+   "verdict": "accept",
+   "reason": "Calculation is correct: nonfood $10 + $1 tax = $11 plus food $5 totals $16.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-144",
+   "verdict": "reject",
+   "reason": "Expense per client is $9 (2*$2+$5), not $7, so profit is $92-$72=$20, not $36.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-145",
+   "verdict": "reject",
+   "reason": "Harvest is every 3 months (4 times per year), so total is 1000*4=4000, not 1000/12.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-146",
+   "verdict": "reject",
+   "reason": "Arithmetic error: 500+1500+125 equals 2125, not 2225.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-147",
+   "verdict": "reject",
+   "reason": "Third interval is 60 bees leaving, not returning; total left 90 minus 15 returned leaves 75 to return in last period, not 45.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-148",
+   "verdict": "accept",
+   "reason": "Total cost is $22 and $22+$8=$30 correctly calculated.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-149",
+   "verdict": "accept",
+   "reason": "Calculation is correct: Dorothy has 12/3=4, James has 4*4=16.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-150",
+   "verdict": "accept",
+   "reason": "Calculations are correct: Steve 36 min, Tim 40 min, difference 4 min.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-151",
+   "verdict": "accept",
+   "reason": "20 tires total times 25 cents correctly totals $5.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-152",
+   "verdict": "accept",
+   "reason": "60 cookies at $0.10 = $6, so $10 - $6 = $4 change correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-153",
+   "verdict": "reject",
+   "reason": "Solution uses invalid arithmetic (negative fries, subtracting eaten counts from eaten counts) and does not correctly compute 48; final answer missing.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-154",
+   "verdict": "reject",
+   "reason": "Incorrectly adds MWF 3h/day and TTh 4h/day to get 7h/day; correct weekly total is 3*3+2*4=17h, so 16 weeks = 272h, not 560h.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-155",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 300*4in=100ft, 120*6in=60ft, 60*2ft=120ft, total 280ft.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-156",
+   "verdict": "accept",
+   "reason": "Correctly sums monthly need as 700 and doubles for 2 months to get 1400.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-157",
+   "verdict": "reject",
+   "reason": "Solution treats a back-and-forth as one field length and miscalculates Kelly by omitting her initial 100-yard run and counting 40 yards one-way instead of 80 yards round-trip, so 140 is incorrect.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-158",
+   "verdict": "accept",
+   "reason": "Total 6+8+20=34 correctly calculated.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-159",
+   "verdict": "reject",
+   "reason": "6 tadpoles coming out of hiding should be added (11+6=17) then 2 hiding subtracted (15), not subtracted to get 3.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-160",
+   "verdict": "accept",
+   "reason": "Final answer 16 is correct since (17+7)*2/3 = 24*2/3 = 16.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-161",
+   "verdict": "reject",
+   "reason": "Starfish are not fish and must be excluded from the fish total, so counting all 32 creatures is incorrect.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-163",
+   "verdict": "reject",
+   "reason": "Doll costs 3*5=$15 not $12, so correct total is 20+15+15=$50, not $47.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-164",
+   "verdict": "accept",
+   "reason": "Correctly calculates lost income $105 minus accountant cost $90 equals $15 benefit.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-165",
+   "verdict": "accept",
+   "reason": "Total cost is 1090+157+74+102=1423, leaving 1500-1423=77, so final number is correct despite mislabeled items.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-166",
+   "verdict": "accept",
+   "reason": "45 eggs needed / 9 eggs per babysitting = 5 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-167",
+   "verdict": "accept",
+   "reason": "The equations x=2y and x+y=24 correctly give y=8 and x=16, which satisfies the future sum check.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-168",
+   "verdict": "accept",
+   "reason": "Calculation 2*8+2=18 correctly solves the problem.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-169",
+   "verdict": "accept",
+   "reason": "5 weekdays at 20 miles plus 2 weekend days at 10 miles correctly totals 120 miles.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-170",
+   "verdict": "accept",
+   "reason": "Calculations for jacket ($75), pants ($50), and total ($150) are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-171",
+   "verdict": "accept",
+   "reason": "Calculation correctly sums 640 spider legs, 540 insect legs, and 30 mutant legs to 1210.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-172",
+   "verdict": "reject",
+   "reason": "Proposed steps misapply relationships (Sally Two is older than Granny Red, not Sally Four; Granny Red is older than Sally Four) leading to 5.5 for Granny Red instead of 16, and no valid final total of 51 is given.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-173",
+   "verdict": "accept",
+   "reason": "1500 monthly (50% over 1000 minimum) times 12 equals 18000 correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-174",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 95 seconds per potato * 60 = 5700 seconds = 95 minutes total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-175",
+   "verdict": "reject",
+   "reason": "Solution assumes 1 gallon sold, falsely claims $10-$5=$25, and never computes that $25 profit requires 5 gallons at $3 lemon cost = $15.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-176",
+   "verdict": "reject",
+   "reason": "Chinese count should be 240-80=160, so girls=100, not 180; solution incorrectly adds then subtracts.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-177",
+   "verdict": "accept",
+   "reason": "Calculations for rent, fuel, half remaining donation, and $900 gifts correctly leave $350.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-178",
+   "verdict": "accept",
+   "reason": "Calculations for Monic (36), Rani (46), and total (122) are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-179",
+   "verdict": "accept",
+   "reason": "Calculations 5*10=50 and 8*10=80 sum to 130 which correctly answers the problem.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-180",
+   "verdict": "accept",
+   "reason": "Winner 3/4 of 80 is 60, so loser correctly calculated as 80-60=20.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-181",
+   "verdict": "accept",
+   "reason": "Correctly calculates white carnations as 200/5=40 and red roses as 4*40=160.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-182",
+   "verdict": "reject",
+   "reason": "Mark was 20 two years ago would make him 22 now and Jean 24 now, and correctly using Jan's age two years ago (28) gives Jean 23; 22 is wrong in either case.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-183",
+   "verdict": "reject",
+   "reason": "Second team gets faster not slower; times should decrease by 3s to 57,54,51, total 222, win margin 2s not 38s.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-184",
+   "verdict": "reject",
+   "reason": "Counts only 2 evens instead of 3, so P(two evens) is 25% not 11.11% and difference is 25% not 38.89%.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-185",
+   "verdict": "accept",
+   "reason": "Total correctly calculated as 20 + 10 = 30 apples.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-186",
+   "verdict": "accept",
+   "reason": "Math correctly isolates rat straw (90), total rats (15), and rats per cage (5).",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-187",
+   "verdict": "reject",
+   "reason": "Final answer $6 is only the interest, not total owed $100+$6=$106.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-188",
+   "verdict": "accept",
+   "reason": "Profit per bag is $30-$20-$2=$8, so $400/$8=50 bags is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-189",
+   "verdict": "reject",
+   "reason": "Rides cost $33 each, so 2 rides = $66 not $33, making correct total $102 and per-person $34, not $23.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-190",
+   "verdict": "accept",
+   "reason": "180 minutes times 2 peaches per minute correctly equals 360.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-191",
+   "verdict": "accept",
+   "reason": "35 pounds per week for 10 ducks divided by 7 days equals 5 pounds per day.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-192",
+   "verdict": "accept",
+   "reason": "130 trees after 10 years net growth, 30% loss leaves 91 correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-193",
+   "verdict": "reject",
+   "reason": "After Saturday only 12 pink remain (18-6), so Sunday pink total is 30 not 36, making difference 24 not 30.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-194",
+   "verdict": "accept",
+   "reason": "Correctly calculates cost $10 and change $20-$10=$10.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-195",
+   "verdict": "accept",
+   "reason": "Calculation is correct: pen is $1.50 and 8 pens cost $12.00.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-196",
+   "verdict": "accept",
+   "reason": "Calculation 40*2=80 and 200-80=120 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-197",
+   "verdict": "accept",
+   "reason": "Calculation 23786 - (8417+9092) = 6277 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-198",
+   "verdict": "accept",
+   "reason": "Calculation 20+60+40+200=320 correctly follows the described collections.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-199",
+   "verdict": "reject",
+   "reason": "Contradicts given rate of 5 cents for Publisher A with derived 3 cents and uses 1000 sentences per publisher instead of 500 each, so total should be 7500 cents.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-200",
+   "verdict": "accept",
+   "reason": "Correctly calculates (5+6)*5 = 55 liters per day.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-201",
+   "verdict": "reject",
+   "reason": "Calculation omits the 5% salary raise, only adds the $5000 bonus.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-202",
+   "verdict": "accept",
+   "reason": "10*5*2=100 correctly computes total barrels per year.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-203",
+   "verdict": "accept",
+   "reason": "Calculations 7*2=14, 3*3=9, plus 8 equals 31 are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-204",
+   "verdict": "accept",
+   "reason": "Calculations correctly sum initial and purchased pens to 98.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-205",
+   "verdict": "reject",
+   "reason": "Average is over 5 tests after dropping lowest, not 6; correct equation (367+x)/5=93 gives 98, not 100, and first-five sum is 438 not 458.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-206",
+   "verdict": "reject",
+   "reason": "Problem says 'at least 5 times' so total is at least 860 km, not exactly 860 km; exact total is unknown.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-207",
+   "verdict": "accept",
+   "reason": "Calculation 25*40=1000 plus 80*20=1600 equals 2600g is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-208",
+   "verdict": "accept",
+   "reason": "Total correctly sums 4 + 12 + 60 = 76.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-209",
+   "verdict": "reject",
+   "reason": "Twenty dozen is 240 cups not 144, half a dozen is 6 plates not 36, and plate total is 6*6000=36000, so per-cup cost is 145, not 50.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-210",
+   "verdict": "accept",
+   "reason": "Total cost $70, has $10+4*5=$30, needs $40 more, so $40/$4=10 mows.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-211",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 4 red (12 eggs) + 6 white (30 eggs) = 42 eggs total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-212",
+   "verdict": "accept",
+   "reason": "Perimeter is correctly 15 miles and 15/3 = 5 hours.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-213",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds Day 2=150, sum 250, then 500-250=250 for Day 3.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-214",
+   "verdict": "reject",
+   "reason": "Correct system is B=4S and B+16=2(S+16), giving S=8, not 3.2; solution misapplies leak loss and ratio.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-215",
+   "verdict": "accept",
+   "reason": "Total $352 divided by $8 correctly gives 44 hours.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-216",
+   "verdict": "accept",
+   "reason": "Calculations for 10% interest, 12-month total, and balance are all correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-217",
+   "verdict": "accept",
+   "reason": "4 roses + (4+7)=11 dahlias = 15 total is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-218",
+   "verdict": "accept",
+   "reason": "Calculations are correct: current ages 21,42,63 sum to 126, plus 9 over 3 years gives 135/3=45.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-219",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 68+44+85=197 and 251-197=54 for Jojo.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-220",
+   "verdict": "accept",
+   "reason": "Correctly calculates 3*10+8*5=70 minutes.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-221",
+   "verdict": "accept",
+   "reason": "Correctly computes 30L remaining plus 60L collected rainwater equals 90L total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-222",
+   "verdict": "accept",
+   "reason": "90-40=50 petunias and 90+50=140 total is correctly calculated.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-223",
+   "verdict": "reject",
+   "reason": "First-year spend is $15000 not $1500, so total should be $15000 + $5000 = $20000, not $2000.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-224",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 3*30=90, 5*18=90, sum 180 matches problem.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-225",
+   "verdict": "accept",
+   "reason": "6 days by bus + 3 days by car = 9 days total is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-226",
+   "verdict": "reject",
+   "reason": "Solution ignores the 14 bought grass cards, using 82 instead of 96 for total, so water probability should be 32/96 \u224833% not 39%.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-227",
+   "verdict": "accept",
+   "reason": "Calculation sums to $14.00 total, $9.00 after $5 gift card, matching proposed answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-228",
+   "verdict": "accept",
+   "reason": "360 pieces at 6 pieces per minute is 60 minutes which is 1 hour.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-229",
+   "verdict": "accept",
+   "reason": "Calculations 30% of 120 is 36, remaining 84, 3/4 of 84 is 63, leaving 21 unready are all correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-230",
+   "verdict": "reject",
+   "reason": "True total is $240k + $24k tax + $12k registration = $276k; solution double-counted tax to get $300k.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-231",
+   "verdict": "accept",
+   "reason": "Math is correct: Kylie Monday is 25 and Tuesday 2*25=50 matches final answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-232",
+   "verdict": "accept",
+   "reason": "25 bugs plus 50 ants correctly totals 75 insects.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-233",
+   "verdict": "accept",
+   "reason": "36-12-12=12 correctly accounts for two thirds leaving.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-234",
+   "verdict": "reject",
+   "reason": "Question asks vines Steve needs: 6*7=42 tomatoes/week requires 14 vines, solution incorrectly adds girlfriend's 21 tomatoes to get 21 vines.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-235",
+   "verdict": "reject",
+   "reason": "Needs 21 people (John + 20 friends) = 84 slices, which requires ceil(84/8)=11 pizzas, not 10.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-236",
+   "verdict": "reject",
+   "reason": "Inverts the exchange rate; 5 empty make 1 full, so 25 pens yields 25+5+1=31 total, not 25*5=125.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-237",
+   "verdict": "accept",
+   "reason": "20+10=30 tripled equals 90, calculation is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-238",
+   "verdict": "accept",
+   "reason": "Ages correctly calculated as 20, 25, 23 with sum 68.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-239",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds 300 via A, 420 via B, leaving 280 via C.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-240",
+   "verdict": "accept",
+   "reason": "Calculations are correct: Robert=27, James=33, difference=21.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-241",
+   "verdict": "accept",
+   "reason": "Each person reads all 3 distinct books, so total reading events are 3+3=6, matching final number.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-242",
+   "verdict": "accept",
+   "reason": "Correctly calculates 3 remaining pals *10 pages each =30 pages =180 minutes =3 hours.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-243",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 15*30=450, plus 300=750, 1000-750=250.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-244",
+   "verdict": "reject",
+   "reason": "Final equation ignores Colby taking 2 fries; correct is 24-5-10+x-2=27 so x=20 not 18.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-245",
+   "verdict": "reject",
+   "reason": "Total fish in both aquariums is 2x, so twice that is 4x; 28=4x gives 7 per aquarium, not 14.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-246",
+   "verdict": "accept",
+   "reason": "Calculation of 120 hours and 10% discount to $27,000 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-247",
+   "verdict": "accept",
+   "reason": "Total $96 divided by 3 equals $32, correct calculation.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-248",
+   "verdict": "accept",
+   "reason": "4*50=200 pounds and 200*1.50 correctly equals 300.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-249",
+   "verdict": "accept",
+   "reason": "Calculations for cookie counts and calorie difference (28*200=5600) are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-250",
+   "verdict": "reject",
+   "reason": "Third class has 30-15-12=3 girls, so with 20 students it has 17 boys, not 27; solution subtracts from total boys 30.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-251",
+   "verdict": "accept",
+   "reason": "Calculation 61-9+18=70 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-252",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 15-3=12 cougars today, 36 wolves today (48), plus 25 last night = 73 total.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-253",
+   "verdict": "accept",
+   "reason": "3*4+6 correctly calculates to 18, matching the described floor.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-254",
+   "verdict": "accept",
+   "reason": "Calculations are correct: Anne = 21, Robert = 4*21 = 84.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-255",
+   "verdict": "reject",
+   "reason": "Problem states new cows go into 'twenty stalls' so 40/20=2 per stall, not 40/10=4, making 24 per stall and 192 for 8 stalls incorrect.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-256",
+   "verdict": "accept",
+   "reason": "Total correctly calculated as $1+$2+$2+$40=$45.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-257",
+   "verdict": "accept",
+   "reason": "20 sections * 400 lbs = 8000 lbs minus 30% (2400) leaves 5600 lbs correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-258",
+   "verdict": "accept",
+   "reason": "Correctly computes 8 * $0.50 = $4.00 plus $2.00 flat fee equals $6.00.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-259",
+   "verdict": "reject",
+   "reason": "Total fruits is 52+44+48+24=168, solution omitted Jamal's 44 apples and summed to 124.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-260",
+   "verdict": "reject",
+   "reason": "66 is total cookies, not cups; at 2 cups per dozen, 66 cookies needs 5.5*2=11 cups.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-261",
+   "verdict": "accept",
+   "reason": "6200 pennies equals $62.00, correct calculation of two-thirds of 9,300.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-262",
+   "verdict": "accept",
+   "reason": "5*50=250 plus 20 equals 270, calculation is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-263",
+   "verdict": "accept",
+   "reason": "Correctly computes Ferdinand=3, Harry=11, and difference 11-3=8.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-264",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 100+125+175=400 total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-265",
+   "verdict": "accept",
+   "reason": "Calculations for 5% brokerage, 12% transfer, and $9500 over budget are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-266",
+   "verdict": "accept",
+   "reason": "Net = 400000 - 3% - 5% - 250000 = 118000, matches proposal.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-267",
+   "verdict": "reject",
+   "reason": "Final number is only the cooking duration (28-5=23), not the total elapsed time from start of warming to end of cooking as asked.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-268",
+   "verdict": "accept",
+   "reason": "50*5=250 and 15*75=1125 sum to 1375 correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-269",
+   "verdict": "accept",
+   "reason": "Calculation 16/2=8 and 8/2=4 correctly computes blue golf balls.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-270",
+   "verdict": "accept",
+   "reason": "Total correctly calculated as 300+312+150=762.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-271",
+   "verdict": "accept",
+   "reason": "Final total 20 is correct: (3*2+4)*2=20, despite saying subtract.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-272",
+   "verdict": "accept",
+   "reason": "Total is $15.00 and $20-$15=$5 change is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-273",
+   "verdict": "reject",
+   "reason": "Remaining 630 stitches must be split between two sleeves, so each is 315 not 630.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-274",
+   "verdict": "accept",
+   "reason": "Calculations 20*40=800 and 80*30=2400 sum to 3200 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-275",
+   "verdict": "reject",
+   "reason": "The calculation omits the 54 lines of the solo song; total should be 54+36+48=138, not 84.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-276",
+   "verdict": "accept",
+   "reason": "Step-by-step subtraction is correct: 80-32=48, 48-24=24, 24-15=9 D cards.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": false
+  },
+  {
+   "id": "test-277",
+   "verdict": "accept",
+   "reason": "Calculation correctly totals 240 minutes = 4 hours.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-278",
+   "verdict": "accept",
+   "reason": "Each person ages 10 years, so total increases by 20: 20+20=40.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-279",
+   "verdict": "accept",
+   "reason": "Calculation is correct; ages 6 and 36 satisfy the 3x condition in 9 years.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-280",
+   "verdict": "accept",
+   "reason": "Total is 20*0.25 + 4*0.50 = 5+2 = 7 dollars, matching final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-281",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds mamba spots (35), total spots (4900), and half (2450).",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-282",
+   "verdict": "reject",
+   "reason": "Total people is 12 members + 24 guests + 3 coaches = 39, not 27; correct cost should be 13*15=195.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-283",
+   "verdict": "accept",
+   "reason": "8 inches of topaz leaves 17 inches; 17 / 0.25 = 68 beads, matching final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-284",
+   "verdict": "reject",
+   "reason": "Solution sums only second-week stories (240) and omits first-week 120; true total for both weeks is 360.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-286",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 145-55=90.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-287",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 76-24-12=40 remaining stars, which equals 8 rows of 5.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-288",
+   "verdict": "accept",
+   "reason": "Calculation 80*75=6000 and 6000/2000=3 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-289",
+   "verdict": "accept",
+   "reason": "Correctly computes slow speed as 30 mph and time as 480/30=16 hours.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-290",
+   "verdict": "accept",
+   "reason": "Math is correct: Ali 22, Izzy 17, total 39, 10x that is 390 medals given out.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-291",
+   "verdict": "reject",
+   "reason": "Total is 40 bars, adults take 24, leaving 16 for 8 children = 2 each, not 20.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-292",
+   "verdict": "reject",
+   "reason": "150 work minutes is 15 intervals, but at $5 per interval the earnings are 15*5=75, not 15.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-293",
+   "verdict": "reject",
+   "reason": "Solution inverts the extra-point rule: Mike (21) and Tony (42) should get +1, Jim (18) should get 0, total is 83 not 84.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-294",
+   "verdict": "accept",
+   "reason": "Calculates ages 8 and 4, total washed 12, leaving 15-12=3 correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-295",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 170 on day 1 plus 200 on day 2 equals 370 total activities.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-296",
+   "verdict": "accept",
+   "reason": "Calculations 0.2*2*5=2 kg/day, 14 kg/week, 42/14=3 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-297",
+   "verdict": "accept",
+   "reason": "Total sales 15+12+18+20=65, so 120-65=55 below target is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-298",
+   "verdict": "reject",
+   "reason": "With 3 other bidders and Carmen bidding 4 times there are 7 bids total (6 increments of $50), so final price is $200 + 6*$50 = $500, not $350.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-299",
+   "verdict": "accept",
+   "reason": "Mileage 60*5*50=15000 at $2 = $30000 plus 12*$150 bonus = $1800 totals $31800 correctly.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-300",
+   "verdict": "accept",
+   "reason": "Correctly computes (16+23)*2 = 78 minutes for Tuesday.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-301",
+   "verdict": "reject",
+   "reason": "One folded sheet contains 4 pages (e.g., 1,2,31,32), so 32 pages need 8 sheets, not 34 one-page sheets.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-302",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 50-25-10=15.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-303",
+   "verdict": "reject",
+   "reason": "Correct second-year sales are 200-2*45-45=65 books worth $1300, not $2000; solution misinterprets totals.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-304",
+   "verdict": "reject",
+   "reason": "$300 bonus is per week, not per month, so 4 weeks should add $1200 not $300.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-305",
+   "verdict": "accept",
+   "reason": "20*0.8=16 wins leaves 20-16=4 losses, so 4 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-306",
+   "verdict": "accept",
+   "reason": "Morning 40 leaves 20, half is 10 for afternoon, so 10 is correct under intended reading.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-307",
+   "verdict": "reject",
+   "reason": "Joey's rate is 2 lb/week, so Sandy needs 4 weeks per 2 lb = 0.5 lb/week, thus 8 lb takes 16 weeks, not 4.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-308",
+   "verdict": "reject",
+   "reason": "Milk discount of $0.5 per packet gives $2 additional saving; correct total saving is (2*2)+(4*0.5)=$6, not $4.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-309",
+   "verdict": "accept",
+   "reason": "15/3=5 arms plus 15/5=3 legs totals 8 new limbs as calculated.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-310",
+   "verdict": "reject",
+   "reason": "Flight cost is 5*100+700=1200 not 1000, so total spent is 1950 and remaining for gifts is 2050 not 2250.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-311",
+   "verdict": "accept",
+   "reason": "Daily total 9+4=13 eggs, weekly total 13*7=91 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-312",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds Jane 27 and Trent 32.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-313",
+   "verdict": "reject",
+   "reason": "Step 1 uses 42 instead of the given 46 for Cera's current age, leading to wrong final population.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-314",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 30+60+15=105 satisfies the ratios.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-315",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 24 invited minus 8 ill minus 2 commitments equals 14 attending.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-316",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 50+20+8=78 marbles weighing 156kg.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-317",
+   "verdict": "accept",
+   "reason": "6*4*5=120 cubic feet, and 120*0.1=12, so cost is $12.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-318",
+   "verdict": "accept",
+   "reason": "Final total 30 + 90 + 3 = 123 correctly computes girls and nongendered children despite wording slip to 'non-white'.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-319",
+   "verdict": "reject",
+   "reason": "Correct ratio is 1:3, so poles should be 45/3=15, not 45/5=9.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-320",
+   "verdict": "accept",
+   "reason": "Calculation of remaining total (30) and women left (30-22=8) is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-321",
+   "verdict": "accept",
+   "reason": "Magazine is $2, pen is $2-$1=$1, so 1 is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-322",
+   "verdict": "accept",
+   "reason": "Total pencils = 26+46=72, each box holds (26-2)/3=8, so 72/8=9 boxes needed, so final number 9 is correct despite flawed division and omitting loose pencils in intermediate sum.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-323",
+   "verdict": "reject",
+   "reason": "Cream adds weakness, not subtracts it; correct total is 60+15=75 mL, not 45.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-324",
+   "verdict": "reject",
+   "reason": "7 new records require 2*7=14 old records, not 17; solution adds extra 7 and assumes each person brings exactly 2.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-325",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 40 juniors at $2000 and 60 seniors at $2400 sum to $224000.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-326",
+   "verdict": "reject",
+   "reason": "Incorrect arithmetic: (x+5)-7+8 = x+6 not x+1, so correct x=14 not 19.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-327",
+   "verdict": "accept",
+   "reason": "Step-by-step arithmetic is correct and final count 31 is accurate.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-328",
+   "verdict": "accept",
+   "reason": "Correctly computes 40% needed * 3 minutes = 120 minutes = 2 hours.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-329",
+   "verdict": "accept",
+   "reason": "Calculation 7+10-3=14 correctly solves the problem.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-330",
+   "verdict": "reject",
+   "reason": "Rewards are earned from last trip's $80, giving $4 off, not $2 from current $43, so correct pay is $31 not $37.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-331",
+   "verdict": "reject",
+   "reason": "Job B net was miscomputed as $42,000 gross; correct net is $42,000-$6,000-$3,600=$32,400, so difference is $8,400 not $18,000.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-332",
+   "verdict": "accept",
+   "reason": "40% of 220 is 88 and half of 88 is 44, matching final answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-333",
+   "verdict": "reject",
+   "reason": "Uses $1,300 instead of $1,350 for Furniture United, so totals $3,400 vs correct $3,450 and difference $50 vs correct $100.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-334",
+   "verdict": "accept",
+   "reason": "Total 8+10+1+5=24 guns divided by 4 people equals 6, which matches the final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-335",
+   "verdict": "accept",
+   "reason": "8*30=240 plus 70 equals 310 ounces, calculation is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-336",
+   "verdict": "accept",
+   "reason": "Final price $9 per share (8*1.5*0.75) times 8 shares equals $72.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-337",
+   "verdict": "accept",
+   "reason": "3-2=1 correctly computes how many more John ate than Luke.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-338",
+   "verdict": "accept",
+   "reason": "Equation x+x+(x-10)=200 correctly yields 70,70,60 totaling 200.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-339",
+   "verdict": "accept",
+   "reason": "20 cows and 40 chickens gives 80+80=160 legs, matching final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-340",
+   "verdict": "reject",
+   "reason": "Counts only 3 weekly additions instead of 4, so total should be 7 balls minus 3 dropped = 4, not 3.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-341",
+   "verdict": "reject",
+   "reason": "Red bird is 20 lbs less than pink frog (30 lbs), not 20 lbs less than yellow snake; correct animal total is 240 + container 20 = 260, not 270.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-342",
+   "verdict": "accept",
+   "reason": "24 + 48 + 15 correctly totals 87.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-343",
+   "verdict": "reject",
+   "reason": "Solution treats '1/5 times more' as only 1/5 of 5000 instead of 5000 plus 1/5 more, giving 1000m/day instead of 6000m/day, so June total is 180000 not 30000.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-344",
+   "verdict": "accept",
+   "reason": "Correctly computes B=9, C=11, difference is 2 dollars.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-345",
+   "verdict": "accept",
+   "reason": "Calculation 40*4+50*3=310 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-346",
+   "verdict": "accept",
+   "reason": "Calculation 36-20-7=9 correctly accounts for son and husband cookies.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-347",
+   "verdict": "reject",
+   "reason": "Solution finds price for one shirt ($18) but problem asks for 2 shirts ($36).",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-348",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds $1000 vs $1100 daily revenue, 10% increase.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-349",
+   "verdict": "accept",
+   "reason": "Calculations are correct: $25*4+$20+$100=$220/month, $220*12=$2640/year.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-350",
+   "verdict": "accept",
+   "reason": "Calculation correctly sums to 8 hours total.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-351",
+   "verdict": "accept",
+   "reason": "Correctly calculated need as 30+60=90 and leftover as 100-90=10.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-352",
+   "verdict": "accept",
+   "reason": "Calculation correctly subtracts $11+$4 spent from $36 to get $21 saved.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-353",
+   "verdict": "reject",
+   "reason": "Final 50 is total vacation time, not sightseeing time; 40% of 50 is 20 hours.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-354",
+   "verdict": "accept",
+   "reason": "Calculation is correct: $80+$200+$75=$355, $400-$355=$45 needed.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-355",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 6, 11, sum 17, double is 34.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-356",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes $28-12-5+10=21.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-357",
+   "verdict": "reject",
+   "reason": "Each person costs $5+$5+$20=$30, so $90 covers only 3 people total (Morgan + 2 friends), not 7 friends.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-358",
+   "verdict": "accept",
+   "reason": "Daily savings $5-$1=$4 for 5 days correctly equals $20.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-359",
+   "verdict": "reject",
+   "reason": "40 gumballs cost $2 which is half the change, so change was $4 and candy cost $6 = 4 pounds, not 2.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-360",
+   "verdict": "accept",
+   "reason": "Equation 2x-5=45 correctly yields x=25, matching problem.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-361",
+   "verdict": "reject",
+   "reason": "Third leg is 75+100-50=125, not 50, so loop is 300 miles, 900 miles/day, 18000/900=20 days; solution also divides inverted.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-362",
+   "verdict": "accept",
+   "reason": "Calculations for collie average (5 lbs), 4 chihuahua beds (8 lbs), and 3 collie beds (15 lbs) sum correctly to 23.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-363",
+   "verdict": "reject",
+   "reason": "True total is (210/70)+(240/80)=6 hours, the 5.99 comes from rounding 200/70 and 10/70 early.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-364",
+   "verdict": "accept",
+   "reason": "Correctly computes 96-43=53 total boys and 53-4=49 present on Friday.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-365",
+   "verdict": "accept",
+   "reason": "Correctly calculated 2*6=12 boys and 6+12=18 total kids.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-366",
+   "verdict": "accept",
+   "reason": "Calculation 15+18=33 and 42-33=9 correctly gives minimum needed points.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-367",
+   "verdict": "accept",
+   "reason": "Calculations 4*3-5=7, 3*7=21, 50-(3+7+21)=19 are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-368",
+   "verdict": "accept",
+   "reason": "Correctly computes Erin's current total as 3*8=24 and subtracts 14 to get 10 before.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-369",
+   "verdict": "accept",
+   "reason": "Calculations for frames, etching, pins, and cords are correct and sum to 1198.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-370",
+   "verdict": "accept",
+   "reason": "20% saving on $400 correctly yields $320 total cost.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-371",
+   "verdict": "reject",
+   "reason": "Net is 50 pairs, but question asks for individual tennis shoes, so total is 100 shoes, not 50.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-372",
+   "verdict": "accept",
+   "reason": "Saturday is correctly calculated as 2 hours, total 1+2+2=5 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-373",
+   "verdict": "reject",
+   "reason": "Problem states $400000 total, so functioning value is $240000, not $2400; solution incorrectly uses $4000.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-374",
+   "verdict": "accept",
+   "reason": "Calculation 15*1 + 15*2 = 45 kg correctly computes daily total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-375",
+   "verdict": "accept",
+   "reason": "Final answer 48 is correct: 12-6=6 rolls remain, 6*8=48 pieces for chickens.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-376",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds 20 blue, 5 green, leaving 15 yellow.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-377",
+   "verdict": "accept",
+   "reason": "Correctly calculates Monday as 56/4=14 and total 14+12+24=50.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-378",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 10 pairs = 20 socks, 20+15=35 washed, 50-35=15 missed.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-379",
+   "verdict": "accept",
+   "reason": "Calculation 23+42-44=21 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-380",
+   "verdict": "reject",
+   "reason": "Solution uses $3,350 principal instead of stated $3,650, so $1,005 does not solve the given problem.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-381",
+   "verdict": "accept",
+   "reason": "Calculations 14*8=112, 9*5=45, difference 67 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-382",
+   "verdict": "reject",
+   "reason": "Correct total is 350 (130+220), not 270; solution double-counts Axel's silver for Anna and omits Axel's own pesos.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-383",
+   "verdict": "reject",
+   "reason": "Total profit is $36-$18=$18 over 36/4=9 hours, so profit per hour is $2, not $4.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-384",
+   "verdict": "accept",
+   "reason": "12.8 hectares is 2/5 of original, so original = 12.8*5/2 = 32 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-385",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 26 girls -> 13 remain after half drop out -> 13+3 teachers = 16.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-386",
+   "verdict": "accept",
+   "reason": "Sum 400 divided by 5 is correctly 80.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-387",
+   "verdict": "accept",
+   "reason": "6*2+8*3=12+24=36 matches final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-388",
+   "verdict": "accept",
+   "reason": "66 plus 1/3 of 66 (22) correctly totals 88.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-389",
+   "verdict": "reject",
+   "reason": "Each ride needs 2 tickets, so 9 rides need 18 tickets costing $36, not $18; saving is $6 not $12.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-390",
+   "verdict": "accept",
+   "reason": "144 total inches divided by 12 total gifts equals 12 inches per bow, matching the proposed answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-391",
+   "verdict": "reject",
+   "reason": "Correct ratio is 5:6 giving 75 and 90, difference 15, not 0; solution incorrectly uses 5:5 and rounding.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-392",
+   "verdict": "reject",
+   "reason": "Discount applies only to Hulu+Disney bundle ($20), not Netflix; correct streaming cost is $10 + $16 = $26, saving $34 not $36.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-393",
+   "verdict": "accept",
+   "reason": "Total time 450 minutes and editing 90 minutes is correctly calculated as 20%.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-394",
+   "verdict": "reject",
+   "reason": "Shelving capacity is 36, so 20 more than double is 2*36+20=92, not 36; solution incorrectly sets 2x+20=36.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-395",
+   "verdict": "accept",
+   "reason": "Math is correct: 20+30-24-5+17=38.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-396",
+   "verdict": "accept",
+   "reason": "12-4-3-2=3 is correctly computed.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-397",
+   "verdict": "accept",
+   "reason": "Calculation 300-50=250 and 250/10=25 correctly solves the problem.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-398",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 30 millipedes, 48 stink bugs, total 168.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-399",
+   "verdict": "accept",
+   "reason": "Difference is 7+5=12, matching calculated Alice 42 minus Erica 30.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-400",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 2*8*3=48 calories.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-401",
+   "verdict": "accept",
+   "reason": "Calculation correctly follows the problem's given 4 weeks/month, 6 days/week, 12 months/year, and $50/day to get 288*50=14400.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-402",
+   "verdict": "accept",
+   "reason": "Calculations for flour (12 cups/6 bags) and milk (4 cups/2 bottles) and difference (4) are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-403",
+   "verdict": "reject",
+   "reason": "Correct savings is 0.9kW*5h*30=135 kWh, not 1080; solution multiplied 7.2kWh by 5 and then again by 30.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-404",
+   "verdict": "reject",
+   "reason": "There are 4 zebras, not 3, so average is 88/4=22 not 88/3=29.33.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-405",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds 5 sandwiches needing 5 lbs each, costing $35+$15=$50.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-406",
+   "verdict": "reject",
+   "reason": "Initial corn should be twice initial cannolis (80), not twice final cannolis (200), so total is not 360.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-407",
+   "verdict": "accept",
+   "reason": "Calculation 10000-5000-1000-2000=2000 is correct for jog steps.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-408",
+   "verdict": "accept",
+   "reason": "Calculation 9000 words / 300 wpm = 30 min reading + 10 min travel = 40 min total, 20 min early vs 60 min deadline is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-409",
+   "verdict": "reject",
+   "reason": "Solution computes pay for only one 40-hour week per month, not the full ~4 weeks in May and June, so $42,000 is only one week's pay per month.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-410",
+   "verdict": "reject",
+   "reason": "Taffy costs $3 + $1.50 = $4.50, not $3, so total spent is $7 and remaining is $3, not $4.50.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-411",
+   "verdict": "accept",
+   "reason": "Calculations are correct: (400+800)*0.8+150 = 1110 as shown.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-412",
+   "verdict": "accept",
+   "reason": "Correctly calculates 2*30=60 cookies and 60/12=5 dozens.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-413",
+   "verdict": "reject",
+   "reason": "Exploding rate is 1% from 99% guarantee, not 5%; correct count is 5% of 500 = 25, not 125.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-414",
+   "verdict": "accept",
+   "reason": "4 blouses at $14 each (30% off $20) correctly totals $56.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-415",
+   "verdict": "accept",
+   "reason": "Calculation correctly sums 30+15+60+45=150 and subtracts from 500 to get 350.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-416",
+   "verdict": "reject",
+   "reason": "Correct system is c+d=180 and 2c+d=304 giving d=56, not 180; solution invents 404 bumps and double-counts heads.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-417",
+   "verdict": "reject",
+   "reason": "Addition error: 800+240+2100 is 3140, not 3040.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-418",
+   "verdict": "accept",
+   "reason": "Calculations correctly apply fractional relationships to get 40.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-419",
+   "verdict": "accept",
+   "reason": "Oliver must climb from 3000 ft to 6000 ft, a difference of 3000 ft.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-420",
+   "verdict": "accept",
+   "reason": "Total 4000+8000=12000 plus initial 5000 equals 17000 correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-421",
+   "verdict": "accept",
+   "reason": "Calculations 50-20=30 and 30-18=12 are correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-422",
+   "verdict": "reject",
+   "reason": "2 years is 24 months total: 6*8=48 plus 8*12=96 plus 10*14=140 = 284, not 301.33; solution double-counts months and divides by 12.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-423",
+   "verdict": "reject",
+   "reason": "Original prices should be sale plus its own savings ($22+$2=$24 and $28+$4=$32), so jogger original is $8 less, not $4 more; step 5 adds wrong savings to wrong jeans.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-424",
+   "verdict": "accept",
+   "reason": "Calculations 240+180+150=570 are correct and sum matches total capacity.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-425",
+   "verdict": "accept",
+   "reason": "Calculation correctly uses 3*20 for store-bought and 3*(20+10) for homemade, summing to 150.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-426",
+   "verdict": "accept",
+   "reason": "Calculations are correct: bagel $4, soup $5, cake $2, total $11.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-427",
+   "verdict": "reject",
+   "reason": "Needs $100 ticket plus $50 cash = $150 total, requiring 100 cards sold; 100 is 2/3 of starting collection, so start =150 not 50.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-428",
+   "verdict": "reject",
+   "reason": "Solution is truncated with no final #### answer and miscalculates total hot dogs prepared as 36 instead of 54, leading to incorrect logic; correct shortage is 26 guests without a second.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-429",
+   "verdict": "accept",
+   "reason": "Sister has 3+4=7 letters, total 6+7=13 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-430",
+   "verdict": "accept",
+   "reason": "Total $165 before discount, 20% off = $132 final cost matches calculation.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-431",
+   "verdict": "accept",
+   "reason": "Calculations are correct: total cost $19, money on hand $18, need $1 more.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-432",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 100*3/4=75, *2=150, /5=30.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-433",
+   "verdict": "accept",
+   "reason": "Math is correct: 15/5=3 gallons per container, 1/4 of that is 3/4 gallon = 6 pints.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-434",
+   "verdict": "accept",
+   "reason": "Final answer 5 is correct for intended interpretation ($5 initial, $0.05 left, $3.75 for candy = 5 bars) despite rounding error in reasoning.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-435",
+   "verdict": "accept",
+   "reason": "25-5=20 shared, 20/4=5 per friend is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-436",
+   "verdict": "reject",
+   "reason": "Piece weight is 20/8=2.5 oz, not 8 oz, so 2 pieces is 5 oz and remaining is 15 oz, not 4.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-437",
+   "verdict": "reject",
+   "reason": "Total people is 2 + 6 = 8, not 7, so correct share is 56/8=7, not 8.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-438",
+   "verdict": "accept",
+   "reason": "Calculation correctly doubles onions to 4 lbs ($8) + stock $4 = $12 total, $2 per serving.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-439",
+   "verdict": "reject",
+   "reason": "Bernadette's drive is 16 min vs Wayne's 4 min, so to arrive 5 min before Wayne she must leave 12+5=17 min earlier, not 16-5=11.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-440",
+   "verdict": "accept",
+   "reason": "Conversion 3 yards=9 ft is correct, width 360/9=40 ft, perimeter 2*(9+40)=98 ft matches final answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-441",
+   "verdict": "accept",
+   "reason": "Calculations are correct: Elizabeth 60 beads, Margareth 140 beads, difference 80.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-442",
+   "verdict": "accept",
+   "reason": "Calculation correctly applies +15 degrees from oven and -6 degrees from window to reach 49.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-443",
+   "verdict": "reject",
+   "reason": "James being 10% faster means 36 min swim not 44, final run should be 59 min not 60 and #### is empty.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-444",
+   "verdict": "accept",
+   "reason": "1.25 hours is 75 minutes, B is 80 minutes, A is 20 minutes correctly calculated.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-445",
+   "verdict": "reject",
+   "reason": "Horse eats 1/2 bail per mile so cost is $1.5 per mile, not $3; 16 miles costs $24, leaving $6 change from $30, not $18.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-446",
+   "verdict": "accept",
+   "reason": "50 total eggs yields 10 glasses, which equals 2 trays of 5.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-447",
+   "verdict": "reject",
+   "reason": "Joey has 214+26=240, Marcy has 235, difference is 5 not 15; solution used 224 instead of 214.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-448",
+   "verdict": "accept",
+   "reason": "Calculations for revenue (340+775=1115) and profit (1115-576=539) are correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-449",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 6*8 + 4*16 = 48+64 = 112.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-450",
+   "verdict": "reject",
+   "reason": "Super ticket total is $21 ($20+$1), so regular total is $19 after $2 saving; with $12 ticket and $3 soda, popcorn must be $4, not $8.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-451",
+   "verdict": "accept",
+   "reason": "Calculation is correct: $900/20=$45, plus $20=$65, times 170=$11050.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-452",
+   "verdict": "accept",
+   "reason": "Average speed is total distance 150 miles divided by total time 3 hours = 50 mph, matching proposed solution.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-453",
+   "verdict": "accept",
+   "reason": "Final total correctly calculated as 5*800 + 2*1200 = 6400 after the trade.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-454",
+   "verdict": "accept",
+   "reason": "2 people * 4 apples * 30 days = 240 correctly computed.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-455",
+   "verdict": "accept",
+   "reason": "Volume 32 cu ft per bed x10=320, /2=160 bags x$12=$1920 is correct.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-456",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 15 red, 24 green, 39 yellow totals 78.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-457",
+   "verdict": "accept",
+   "reason": "Correctly computes 50+25-30=45 remaining fairies.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-458",
+   "verdict": "accept",
+   "reason": "Calculation 7 spotted out of 20 total equals 35% is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-459",
+   "verdict": "accept",
+   "reason": "Total weight is actually 4500 pounds, not 4400, but 4500/2250=2 exactly so the final answer 2 trips is still correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-460",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 3*2+5*3=21 cents per week, 21*4=84 cents.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-461",
+   "verdict": "accept",
+   "reason": "Calculation correctly finds Toni=16 and Shondra=9.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-462",
+   "verdict": "accept",
+   "reason": "21 plus half of 100 (50) correctly equals 71.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-463",
+   "verdict": "accept",
+   "reason": "1/5 of $15 is $3, total $15+$3=$18 matches final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-464",
+   "verdict": "accept",
+   "reason": "Arithmetic is correct: 1+5-2+3-1 = 6, matching final answer.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-465",
+   "verdict": "accept",
+   "reason": "Calculations 6*25+5*40=350, minus 50 =300, divided by 10 =30 is correct despite minor label typo.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-466",
+   "verdict": "accept",
+   "reason": "Calculations are correct: Becky $8 vs Kelly $9, difference $1.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-467",
+   "verdict": "reject",
+   "reason": "Problem states 1 comforter per room, solution used 2, inflating total from 1200 to 1280.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-468",
+   "verdict": "accept",
+   "reason": "Solution correctly converts pairs to individual shoes and computes 200+10+30+60-180=120.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-469",
+   "verdict": "accept",
+   "reason": "Calculation 6*8=48 total cupcakes divided by 12 per pan equals 4 pans is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-470",
+   "verdict": "accept",
+   "reason": "Calculations are correct: paper $5, total $7, change $3.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-471",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 300 total, 240 after 1/5 used, and 80 as 1/3 of remainder.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-472",
+   "verdict": "accept",
+   "reason": "Equation (x/2)+2=5 is correctly set up and solves to x=6.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-473",
+   "verdict": "accept",
+   "reason": "Calculation is correct: 12 inches = 1 foot is 10% of 10 feet.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-474",
+   "verdict": "accept",
+   "reason": "20 equals one-fourth of total, so total is 20*4=80.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-475",
+   "verdict": "reject",
+   "reason": "It miscalculates available walking days as 36.75 instead of 3*4=12, leading to wrong daily minutes instead of 240/12=20.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-476",
+   "verdict": "accept",
+   "reason": "Correctly computes total books 300/15=20 and per-child share 20/4=5.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-477",
+   "verdict": "accept",
+   "reason": "Correctly applies inclusion-exclusion: 9+6-3=12 allergic, 32-12=20 non-allergic.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-478",
+   "verdict": "reject",
+   "reason": "Total should be employees plus guides (600+21=621), not 600*7.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-479",
+   "verdict": "reject",
+   "reason": "Total incorrectly sums $10,000 + $5,400 as $16,400 instead of $15,400.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-480",
+   "verdict": "accept",
+   "reason": "Calculations are correct: 2 blue + 9 yellow = 11 total.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-481",
+   "verdict": "accept",
+   "reason": "48*3/4=36 and 36+48=84 is calculated correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-482",
+   "verdict": "accept",
+   "reason": "83+91=174 and 200-174=26 is correctly calculated.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-483",
+   "verdict": "reject",
+   "reason": "Luri has 3*20=60 songs, so can add 100-60=40, not 300; correct difference is 40, not 220.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-484",
+   "verdict": "accept",
+   "reason": "2/5 of 60 is 24 oranges, and 24 * $10 correctly equals $240.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-485",
+   "verdict": "accept",
+   "reason": "3*80-20=220 matches problem statement.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-486",
+   "verdict": "accept",
+   "reason": "Calculation 12*5=60 miles and 60/10=6 hours is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-487",
+   "verdict": "accept",
+   "reason": "Calculation 4*5*2*5/50=4 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-488",
+   "verdict": "accept",
+   "reason": "Calculation 2/3*27=18 and 1/3*18=6 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-489",
+   "verdict": "reject",
+   "reason": "Solution dropped negative signs on -48 and -3, using 48 and 3, so average should be -10 not 24.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-490",
+   "verdict": "accept",
+   "reason": "Correctly calculates $8 remaining and $8/$2 = 4 days.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-491",
+   "verdict": "accept",
+   "reason": "Correctly computes leftover eggs as 64 minus 48 equals 16.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-492",
+   "verdict": "accept",
+   "reason": "Family pizza is $8*3=$24, so total $8+$24=$32 matches final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-493",
+   "verdict": "reject",
+   "reason": "Solution ignores the $2.00 coupon, so true final cost is $2 for 8 razors = 25 cents each, not 50.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-494",
+   "verdict": "reject",
+   "reason": "Pyramid height is 4 levels tall (64+64+64+60=252in=21ft), not the sum of all 10 girls' heights.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-495",
+   "verdict": "accept",
+   "reason": "8*5=40 minutes per day, 40*5=200 minutes total matches calculation.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-496",
+   "verdict": "reject",
+   "reason": "Brett is 14 not 13, so Angela in 4 years will be 42 and now is 38, not 35.",
+   "latent_correct": false,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-497",
+   "verdict": "reject",
+   "reason": "Correct total is 14 days * ($6+$2)=$112, but solution incorrectly doubles days to 28 and gets $224.",
+   "latent_correct": false,
+   "text_correct": false,
+   "final_correct": false
+  },
+  {
+   "id": "test-498",
+   "verdict": "accept",
+   "reason": "Calculation correctly computes 50 oranges for Ashley, 70 for Brianne, 120 total, yielding 40 pies.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-499",
+   "verdict": "accept",
+   "reason": "Equation 200+5x=25x correctly yields x=10, matching final answer.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-500",
+   "verdict": "accept",
+   "reason": "David=9, Bodhi=18, Lily=16 sums to 43 and satisfies all conditions.",
+   "latent_correct": true,
+   "text_correct": false,
+   "final_correct": true
+  },
+  {
+   "id": "test-501",
+   "verdict": "accept",
+   "reason": "Total is 3/4 of a skein, and 3/4 * 364 = 273 yards correctly.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  },
+  {
+   "id": "test-502",
+   "verdict": "accept",
+   "reason": "Calculations 2*5=10, 3*2=6, plus 10 equals 26 is correct.",
+   "latent_correct": true,
+   "text_correct": true,
+   "final_correct": true
+  }
+ ]
+}

@@ -179,6 +179,25 @@ Paired McNemar test (exact, two-sided) against the text message, same 500 proble
   not generating a message (2.73 s → 0.06 s), plus a slightly shorter prefill.
 - The raw context still leads (77.6%): at full length the bridge loses some information relative to the source.
 
+### Muse Spark verify step
+
+In the full pipeline, after the 3B answers from the latent message, Muse Spark checks the worked answer against
+the original problem. If it rejects the answer, the pipeline retries once over the text channel. Measured on the
+500 problems above (`verify_eval.py`; decoding is greedy, so the retry's answer is the recorded text answer):
+
+| Metric | Value |
+|---|---|
+| Trigger rate (reject → text retry) | 30.2% (151 / 500) |
+| Rejects where the latent answer was in fact wrong | 95.4% (7 false rejects) |
+| Latent errors caught | 97.3% (4 wrong answers accepted) |
+| Accuracy, latent alone → with verify + retry | 70.4% → **78.0%** |
+| Retries that fixed / broke an answer | 42 / 4 |
+| Cost per check | ≈590 tokens, ≈2 s |
+
+Caveat: Muse Spark is a far larger model that can solve GSM8K itself, so it is a strong checker. The 78% is
+a property of the whole system (small local models doing the work, Muse Spark auditing), not of the bridge.
+The retry is the weak link: in most caught cases the text channel is wrong as well.
+
 Training: 3 epochs × 1,450 problems, 95 min on the laptop, peak 3.85 GB VRAM.
 ![training loss](results/fig_training_loss.png)
 
