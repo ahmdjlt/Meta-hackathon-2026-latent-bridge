@@ -85,10 +85,14 @@ def main():
     ap.add_argument("--n_test", type=int, default=100)
     ap.add_argument("--batch", type=int, default=16)
     ap.add_argument("--max_new_tokens", type=int, default=96)
+    ap.add_argument("--only_test", action="store_true", help="rebuild the test split only (train untouched)")
     args = ap.parse_args()
 
     model, tok = load_model(SENDER_ID)
+    # rows are taken in dataset order, so a larger --n_test keeps the first problems identical
     build("test", make_rows("test", args.n_test), model, tok, args)
+    if args.only_test:
+        return
     build("train", make_rows("train", args.n_train), model, tok, args)
     print("example message:\n", json.loads((DATA / "pairs.json").read_text(encoding="utf-8"))[0]["msg"])
 

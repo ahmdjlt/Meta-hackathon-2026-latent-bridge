@@ -1,0 +1,13 @@
+[
+ {
+  "ckpt": "bridge_ridge_only_L8.pt",
+  "arch": "token",
+  "stride": 1,
+  "k": 0,
+  "layer": 8,
+  "src": "ctx",
+  "accuracy": 0.57,
+  "mean_vectors_sent": 39.97,
+  "val_shuffle_gap": null
+ }
+]

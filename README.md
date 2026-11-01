@@ -133,12 +133,15 @@ One epoch each (the main bridge has three), same 100 test problems, cached reade
 |---|---|---|---|---|
 | Token bridge, stride 1 | 8 | 40 | **69%** | 0.77 |
 | Token bridge, stride 1 | 16 (last) | 40 | 63% | 0.71 |
+| Ridge matrix only, **no training** | 8 | 40 | 57% | — |
 | Token bridge, stride 2 | 8 | 20 | 60% | 0.65 |
 | Token bridge, stride 4 | 8 | 10 | 21% | 0.40 |
 | Perceiver, K=16 (original plan) | 16 | 16 | 4% | ≈0 |
 | *Text message (for reference)* | — | *60 tokens* | *59%* | — |
 | *No message (for reference)* | — | *0* | *2%* | — |
 
+- **Most of the channel is one matrix.** The closed-form ridge map alone (no gradient training) reaches
+  57%, close to the text message (59%); training adds 11 points (68%).
 - **Middle layer beats last layer** (69% vs 63%): mid-depth states keep the facts in a form that transfers
   better; the last layer is already specialized for predicting the 1B's own next token.
 - **Compression:** halving the message (stride 2, 20 vectors) still matches the 60-token text message after one
