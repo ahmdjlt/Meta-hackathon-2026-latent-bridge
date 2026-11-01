@@ -12,11 +12,11 @@ README.md has the full write-up and results.
 - `pipeline.py` (Muse Spark orchestrator) and `app.py` (Gradio, http://127.0.0.1:7860) tested end to end.
 - Perceiver collapse diagnosed and documented in README ("What did not work").
 
-## In progress
+## Also done
 - DONE: stride-2 bridge `checkpoints/bridge_main_token_s2.pt`: 60% with 20 vectors (text: 59% with 60 tokens), 11.0 s per question.
 
 ## Remaining
-1. Add the stride-2 result to the README; optionally a demo toggle for it (`BRIDGE_CKPT` env var).
+1. Optional: show the stride-2 bridge in the demo with `set BRIDGE_CKPT=checkpointsbridge_main_token_s2.pt` before `python app.py`.
 2. User creates the GitHub repo -> push (checkpoints and data are git-ignored; note how to rebuild).
 3. Record the 3-minute demo video on Nov 4 (`python app.py`), submit via Cerebral Valley.
 4. Ask on the hackathon Discord whether Llama 3.2 counts as a Meta model (Muse Spark is used either way).
