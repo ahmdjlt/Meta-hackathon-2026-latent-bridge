@@ -1,0 +1,69 @@
+{
+ "tag": "main_token_s2",
+ "args": {
+  "arch": "token",
+  "stride": 2,
+  "align_w": 0.2,
+  "no_ridge": false,
+  "lin_lr_mult": 1.0,
+  "vram_gb": 3.9,
+  "k": 16,
+  "layer": 8,
+  "src": "ctx",
+  "teacher": "context",
+  "kl_w": 1.0,
+  "ce_w": 0.5,
+  "recon_w": 1.0,
+  "no_skip_template": false,
+  "no_pos": false,
+  "no_ckpt": false,
+  "epochs": 3,
+  "accum": 8,
+  "lr": 2e-05,
+  "temp": 2.0,
+  "n_val": 50,
+  "val_gen": 20,
+  "d": 1024,
+  "depth": 2,
+  "limit": 0,
+  "tag": "main_token_s2",
+  "seed": 0
+ },
+ "history": [
+  {
+   "val_kl": 0.34491962373256685,
+   "val_ce": 0.9364501911401749,
+   "val_recon": 0.3275430431216955,
+   "val_align": 0.7068398940563202,
+   "val_loss": 1.2820557427406312,
+   "val_ce_shuffled": 1.561584404706955,
+   "val_shuffle_gap": 0.62513421356678,
+   "val_gen_acc": 0.35,
+   "epoch": 0
+  },
+  {
+   "val_kl": 0.26659573167562484,
+   "val_ce": 0.8525506591796875,
+   "val_recon": 0.18420299593359232,
+   "val_align": 0.6908725738525391,
+   "val_loss": 1.0152485799789428,
+   "val_ce_shuffled": 1.5315433740615845,
+   "val_shuffle_gap": 0.6789927148818969,
+   "val_gen_acc": 0.65,
+   "epoch": 1
+  },
+  {
+   "val_kl": 0.24967917680740356,
+   "val_ce": 0.8158080247044563,
+   "val_recon": 0.16340039758011699,
+   "val_align": 0.6764728498458862,
+   "val_loss": 0.9562781536579132,
+   "val_ce_shuffled": 1.5201657462120055,
+   "val_shuffle_gap": 0.7043577215075492,
+   "val_gen_acc": 0.55,
+   "epoch": 2
+  }
+ ],
+ "train_seconds": 5441,
+ "peak_vram_mb": 3840
+}

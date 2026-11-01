@@ -102,6 +102,7 @@ greedy decoding, every stage timed). Bridge: `checkpoints/bridge_main_token.pt` 
 | No message | 2% | nothing | — | 8.27 s | 8.27 s | 43 |
 | Text message (1B writes, 3B reads) | 59% | 60 tokens | 2.72 s | 10.97 s | 13.70 s | 114 |
 | **Latent message (ours)** | **68%** | **40 vectors** | **0.06 s** | 9.83 s | **9.89 s** | 94 |
+| Latent, compressed (stride 2) | 60% | 20 vectors | 0.06 s | 10.91 s | 10.98 s | 75 |
 | Raw context text (reference) | 73% | 40 tokens | — | 10.89 s | 10.89 s | 95 |
 
 ![accuracy](results/fig_accuracy.png) ![latency](results/fig_latency.png)
@@ -113,6 +114,9 @@ greedy decoding, every stage timed). Bridge: `checkpoints/bridge_main_token.pt` 
   (**47×**) because it runs one forward pass and never decodes. The solver also reads a shorter input.
 - **The message really is the information.** No message: 2%. Another problem's latents in place of the right
   ones raise the solution loss from 0.74 to 1.52 nats/token (validation shuffle gap 0.77).
+- **Compression dial.** The stride-2 bridge (`bridge_main_token_s2.pt`, two positions per vector) sends
+  20 vectors and matches the 60-token text message (60% vs 59%) while still being 20% faster. Training it for
+  3 epochs instead of 1 did not move the score, so the 8-point drop from stride 1 is the cost of compression.
 - **Honest trade-off: bytes.** One latent message is 40 × 3072 fp16 values ≈ 245 KB, versus ≈ 240 bytes of
   text. The win is compute and latency inside one machine (or one GPU cluster), not network bandwidth.
 - n = 100, so ±~9 points at 95% confidence on each accuracy: the latent-vs-text gain is suggestive, the latency
