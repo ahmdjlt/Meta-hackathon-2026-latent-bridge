@@ -28,16 +28,17 @@ PREDS = RESULTS / "size_curve_preds.jsonl"
 def budget_prompt(context, n):
     words = max(5, round(n * 0.75))
     return (USER_HDR + f"Rewrite the facts in the text below as short notes for a teammate, in at most {n} tokens "
-            f"(about {words} words). Keep every number exactly as written. Do not calculate anything."
-            f"\n\nText: " + context + ASSIST_HDR)
+            f"(about {words} words). Keep every number exactly as written. Do not calculate anything. "
+            f"Output only the notes, with no introduction.\n\nText: " + context + ASSIST_HDR + "-")
 
 
 @torch.no_grad()
 def budget_message(model, tok, context, n):
     enc = tok(budget_prompt(context, n), return_tensors="pt", add_special_tokens=False).to(DEVICE)
-    out = model.generate(**enc, max_new_tokens=n, do_sample=False, temperature=None, top_p=None,
+    # the reply is seeded with "-" (counts toward the budget) so no tokens go to a preamble
+    out = model.generate(**enc, max_new_tokens=n - 1, do_sample=False, temperature=None, top_p=None,
                          pad_token_id=tok.pad_token_id)
-    return tok.decode(out[0, enc.input_ids.shape[1]:], skip_special_tokens=True).strip()
+    return "-" + tok.decode(out[0, enc.input_ids.shape[1]:], skip_special_tokens=True).rstrip()
 
 
 def load_done():
@@ -132,7 +133,7 @@ def main():
 
     rec = Receiver(*load_model(RECEIVER_ID))
     hid = torch.load(DATA / "hidden_test.pt", weights_only=False, mmap=True)
-    for spec in args.strides.split(","):
+    for spec in filter(None, args.strides.split(",")):
         s, ck = spec.split(":")
         cond = f"latent_s{s}"
         if not (CKPT / ck).exists():
