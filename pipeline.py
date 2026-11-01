@@ -78,6 +78,36 @@ class Orchestrator:
                 plan["error"] = err
         return {**plan, "cached": False}
 
+    def verify(self, task, solution):
+        """Muse Spark checks the solver's worked answer against the full problem.
+        Returns {"verdict": "accept"|"reject"|"unavailable", "reason": str, "cached": bool}."""
+        h = "v-" + hashlib.sha256((MUSE_MODEL + task + "\n##\n" + solution).encode()).hexdigest()[:16]
+        if h in self.cache:
+            return {**self.cache[h], "cached": True}
+        if not self.client or self.calls >= self.max_calls:
+            return {"verdict": "unavailable", "reason": "no API key or call cap reached", "cached": False}
+        try:
+            self.calls += 1
+            t0 = time.perf_counter()
+            resp = self.client.chat.completions.create(
+                model=MUSE_MODEL, reasoning_effort="low",
+                messages=[{"role": "developer", "content": VERIFY_INSTR},
+                          {"role": "user", "content": f"Problem:\n{task}\n\nProposed solution:\n{solution}"}])
+            v = json.loads(re.search(r"\{.*\}", resp.choices[0].message.content, re.S).group(0))
+            assert v.get("verdict") in ("accept", "reject")
+            v.update(verify_s=round(time.perf_counter() - t0, 2),
+                     usage=resp.usage.model_dump() if resp.usage else None)
+            self.cache[h] = v
+            CACHE.write_text(json.dumps(self.cache, indent=1), encoding="utf-8")
+            return {**v, "cached": False}
+        except Exception as e:
+            return {"verdict": "unavailable", "reason": f"{type(e).__name__}: {e}", "cached": False}
+
+
+VERIFY_INSTR = """You check answers produced by a small model. Given a word problem and a proposed worked
+solution ending in '#### <number>', decide whether the final number correctly answers the problem.
+Return ONLY JSON: {"verdict": "accept" or "reject", "reason": "<one short sentence>"}"""
+
 
 class Pipeline:
     def __init__(self, ckpt=CKPT / "bridge_main_token.pt", sender=None, receiver=None):
@@ -91,7 +121,7 @@ class Pipeline:
             torch.cuda.synchronize()
         return time.perf_counter()
 
-    def run(self, task, modes=("text", "latent")):
+    def run(self, task, modes=("text", "latent"), verify=True):
         plan = self.orch.plan(task)
         facts, q = plan["facts"], plan["question"]
         out = {"plan": plan}
@@ -117,6 +147,17 @@ class Pipeline:
                              "bytes_sent": lat.shape[1] * lat.shape[2] * 2, "answer_raw": ans,
                              "answer": extract_number(ans), "reader_s": t1 - t0, "solver_s": t2 - t1,
                              "total_s": t2 - t0}
+            if verify:
+                v = self.orch.verify(task, ans)
+                out["latent"]["verify"] = v
+                if v["verdict"] == "reject":  # retry once over the text channel
+                    if "text" not in out:
+                        out.update(self.run(task, modes=("text",), verify=False))
+                    out["latent"]["final_answer"] = out["text"]["answer"]
+                    out["latent"]["fallback"] = "text"
+                else:
+                    out["latent"]["final_answer"] = out["latent"]["answer"]
+                    out["latent"]["fallback"] = None
         return out
 
 

@@ -68,5 +68,53 @@
     "text_tokens": null
    }
   }
+ },
+ "v-02c251d0dec64de8": {
+  "verdict": "accept",
+  "reason": "Correct calculation: 6 cans/day * 7 days * $1.50 = $63.",
+  "verify_s": 2.46,
+  "usage": {
+   "completion_tokens": 251,
+   "prompt_tokens": 154,
+   "total_tokens": 405,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 210,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-09602754cc9342d3": {
+  "verdict": "reject",
+  "reason": "Solution calculates daily cost ($9) but fails to multiply by 7 days for weekly total ($63).",
+  "verify_s": 1.72,
+  "usage": {
+   "completion_tokens": 236,
+   "prompt_tokens": 140,
+   "total_tokens": 376,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 194,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
  }
 }

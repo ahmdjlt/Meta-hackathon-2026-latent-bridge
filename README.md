@@ -107,20 +107,34 @@ greedy decoding, every stage timed). Bridge: `checkpoints/bridge_main_token.pt` 
 
 ![accuracy](results/fig_accuracy.png) ![latency](results/fig_latency.png)
 
-- **More accurate than text: +9 points** (68% vs 59%). The 1B's written summaries sometimes drop or garble a
-  fact or add a wrong calculation; its hidden states do not have that bottleneck. The latent message
-  recovers most of the gap to the 3B reading the original context (73%).
-- **28% faster end to end** (9.9 s vs 13.7 s per question). The reader's step drops from 2.72 s to 0.06 s
-  (**47×**) because it runs one forward pass and never decodes. The solver also reads a shorter input.
+**What we claim, and what we don't.**
+
+- **Claim 1: no text generation by the sender.** The reader's step drops from 2.72 s to 0.06 s (**47×**)
+  because it runs one forward pass and never decodes; end to end that is 9.9 s vs 13.7 s per question.
+- **Claim 2: fewer positions for the receiver to read** (94 vs 114 solver input positions at stride 1, 75 at
+  stride 2) with equal or better accuracy than the text message (68% / 60% vs 59%).
+- **Not claimed: bandwidth.** A latent message is 40 × 3072 fp16 values (≈245 KB) vs ≈240 bytes of text. The
+  setting is models on one machine or cluster, where the cost is compute and latency, not bytes on a wire.
+- **Not claimed: beating the original context.** At stride 1 the bridge is close to verbatim context
+  transfer (the ridge map alone recovers 80% of tokens), and the 3B reading the raw context still scores
+  higher (73%). The interesting question is therefore **compression**: how much accuracy each channel keeps
+  at the **same message size**. See *Accuracy vs message size* below.
 - **The message really is the information.** No message: 2%. Another problem's latents in place of the right
   ones raise the solution loss from 0.74 to 1.52 nats/token (validation shuffle gap 0.77).
-- **Compression dial.** The stride-2 bridge (`bridge_main_token_s2.pt`, two positions per vector) sends
-  20 vectors and matches the 60-token text message (60% vs 59%) while still being 20% faster. Training it for
-  3 epochs instead of 1 did not move the score, so the 8-point drop from stride 1 is the cost of compression.
-- **Honest trade-off: bytes.** One latent message is 40 × 3072 fp16 values ≈ 245 KB, versus ≈ 240 bytes of
-  text. The win is compute and latency inside one machine (or one GPU cluster), not network bandwidth.
-- n = 100, so ±~9 points at 95% confidence on each accuracy: the latent-vs-text gain is suggestive, the latency
-  gain is large and consistent. Per-problem outputs: `results/preds_live_main.jsonl`.
+- **Stride 2** (`bridge_main_token_s2.pt`, two positions per vector) sends 20 vectors at text-level accuracy
+  (60% vs 59%); 3 epochs instead of 1 did not move it, so the drop from stride 1 is the cost of compression.
+- n = 100 here, so ±~9 points at 95% confidence per accuracy; the 500-problem run with a paired McNemar test
+  is below. Per-problem outputs: `results/preds_live_main.jsonl`.
+
+### Accuracy vs message size
+
+_Running: latent strides 1–4, the 1B's text message with token budgets 10/20/40/60, and the original context
+truncated to the same lengths, all on the same 100 problems (`size_curve.py`)._
+
+### 500-problem evaluation with fair timing
+
+_Running overnight (`eval_big.py`): text, latent stride 1 and 2, raw context; timing split into reader,
+3B prefill and 3B decode, with answer-token counts; McNemar paired test vs text._
 
 Training: 3 epochs × 1,450 problems, 95 min on the laptop, peak 3.85 GB VRAM.
 ![training loss](results/fig_training_loss.png)
