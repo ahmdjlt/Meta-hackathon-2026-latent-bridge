@@ -225,6 +225,37 @@ One epoch each (the main bridge has three), same 100 test problems, cached reade
   epoch. Quartering it (stride 4) loses most of the reasoning-relevant detail.
 - **The Perceiver collapse** shows up as 4%, the same as sending nothing.
 
+## Extended training
+
+Follow-up runs on the `more-training` branch: train the bridge further without risking the
+reported results. Protocol: best checkpoints copied to `checkpoints/best_backup/` and never
+overwritten; a 200-problem validation set carved out of GSM8K train (`train-1509..train-1709`,
+immediately after the 1,500 training rows, verified zero overlap) used for ALL checkpoint and
+hyperparameter selection; the 500 test problems touched exactly once, for the final comparison.
+A new checkpoint replaces the old one only if it beats it on the 500 test problems with a paired
+McNemar p < 0.05 -- otherwise the attempt is reported as an ablation. Same loss, batch size 1 x 8
+accumulation, and 3.9 GB VRAM cap as the main runs; cosine lr decay from 2e-5; per-epoch
+checkpoints with optimizer state (resumable); early stopping with patience 2 on validation
+generation accuracy (per-epoch signal: free generation on a fixed seeded 60-problem subset of the
+200-val; finalists scored on the full 200). Final test scoring uses cached sender states, verified
+near-identical to a live sender forward pass (cosine >= 0.99996 on 3 probe problems).
+
+Step A (stride 2, the compression claim): continued from `bridge_main_token_s2.pt` for up to 6 more
+epochs. Validation-subset accuracy: 58.3% (ep 0) -> 58.3% (ep 1) -> **66.7% (ep 2, best)** -> 65.0%
+-> 63.3%, early-stopped after epoch 4. Full-200 validation: old stride-2 62.5% (125/200), epoch-2
+checkpoint **65.0%** (130/200).
+
+| Condition | Epochs | Val acc (200) | Test acc (500) | McNemar vs old | Kept |
+|---|---|---|---|---|---|
+| Stride 2, old (`bridge_main_token_s2.pt`) | 3 | 62.5% | 58.6% | -- | -- |
+| Stride 2, extended (Step A best, ep 2) | 3 + 3 | 65.0% | 62.6% | 60/40, p = 0.057 | No (ablation) |
+
+Outcome: the extended stride-2 checkpoint gained +4.0 points on test (62.6% vs 58.6%, now also ahead of the 60.2% text message on points) but the paired McNemar split of 60/40 gives p = 0.057, missing the pre-registered p < 0.05 bar -- so the old checkpoint stands and Step A is reported as an ablation. The validation gain (+2.5 points, 65.0% vs 62.5%) pointed the right way; the test split just did not reach significance.
+
+Steps B (1,500 more train problems) and C (more stride-1 epochs) were not run: Step A improved
+rather than stalled, and the remaining GPU budget went to the mandatory single final test
+comparison. Extended training run with Muse Code.
+
 ## Reproduce
 
 ```bash

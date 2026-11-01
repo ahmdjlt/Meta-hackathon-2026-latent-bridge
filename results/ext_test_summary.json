@@ -1,0 +1,21 @@
+{
+ "ext_s2": {
+  "ckpt": "checkpoints/bridge_ext_s2_best.pt",
+  "n": 500,
+  "accuracy": 0.626,
+  "old_cond": "latent_s2",
+  "old_accuracy": 0.586,
+  "mcnemar_vs_old": {
+   "old_wrong_new_right": 60,
+   "old_right_new_wrong": 40,
+   "p_value": 0.05688793364098079
+  },
+  "mcnemar_vs_text": {
+   "text_wrong_new_right": 82,
+   "text_right_new_wrong": 70,
+   "p_value": 0.37233205154529314
+  },
+  "kept": false,
+  "seconds": 4919
+ }
+}
