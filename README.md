@@ -256,6 +256,65 @@ Steps B (1,500 more train problems) and C (more stride-1 epochs) were not run: S
 rather than stalled, and the remaining GPU budget went to the mandatory single final test
 comparison. Extended training run with Muse Code.
 
+## Agent demo
+
+A small CLI agent (`agent/`) that uses the latent bridge as its **reader tool**. Muse Spark is the brain:
+it plans, calls tools through OpenAI-compatible tool calling, and verifies the final answer before it is
+printed. Long page text stays on the laptop: `fetch_url` stores the page and Muse Spark only sees a preview,
+then asks the local reader (1B → bridge → 3B) a focused question about it.
+
+```bash
+pip install -r agent/requirements.txt          # trafilatura, ddgs (DuckDuckGo, no key)
+python agent/cli.py "Who first described tardigrades, and in what year?"
+python agent/cli.py --channel text "Who first described tardigrades, and in what year?"
+python agent/cli.py "Write and run a script that lists every Friday the 13th from 2026 through 2030"
+```
+
+| Tool | What it does |
+|---|---|
+| `web_search(query)` | DuckDuckGo results (title, URL, snippet) |
+| `fetch_url(url)` | trafilatura-cleaned page text, stored locally as `doc1`, `doc2`, ... |
+| `read_and_answer(source, question)` | splits the doc into ≤48-token chunks, keeps the 6 that share the most words with the question, then 1B → bridge → 3B (`--channel latent`, default) or 1B writes notes → 3B (`--channel text`); logs reader time, 3B time and message size |
+| `run_python(code)` | prints the code, asks `Run? [y/N]`, runs it with a 10 s timeout in `agent/sandbox/` (a working folder, not a security sandbox) |
+
+At most 8 tool steps per task; every step is printed with timings.
+
+**Go/no-go test first** (`agent/ood_test.py`). The bridge was trained only on GSM8K math contexts, so before
+building the agent we checked that it carries general text: 20 encyclopedia-style passages (64–89 tokens),
+one factual question each, written for this test (`agent/ood_test.json`). Rule set in advance: use the latent
+reader only if it is within 15 points of the text message.
+
+| Condition | Accuracy (n = 20) | Message | 1B time | Total |
+|---|---|---|---|---|
+| Raw passage (reference) | 100% | 76 tokens | — | 0.66 s |
+| Text message from 1B | 100% | 145 tokens | 7.77 s | 8.43 s |
+| **Latent, stride 1** | **95%** | 76 vectors | **0.17 s** | **0.85 s** |
+| No message (prior knowledge) | 30% | — | — | 0.82 s |
+
+Result: GO (−5 points). The one miss was a name ("Kaldi" → "Kali"). The test is small and near ceiling, so it
+shows the channel transfers to web text, not that latent beats text there.
+
+**Recorded runs** (`agent/demo_runs/`, same RTX 3050 laptop; the `y` approval was piped in for the recording):
+
+| Run | Task | Reader | 1B time | Message | Answer |
+|---|---|---|---|---|---|
+| `a_web_latent.txt` | Who first described tardigrades, and when? (Wikipedia, 6 of 329 chunks) | latent | **0.36 s** | 276 vectors | Goeze, 1773 ✓ |
+| `c_web_text.txt` | same question | text | 14.88 s | 306 tokens | Goeze, 1773 ✓ |
+| `b_coding.txt` | list every Friday the 13th 2026–2030 | — | — | — | 9 dates, run after approval ✓ |
+
+Total wall time for (a) vs (c): 46.5 s vs 60.6 s, both including ~32 s for loading the two models.
+
+**Limitation found while building it: exact multi-digit numbers.** On the Lake Baikal page the latent reader
+answered "1,542 metres" (the page says 1,642); text and raw context got it right with the same chunks. A probe
+showed the channel sometimes shifts one digit inside a comma-separated 3-digit group (1,642 → 1,542,
+2,718 → 2,728; 2 of 7 numbers), while 1642, 3,907 and 48,213 came through intact. GSM8K numbers are short, so
+training never pushed on this. The agent now applies a local check: if a number in the latent answer does not
+appear in the chunks the reader saw, it retries over the text channel and says so
+(`extra_number_check_retry.txt`; the earlier run without the check is
+`a_web_latent_run1_before_number_check.txt`). In both Baikal runs the reader also named the wrong outflow
+river, and Muse Spark corrected the final answer from other tool results. Also note that in these demos Muse
+Spark often sees the answer in search snippets already; the reader is the step that reads the page.
+
 ## Reproduce
 
 ```bash
@@ -286,6 +345,9 @@ python app.py               # Phase 6: Gradio demo at http://127.0.0.1:7860
 | `pipeline.py` | Phase 4 Muse Spark orchestrator + reader/solver agents |
 | `app.py` | Phase 6 Gradio demo |
 | `make_plots.py` | figures for this README |
+| `agent/cli.py` | CLI agent: Muse Spark brain + web/reader/python tools (see *Agent demo*) |
+| `agent/reader.py` | latent/text reader tool (chunking, chunk selection, 1B → bridge → 3B) |
+| `agent/ood_test.py` | go/no-go test of the bridge on 20 general-text passages |
 
 ## Related work
 
