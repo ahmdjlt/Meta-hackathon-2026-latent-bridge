@@ -44,6 +44,13 @@ class Reader:
         self.tok = self.sender.tok
         self.load_s = time.perf_counter() - t0
 
+    def warmup(self):
+        """One tiny pass through every path so CUDA kernel setup is not billed to the first real call."""
+        t0 = time.perf_counter()
+        for ch in ("latent", "text"):
+            self.answer("Warm-up text. It has two sentences.", "What is this?", channel=ch, max_new_tokens=4)
+        return time.perf_counter() - t0
+
     def _sync(self):
         if DEVICE == "cuda":
             torch.cuda.synchronize()
