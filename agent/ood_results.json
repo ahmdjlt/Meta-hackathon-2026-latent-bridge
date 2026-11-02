@@ -1,0 +1,1025 @@
+{
+ "summary": {
+  "raw": {
+   "acc": 1.0,
+   "reader_s": 0.001562460004060995,
+   "solver_s": 0.6632039300006,
+   "total_s": 0.664766390004661,
+   "msg_positions": 76.25,
+   "msg_bytes": 333.95,
+   "chunks": 0.0
+  },
+  "text": {
+   "acc": 1.0,
+   "reader_s": 7.76852520500106,
+   "solver_s": 0.6624400450018584,
+   "total_s": 8.430965250002918,
+   "msg_positions": 144.85,
+   "msg_bytes": 617.15,
+   "chunks": 2.4
+  },
+  "latent": {
+   "acc": 0.95,
+   "reader_s": 0.17265219500259263,
+   "solver_s": 0.6732838749987422,
+   "total_s": 0.8459360700013349,
+   "msg_positions": 76.05,
+   "msg_bytes": 467251.2,
+   "chunks": 2.4
+  },
+  "none": {
+   "acc": 0.3,
+   "reader_s": 0.0007534749995102175,
+   "solver_s": 0.8181195150013082,
+   "total_s": 0.8188729900008184,
+   "msg_positions": 0.0,
+   "msg_bytes": 0.0,
+   "chunks": 0.0
+  },
+  "latent_minus_text_points": -5.0,
+  "decision": "GO (latent reader)",
+  "n": 20
+ },
+ "rows": [
+  {
+   "id": "eiffel",
+   "passage_tokens": 89,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 89,
+    "msg_bytes": 351,
+    "answer": "The Chrysler Building.",
+    "reader_s": 0.01296860000002198,
+    "solver_s": 1.4919427999993786,
+    "total_s": 1.5049113999994006,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Eiffel Tower is a wrought-iron lattice tower.\n* It is located on the Champ de Mars in Paris.\n* The tower is 1,063 feet tall.\n* It is 1,063 feet wide.\n* The tower is 1,063 feet long.\n* It is 1,063 feet high.\n* The tower is 1,063 feet wide and 1,063 feet long.\nHere are the facts rewritten as short bullet points:\n\n* The company of engineer Gustave Eiffel designed the structure.\n* The structure was built from 1887 to 1889.\n* The structure was the centrepiece of the 1889 World's Fair.\nHere are the facts rewritten as short bullet points:\n\n* It is 330 metres tall.\n* It was the tallest man-made structure in the world.\n* It was completed in 1930.",
+    "msg_positions": 190,
+    "msg_bytes": 705,
+    "answer": "The Chrysler Building.",
+    "reader_s": 11.308868499996606,
+    "solver_s": 0.5884361999924295,
+    "total_s": 11.897304699989036,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 89,
+    "msg_bytes": 546816,
+    "answer": "The Chrysler Building.",
+    "reader_s": 0.40147859998978674,
+    "solver_s": 1.057960500009358,
+    "total_s": 1.4594390999991447,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Burj Khalifa.",
+    "reader_s": 0.0017542999994475394,
+    "solver_s": 1.2881863999937195,
+    "total_s": 1.289940699993167,
+    "correct": false
+   }
+  },
+  {
+   "id": "okapi",
+   "passage_tokens": 73,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 73,
+    "msg_bytes": 331,
+    "answer": "1901.",
+    "reader_s": 0.0013017000164836645,
+    "solver_s": 0.9373988999868743,
+    "total_s": 0.938700600003358,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The okapi is a giraffid mammal.\n* It is native to the northeast of the Democratic Republic of the Congo.\n* The okapi has striped markings reminiscent of zebras.\n* Its closest living relative is the giraffe.\nHere are the facts rewritten as short bullet points:\n\n* The okapi was not known to Western science until 1901.\n* The okapi is the national animal of the DR Congo.\n* The okapi appears on the DR Congo's franc banknotes.",
+    "msg_positions": 111,
+    "msg_bytes": 480,
+    "answer": "1901.",
+    "reader_s": 6.762672499986365,
+    "solver_s": 0.4307932000083383,
+    "total_s": 7.193465699994704,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 73,
+    "msg_bytes": 448512,
+    "answer": "1901.",
+    "reader_s": 0.11308680000365712,
+    "solver_s": 0.3483702000230551,
+    "total_s": 0.4614570000267122,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "1887.",
+    "reader_s": 0.00034389999927952886,
+    "solver_s": 0.32427079998888075,
+    "total_s": 0.3246146999881603,
+    "correct": false
+   }
+  },
+  {
+   "id": "baikal",
+   "passage_tokens": 72,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 72,
+    "msg_bytes": 280,
+    "answer": "The Angara.",
+    "reader_s": 0.0006346000009216368,
+    "solver_s": 0.4193364000238944,
+    "total_s": 0.419971000024816,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Lake Baikal is a rift lake.\n* It is located in southern Siberia, Russia.\n* The lake is approximately 1,200 kilometers long.\n* It is approximately 800 kilometers wide.\n* The lake is approximately 1,200 kilometers long and 800 kilometers wide.\n* Lake Baikal is a rift lake in southern Siberia, Russia.\nHere are the facts rewritten as short bullet points:\n\n* The lake is the deepest lake in the world.\n* The maximum depth of the lake is 1,642 metres.\n* The lake holds about 23 percent of the world's fresh surface water.\nHere are the facts rewritten as short bullet points:\n\n* More than 300 rivers flow into the lake.\n* Only one river, the Angara, flows out of the lake.",
+    "msg_positions": 170,
+    "msg_bytes": 723,
+    "answer": "The Angara.",
+    "reader_s": 8.405716100009158,
+    "solver_s": 0.541261599981226,
+    "total_s": 8.946977699990384,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 72,
+    "msg_bytes": 442368,
+    "answer": "The Angara River.",
+    "reader_s": 0.17689999999129213,
+    "solver_s": 0.5033269999839831,
+    "total_s": 0.6802269999752752,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Buryatia River.",
+    "reader_s": 0.00032920000376179814,
+    "solver_s": 0.5614403999934439,
+    "total_s": 0.5617695999972057,
+    "correct": false
+   }
+  },
+  {
+   "id": "voyager",
+   "passage_tokens": 77,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 77,
+    "msg_bytes": 283,
+    "answer": "Titan.",
+    "reader_s": 0.0006446000188589096,
+    "solver_s": 0.2644525000068825,
+    "total_s": 0.2650971000257414,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Voyager 1 was launched by NASA on September 5, 1977.\n* Voyager 1 flew past Jupiter in 1979.\n* Voyager 1 flew past Saturn in 1980.\n* Voyager 1 made a close approach to the moon Titan in 1980.\nHere are the facts rewritten as short bullet points:\n\n* On August 25, 2012, Voyager 1 became the first human-made object to cross the heliopause and enter interstellar space.\n* The date is August 25, 2012.\n* The object is Voyager 1.\n* The heliopause is the boundary beyond which the solar system is no longer bound by the gravitational force of the Sun.\n* The heliopause is the point of no",
+    "msg_positions": 164,
+    "msg_bytes": 636,
+    "answer": "Titan.",
+    "reader_s": 7.862023900001077,
+    "solver_s": 0.4204500000050757,
+    "total_s": 8.282473900006153,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 75,
+    "msg_bytes": 460800,
+    "answer": "Titan.",
+    "reader_s": 0.11674880000646226,
+    "solver_s": 0.28508359999977984,
+    "total_s": 0.4018324000062421,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Enceladus.",
+    "reader_s": 0.0006870999932289124,
+    "solver_s": 0.5148715999966953,
+    "total_s": 0.5155586999899242,
+    "correct": false
+   }
+  },
+  {
+   "id": "penicillin",
+   "passage_tokens": 81,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 81,
+    "msg_bytes": 392,
+    "answer": "University of Oxford.",
+    "reader_s": 0.0009411999781150371,
+    "solver_s": 0.43230810001841746,
+    "total_s": 0.4332492999965325,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Alexander Fleming discovered penicillin in 1928.\n* The discovery was made by Alexander Fleming at St Mary's Hospital in London.\n* The year of discovery was 1928.\nHere are the facts rewritten as short bullet points:\n\n* A mould (Penicillium) contaminated a culture plate of Staphylococcus bacteria.\n* The mould killed the bacteria around it.\n* The bacteria were killed.\nHere are the facts rewritten as short bullet points:\n\n* Mass production began in the Second World War.\n* Howard Florey and Ernst Chain worked at the University of Oxford.\n* The University of Oxford was the location of work for Howard Florey and Ernst Chain.",
+    "msg_positions": 146,
+    "msg_bytes": 681,
+    "answer": "University of Oxford.",
+    "reader_s": 7.129058900027303,
+    "solver_s": 0.5508482999866828,
+    "total_s": 7.679907200013986,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 81,
+    "msg_bytes": 497664,
+    "answer": "University of Oxford.",
+    "reader_s": 0.2093532000144478,
+    "solver_s": 0.45206399998278357,
+    "total_s": 0.6614171999972314,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "University of Oxford.",
+    "reader_s": 0.0003659999929368496,
+    "solver_s": 0.4062685999961104,
+    "total_s": 0.4066345999890473,
+    "correct": true
+   }
+  },
+  {
+   "id": "milestii",
+   "passage_tokens": 76,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 76,
+    "msg_bytes": 321,
+    "answer": "1.5 million.",
+    "reader_s": 0.0012620000052265823,
+    "solver_s": 0.5021947000059299,
+    "total_s": 0.5034567000111565,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The wine cellar complex is located in Moldova, approximately 18 kilometres south of Chisinau.\n* The underground galleries stretch for about 200 kilometres.\n* Around 55 kilometres of the underground galleries are in use.\nHere are the facts rewritten as short bullet points:\n\n* In 2005, the team's wine collection was listed in the Guinness World Records as the largest in the world.\n* The team's wine collection had nearly 1.5 million bottles.",
+    "msg_positions": 106,
+    "msg_bytes": 498,
+    "answer": "1.5 million.",
+    "reader_s": 5.165630900010001,
+    "solver_s": 0.6293812000076286,
+    "total_s": 5.79501210001763,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 75,
+    "msg_bytes": 460800,
+    "answer": "About 1.5 million.",
+    "reader_s": 0.1166607000050135,
+    "solver_s": 0.6621409000072163,
+    "total_s": 0.7788016000122298,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Over 2,000 bottles.",
+    "reader_s": 0.000402199977543205,
+    "solver_s": 0.6566890000249259,
+    "total_s": 0.6570912000024691,
+    "correct": false
+   }
+  },
+  {
+   "id": "lamarr",
+   "passage_tokens": 69,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 69,
+    "msg_bytes": 343,
+    "answer": "George Antheil.",
+    "reader_s": 0.0005722000205423683,
+    "solver_s": 0.4995570999744814,
+    "total_s": 0.5001292999950238,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Hedy Lamarr was an Austrian-born American actress.\n* She was born in 1914.\n* She was an actress.\n* She was born in Austria.\n* She was born in the United States.\n* She was born in 1914.\n* She was an actress.\n* She was born in Austria.\n* She was born in the United States.\n* She was born in 1914.\n* She was\nHere are the facts rewritten as short bullet points:\n\n* They received a patent in 1942.\n* The patent principle contributed to technologies such as:\n\t+ Bluetooth\n\t+ Wi-Fi",
+    "msg_positions": 135,
+    "msg_bytes": 530,
+    "answer": "George Antheil",
+    "reader_s": 8.647780100000091,
+    "solver_s": 0.5448401000176091,
+    "total_s": 9.1926202000177,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 69,
+    "msg_bytes": 423936,
+    "answer": "George Antheil.",
+    "reader_s": 0.14424450002843514,
+    "solver_s": 0.5735664999810979,
+    "total_s": 0.717811000009533,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "George Antheil",
+    "reader_s": 0.000682699988828972,
+    "solver_s": 0.5097631000098772,
+    "total_s": 0.5104457999987062,
+    "correct": true
+   }
+  },
+  {
+   "id": "tardigrade",
+   "passage_tokens": 83,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 83,
+    "msg_bytes": 356,
+    "answer": "Johann August Ephraim Goeze.",
+    "reader_s": 0.0010665000008884817,
+    "solver_s": 1.0536544999922626,
+    "total_s": 1.054720999993151,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Tardigrades are microscopic animals.\n* They usually grow to about 0.5 millimetres long.\n* They are also called water bears.\nHere are the facts rewritten as short bullet points:\n\n* They were first described by Johann August Ephraim Goeze in 1773.\n* They were first described by Johann August Ephraim Goeze in 1773.\n* They were first described by Johann August Ephraim Goeze in 1773.\nHere are the facts rewritten as short bullet points:\n\n* Tardigrades can survive extreme conditions.\n* They can survive in a dried state called cryptobiosis.\n* Cryptobiosis is a state in which their metabolism drops to less than 0.01 percent of normal.",
+    "msg_positions": 165,
+    "msg_bytes": 689,
+    "answer": "Johann August Ephraim Goeze.",
+    "reader_s": 8.202341299998807,
+    "solver_s": 1.1755111999809742,
+    "total_s": 9.377852499979781,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 83,
+    "msg_bytes": 509952,
+    "answer": "Johann August Ephraim Goeze.",
+    "reader_s": 0.17756969999754801,
+    "solver_s": 1.0018627000099514,
+    "total_s": 1.1794324000074994,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Lazzaro Spallanzani",
+    "reader_s": 0.0003281999961473048,
+    "solver_s": 0.6702430000004824,
+    "total_s": 0.6705711999966297,
+    "correct": false
+   }
+  },
+  {
+   "id": "rosetta",
+   "passage_tokens": 81,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 81,
+    "msg_bytes": 329,
+    "answer": "Since 1802.",
+    "reader_s": 0.0008170999935828149,
+    "solver_s": 0.5062106000259519,
+    "total_s": 0.5070277000195347,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Rosetta Stone is a granodiorite stele.\n* It is inscribed with a decree.\n* The decree was issued in Memphis, Egypt.\n* The decree was issued in 196 BC.\nHere are the facts rewritten as short bullet points:\n\n* The decree appears in three scripts: Ancient Egyptian hieroglyphs, Demotic script, and Ancient Greek.\n* The decree is written in Ancient Egyptian hieroglyphs.\n* The decree is written in Demotic script.\n* The decree is written in Ancient Greek.\nHere are the facts rewritten as short bullet points:\n\n* It was found in 1799.\n* It was found near the town of Rashid.\n* It was found in the British Museum.\n* It was found in 1802.",
+    "msg_positions": 166,
+    "msg_bytes": 689,
+    "answer": "1802.",
+    "reader_s": 8.307529099984095,
+    "solver_s": 0.5768004000128713,
+    "total_s": 8.884329499996966,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 81,
+    "msg_bytes": 497664,
+    "answer": "Since 1802.",
+    "reader_s": 0.2951263000140898,
+    "solver_s": 1.248390599997947,
+    "total_s": 1.5435169000120368,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "1803.",
+    "reader_s": 0.00129489999380894,
+    "solver_s": 0.8062216000107583,
+    "total_s": 0.8075165000045672,
+    "correct": false
+   }
+  },
+  {
+   "id": "kilimanjaro",
+   "passage_tokens": 81,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 81,
+    "msg_bytes": 318,
+    "answer": "Ludwig Purtscheller.",
+    "reader_s": 0.0021767000143881887,
+    "solver_s": 1.0221460999746341,
+    "total_s": 1.0243227999890223,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Mount Kilimanjaro is a dormant volcano.\n* It has three volcanic cones: Kibo, Mawenzi, and Shira.\n* The three cones are located in Tanzania.\nHere are the facts rewritten as short bullet points:\n\n* The highest point of Uhuru Peak is 5,895 metres above sea level.\n* Uhuru Peak is the highest mountain in Africa.\n* Uhuru Peak is located on Kibo.\nHere are the facts rewritten as short bullet points:\n\n* The first recorded ascent to the summit was made in 1889 by Hans Meyer and Ludwig Purtscheller.\n* The year was 1889.\n* The location was not specified.\n* The first ascent was made by Hans Meyer and Ludwig Purtscheller.",
+    "msg_positions": 163,
+    "msg_bytes": 671,
+    "answer": "Ludwig Purtscheller.",
+    "reader_s": 8.34743000002345,
+    "solver_s": 0.9722272999933921,
+    "total_s": 9.319657300016843,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 81,
+    "msg_bytes": 497664,
+    "answer": "Ludwig Purtscheller.",
+    "reader_s": 0.17211620000307448,
+    "solver_s": 0.7447317999904044,
+    "total_s": 0.9168479999934789,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Ferdinand von Otz",
+    "reader_s": 0.0003499000158626586,
+    "solver_s": 0.5875422999961302,
+    "total_s": 0.5878922000119928,
+    "correct": false
+   }
+  },
+  {
+   "id": "python",
+   "passage_tokens": 75,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 75,
+    "msg_bytes": 325,
+    "answer": "ABC language.",
+    "reader_s": 0.0006539000023622066,
+    "solver_s": 0.39669160000630654,
+    "total_s": 0.39734550000866875,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Python is a high-level programming language.\n* It was created by Guido van Rossum.\n* The language is high-level.\n* It was created in the year 1991.\nHere are the facts rewritten as short bullet points:\n\n* He started working on it in the late 1980s.\n* He worked on it at Centrum Wiskunde & Informatica in the Netherlands.\n* He was working on it as a successor to the ABC language.\n* The first version was released in 1991.\nHere are the facts rewritten as short bullet points:\n\n* The name comes from the British comedy group Monty Python.\n* The name comes from the British comedy group Monty Python.\n* The name comes from the British comedy group Monty Python.\n* The name comes from the British comedy group Monty Python.\n* The name comes from the British comedy group Monty Python.\n* The name comes from the British comedy group Monty Python.\n* The name comes from the British comedy",
+    "msg_positions": 211,
+    "msg_bytes": 937,
+    "answer": "The ABC language.",
+    "reader_s": 10.250888700014912,
+    "solver_s": 0.6111444999987725,
+    "total_s": 10.862033200013684,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 75,
+    "msg_bytes": 460800,
+    "answer": "ABC language",
+    "reader_s": 0.17180939999525435,
+    "solver_s": 0.26617840002290905,
+    "total_s": 0.4379878000181634,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "BASIC.",
+    "reader_s": 0.00033909999183379114,
+    "solver_s": 0.3330234000168275,
+    "total_s": 0.3333625000086613,
+    "correct": false
+   }
+  },
+  {
+   "id": "waggle",
+   "passage_tokens": 80,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 80,
+    "msg_bytes": 387,
+    "answer": "1973.",
+    "reader_s": 0.0006646999972872436,
+    "solver_s": 0.35571279999567196,
+    "total_s": 0.3563774999929592,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 3,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The waggle dance is a movement performed by honey bees to tell other bees in the hive where to find food.\n* The waggle dance is performed by honey bees.\n* The waggle dance is performed by honey bees to tell other bees in the hive where to find food.\n* The waggle dance is performed by honey bees to tell other bees in the hive where to find food.\n* The waggle dance is performed\nHere are the facts rewritten as short bullet points:\n\n* The angle of the dance is 45 degrees relative to the vertical.\n* The duration of the waggle run is 1 minute.\n* The food is 1 meter away from the sun.\nHere are the facts rewritten as short bullet points:\n\n* The Austrian scientist Karl von Frisch worked on the dance.\n* He was awarded the 1973 Nobel Prize in Physiology or Medicine for his work.\n* The work was done in the 1970s.",
+    "msg_positions": 200,
+    "msg_bytes": 868,
+    "answer": "1973.",
+    "reader_s": 13.16127719997894,
+    "solver_s": 1.1328869000135455,
+    "total_s": 14.294164099992486,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 3,
+    "msg_positions": 80,
+    "msg_bytes": 491520,
+    "answer": "1973.",
+    "reader_s": 0.3195916000113357,
+    "solver_s": 1.0830171999987215,
+    "total_s": 1.4026088000100572,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "1969",
+    "reader_s": 0.004456800001207739,
+    "solver_s": 1.2148167999985162,
+    "total_s": 1.219273599999724,
+    "correct": false
+   }
+  },
+  {
+   "id": "svalbard",
+   "passage_tokens": 64,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 64,
+    "msg_bytes": 278,
+    "answer": "Minus 18 degrees Celsius.",
+    "reader_s": 0.0018681000219658017,
+    "solver_s": 1.7420232000004034,
+    "total_s": 1.7438913000223693,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Svalbard Global Seed Vault is located on the Norwegian island of Spitsbergen.\n* The facility is a secure backup facility for crop seeds.\n* The Svalbard Global Seed Vault is a secure backup facility for crop seeds on the Norwegian island of Spitsbergen.\nHere are the facts rewritten as short bullet points:\n\n* The building opened in 2008.\n* The building is built about 120 metres into a mountain.\n* The permafrost helps keep the samples cold.\n* The seeds are stored at minus 18 degrees Celsius.",
+    "msg_positions": 123,
+    "msg_bytes": 553,
+    "answer": "Minus 18 degrees Celsius.",
+    "reader_s": 7.869142100011231,
+    "solver_s": 0.9260976999939885,
+    "total_s": 8.79523980000522,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 64,
+    "msg_bytes": 393216,
+    "answer": "Minus 18 degrees Celsius.",
+    "reader_s": 0.22045389999402687,
+    "solver_s": 1.7020659999980126,
+    "total_s": 1.9225198999920394,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "-18\u00b0C (-0.4\u00b0F)",
+    "reader_s": 0.0007086000114213675,
+    "solver_s": 1.0340714000049047,
+    "total_s": 1.034780000016326,
+    "correct": true
+   }
+  },
+  {
+   "id": "hubble",
+   "passage_tokens": 73,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 73,
+    "msg_bytes": 359,
+    "answer": "2009.",
+    "reader_s": 0.0006448000203818083,
+    "solver_s": 0.39147639999282546,
+    "total_s": 0.39212120001320727,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Hubble Space Telescope was launched into low Earth orbit by the Space Shuttle Discovery in April 1990.\n* Scientists found that the main mirror of the Hubble Space Telescope had been ground to the wrong shape.\n* The blurred images were caused by the wrong shape of the main mirror.\nHere are the facts rewritten as short bullet points:\n\n* A servicing mission in 1993 installed corrective optics.\n* Astronauts visited the telescope four more times.\n* The last time astronauts visited the telescope was in 2009.",
+    "msg_positions": 116,
+    "msg_bytes": 567,
+    "answer": "2009.",
+    "reader_s": 6.145608699996956,
+    "solver_s": 0.47936640001717024,
+    "total_s": 6.624975100014126,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 73,
+    "msg_bytes": 448512,
+    "answer": "2009.",
+    "reader_s": 0.11609140000655316,
+    "solver_s": 0.3492956999980379,
+    "total_s": 0.46538710000459105,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "I couldn't find any information about astronauts visiting Hubble.",
+    "reader_s": 0.0003789000038523227,
+    "solver_s": 1.3688187999941874,
+    "total_s": 1.3691976999980398,
+    "correct": false
+   }
+  },
+  {
+   "id": "antikythera",
+   "passage_tokens": 81,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 81,
+    "msg_bytes": 362,
+    "answer": "At least 30.",
+    "reader_s": 0.0013281999854370952,
+    "solver_s": 1.1356625000189524,
+    "total_s": 1.1369907000043895,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Antikythera mechanism was an ancient Greek hand-powered device.\n* It was used to predict astronomical positions and eclipses.\n* It was recovered in 1901 from a shipwreck off the Greek island of Antikythera.\nHere are the facts rewritten as short bullet points:\n\n* The device contains at least 30 meshing bronze gears.\n* The device is generally dated to between 205 BC and 87 BC.\n* The device is kept at the National Archaeological Museum in Athens.",
+    "msg_positions": 113,
+    "msg_bytes": 507,
+    "answer": "At least 30.",
+    "reader_s": 7.726998500002082,
+    "solver_s": 0.6336935000144877,
+    "total_s": 8.36069200001657,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 81,
+    "msg_bytes": 497664,
+    "answer": "At least 30.",
+    "reader_s": 0.1259987999801524,
+    "solver_s": 0.5150456000119448,
+    "total_s": 0.6410443999920972,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "At least 30.",
+    "reader_s": 0.00040859999717213213,
+    "solver_s": 0.5420355999958701,
+    "total_s": 0.5424441999930423,
+    "correct": true
+   }
+  },
+  {
+   "id": "curie",
+   "passage_tokens": 71,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 71,
+    "msg_bytes": 323,
+    "answer": "1903.",
+    "reader_s": 0.000583800021559,
+    "solver_s": 0.38944279999122955,
+    "total_s": 0.39002660001278855,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Marie Curie was a Polish and naturalised-French physicist and chemist.\n* She did pioneering research on radioactivity.\n* She was a pioneering researcher.\nHere are the facts rewritten as short bullet points:\n\n* She was the first woman to win a Nobel Prize.\n* She was the first woman to win a Nobel Prize in two different sciences.\n* She won her Nobel Prize in 1903 in physics.\n* She won her Nobel Prize in 1911 in chemistry.\n* She named the element polonium after her native country.",
+    "msg_positions": 119,
+    "msg_bytes": 538,
+    "answer": "1903.",
+    "reader_s": 5.980091899982654,
+    "solver_s": 0.4958086000115145,
+    "total_s": 6.475900499994168,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 70,
+    "msg_bytes": 430080,
+    "answer": "1903.",
+    "reader_s": 0.11441159999230877,
+    "solver_s": 0.3453450000088196,
+    "total_s": 0.4597566000011284,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "1903",
+    "reader_s": 0.00072160002309829,
+    "solver_s": 0.25183470000047237,
+    "total_s": 0.25255630002357066,
+    "correct": true
+   }
+  },
+  {
+   "id": "burj",
+   "passage_tokens": 80,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 80,
+    "msg_bytes": 340,
+    "answer": "Hymenocallis.",
+    "reader_s": 0.0006359000108204782,
+    "solver_s": 0.5826384999963921,
+    "total_s": 0.5832744000072125,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Burj Khalifa is the tallest building in the world.\n* The total height of the Burj Khalifa is 828 metres.\n* Construction of the Burj Khalifa began in 2004.\n* The building officially opened on 4 January 2010.\nHere are the facts rewritten as short bullet points:\n\n* The building was designed by Adrian Smith of Skidmore, Owings & Merrill.\n* The Y-shaped floor plan was inspired by the desert flower Hymenocallis.\n* The Y-shaped floor plan was designed by Adrian Smith of Skidmore, Owings & Merrill.\n* The Y-shaped floor plan was inspired by the desert flower Hymenocallis.",
+    "msg_positions": 151,
+    "msg_bytes": 629,
+    "answer": "Hymenocallis.",
+    "reader_s": 7.23887860000832,
+    "solver_s": 0.731436300004134,
+    "total_s": 7.970314900012454,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 80,
+    "msg_bytes": 491520,
+    "answer": "Desert Flower Hymenocallis.",
+    "reader_s": 0.11719280001125298,
+    "solver_s": 0.8122575999877881,
+    "total_s": 0.9294503999990411,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "There is no desert flower that inspired the floor plan of the Burj Khalifa.",
+    "reader_s": 0.00035099999513477087,
+    "solver_s": 1.43286270002136,
+    "total_s": 1.4332137000164948,
+    "correct": false
+   }
+  },
+  {
+   "id": "axolotl",
+   "passage_tokens": 73,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 73,
+    "msg_bytes": 318,
+    "answer": "Xochimilco",
+    "reader_s": 0.0011036999931093305,
+    "solver_s": 0.501135600003181,
+    "total_s": 0.5022392999962904,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The axolotl is a salamander.\n* The axolotl is native to the lake complex of Xochimilco near Mexico City.\n* The axolotl is a salamander native to the lake complex of Xochimilco near Mexico City.\nHere are the facts rewritten as short bullet points:\n\n* Axolotls can regenerate lost limbs.\n* Axolotls can regenerate parts of the spinal cord.\n* Axolotls can regenerate parts of the brain.",
+    "msg_positions": 115,
+    "msg_bytes": 439,
+    "answer": "Xochimilco",
+    "reader_s": 5.5114002999907825,
+    "solver_s": 0.6107861000054982,
+    "total_s": 6.122186399996281,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 73,
+    "msg_bytes": 448512,
+    "answer": "Xochimilco",
+    "reader_s": 0.11415800001122989,
+    "solver_s": 0.5316255999787245,
+    "total_s": 0.6457835999899544,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "Xochimilco Lake.",
+    "reader_s": 0.0003504999913275242,
+    "solver_s": 0.6581612000009045,
+    "total_s": 0.658511699992232,
+    "correct": true
+   }
+  },
+  {
+   "id": "transsib",
+   "passage_tokens": 72,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 72,
+    "msg_bytes": 333,
+    "answer": "1891.",
+    "reader_s": 0.000760199996875599,
+    "solver_s": 0.34368540000286885,
+    "total_s": 0.34444559999974445,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* The Trans-Siberian Railway is a network of railways.\n* The main route runs about 9,289 kilometres.\n* The main route is the longest railway line in the world.\nHere are the facts rewritten as short bullet points:\n\n* Construction began in 1891.\n* The full route through Russian territory was completed in 1916.",
+    "msg_positions": 80,
+    "msg_bytes": 363,
+    "answer": "Construction began in 1891.",
+    "reader_s": 3.9186474999878556,
+    "solver_s": 0.7164980999950785,
+    "total_s": 4.635145599982934,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 72,
+    "msg_bytes": 442368,
+    "answer": "1891",
+    "reader_s": 0.11650000000372529,
+    "solver_s": 0.2670693999971263,
+    "total_s": 0.3835694000008516,
+    "correct": true
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "1869-1885.",
+    "reader_s": 0.00036050000926479697,
+    "solver_s": 0.5589839000022039,
+    "total_s": 0.5593444000114687,
+    "correct": false
+   }
+  },
+  {
+   "id": "coffee",
+   "passage_tokens": 74,
+   "raw": {
+    "channel": "raw",
+    "chunks": 0,
+    "msg_positions": 74,
+    "msg_bytes": 350,
+    "answer": "Kaldi",
+    "reader_s": 0.0006206999823916703,
+    "solver_s": 0.29640809999546036,
+    "total_s": 0.29702879997785203,
+    "correct": true
+   },
+   "text": {
+    "channel": "text",
+    "chunks": 2,
+    "message": "Here are the facts rewritten as short bullet points:\n\n* Kaldi was an Ethiopian goat herder.\n* He noticed that his goats became energetic after eating berries from a certain shrub.\n* The shrub was unknown to Kaldi.\n* The berries were unknown to Kaldi.\n* The shrub was unknown to Kaldi.\n* The berries were unknown to Kaldi.\n* The shrub was unknown to Kaldi.\n* The berries were unknown to Kaldi.\n* The\nHere are the facts rewritten as short bullet points:\n\n* The earliest credible evidence of coffee drinking was found in Sufi monasteries in Yemen in the 15th century.\n* By the 16th century, coffee had reached Persia, Turkey, and North Africa.",
+    "msg_positions": 153,
+    "msg_bytes": 640,
+    "answer": "Kaldi.",
+    "reader_s": 7.428519300010521,
+    "solver_s": 0.48053329999675043,
+    "total_s": 7.909052600007271,
+    "correct": true
+   },
+   "latent": {
+    "channel": "latent",
+    "chunks": 2,
+    "msg_positions": 74,
+    "msg_bytes": 454656,
+    "answer": "Kali (not Kelsey)",
+    "reader_s": 0.11355159999220632,
+    "solver_s": 0.7162791999871843,
+    "total_s": 0.8298307999793906,
+    "correct": false
+   },
+   "none": {
+    "channel": "none",
+    "chunks": 0,
+    "msg_positions": 0,
+    "msg_bytes": 0,
+    "answer": "I couldn't find any information on a \"coffee legend\" that includes a goat herder. Could you provide more context or clarify what you're referring to?",
+    "reader_s": 0.0004555000050459057,
+    "solver_s": 2.6422849999798927,
+    "total_s": 2.6427404999849387,
+    "correct": false
+   }
+  }
+ ]
+}
