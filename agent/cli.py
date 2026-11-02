@@ -90,6 +90,14 @@ class Tee:
         self.f.flush()
 
 
+_NUM = re.compile(r"\d[\d,]*(?:\.\d+)?")
+
+
+def numbers(text):
+    """Numbers in a text, commas removed, e.g. '1,642 m and 3.5' -> {'1642', '3.5'}."""
+    return {m.replace(",", "").rstrip(".") for m in _NUM.findall(text)}
+
+
 def short(s, n=160):
     s = " ".join(str(s).split())
     return s if len(s) <= n else s[:n] + " ..."
@@ -144,14 +152,27 @@ class Agent:
             self.reader = Reader()
             print(f"[reader] loaded in {self.reader.load_s:.1f} s, warm-up {self.reader.warmup():.1f} s", flush=True)
         chunks, n_all = self.reader.select(text, question, top_k=self.top_k)
-        out = self.reader.answer(text, question, channel=self.channel, chunks=chunks, max_new_tokens=64)
-        size = (f"{out['msg_positions']} vectors ({out['msg_bytes'] / 1024:.0f} KB)" if self.channel == "latent"
+        out = self._read(text, question, self.channel, chunks, n_all)
+        result = {"answer": out["answer"], "chunks_read": len(chunks)}
+        # Known latent weakness: a 3-digit group can shift by one digit (1,642 -> 1,542). Cheap local
+        # guard: every number in the answer must appear in the text the reader saw, else retry over text.
+        missing = numbers(out["answer"]) - numbers(" ".join(chunks))
+        if self.channel == "latent" and missing:
+            print(f"[reader] number check: {', '.join(sorted(missing))} not in the source text -> retry over text channel")
+            out = self._read(text, question, "text", chunks, n_all)
+            result = {"answer": out["answer"], "chunks_read": len(chunks), "note": "latent answer failed the "
+                      f"number check ({', '.join(sorted(missing))} not in source); answer is from the text channel"}
+        return result, short(out["answer"], 100)
+
+    def _read(self, text, question, channel, chunks, n_all):
+        out = self.reader.answer(text, question, channel=channel, chunks=chunks, max_new_tokens=64)
+        size = (f"{out['msg_positions']} vectors ({out['msg_bytes'] / 1024:.0f} KB)" if channel == "latent"
                 else f"{out['msg_positions']} tokens ({out['msg_bytes']} B)")
-        print(f"[reader] {self.channel}, 1B {out['reader_s']:.2f} s, {len(chunks)} chunks (of {n_all}), "
-              f"message {size}, 3B {out['solver_s']:.2f} s")
+        print(f"[reader] {channel}, 1B {out['reader_s']:.2f} s, {len(chunks)} chunks (of {n_all}), "
+              f"message {size}, 3B {out['solver_s']:.2f} s -> {short(out['answer'], 80)!r}")
         self.stats["reader_calls"].append({k: out[k] for k in ("channel", "chunks", "msg_positions", "msg_bytes",
                                                                  "reader_s", "solver_s", "total_s")})
-        return {"answer": out["answer"], "chunks_read": len(chunks)}, short(out["answer"], 100)
+        return out
 
     def run_python(self, code):
         SANDBOX.mkdir(exist_ok=True)
@@ -233,7 +254,7 @@ class Agent:
             final = f"(unverified) {answer}"
         rc = self.stats["reader_calls"]
         print(f"\nANSWER: {final}")
-        reader = (f"reader {self.channel} x{len(rc)}: {sum(r['reader_s'] for r in rc):.2f} s 1B + "
+        reader = (f"reader calls [{', '.join(r['channel'] for r in rc)}]: {sum(r['reader_s'] for r in rc):.2f} s 1B + "
                   f"{sum(r['solver_s'] for r in rc):.2f} s 3B" if rc else "reader not used")
         print(f"[summary] {steps} tool steps, {self.stats['muse_calls']} Muse Spark calls ({self.stats['muse_s']:.1f} s), "
               f"{reader}, total {time.perf_counter() - t_start:.1f} s")

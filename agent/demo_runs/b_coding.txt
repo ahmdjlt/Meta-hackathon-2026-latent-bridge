@@ -1,0 +1,50 @@
+[task] Write and run a script that lists every Friday the 13th from 2026 through 2030 and prints how many there are.
+[config] brain muse-spark-1.1, reader channel = latent, max 8 tool steps
+[Muse Spark] plan (1.8 s): I’ll generate the Friday-the-13th list for 2026-2030 with a short Python script and get the total count.
+[tool 1/8] run_python {"code": "<312 chars>"}
+------------------------------------------------------------
+import datetime
+
+fridays = []
+for year in range(2026, 2031):
+    for month in range(1, 13):
+        d = datetime.date(year, month, 13)
+        if d.weekday() == 4: # Monday=0, Friday=4
+            fridays.append(d)
+
+for d in fridays:
+    print(d.isoformat(), d.strftime("%A"))
+
+print(f"\nTotal: {len(fridays)}")
+
+------------------------------------------------------------
+Run? [y/N] y
+2026-02-13 Friday
+2026-03-13 Friday
+2026-11-13 Friday
+2027-08-13 Friday
+2028-10-13 Friday
+2029-04-13 Friday
+2029-07-13 Friday
+2030-09-13 Friday
+2030-12-13 Friday
+
+Total: 9
+[tool 1/8] run_python -> exit 0 (0.06 s)
+[Muse Spark] answer (2.1 s): Here are all the Friday the 13ths from 2026-2030 (9 total): * **2026-02-13** - Friday * **2026-03-13** - Friday * **2026-11-13** - Friday * **2027-08-13** - Friday * **2028-10-13** - Friday * **2029-04-13** - Friday * **2029-07-13** - Friday * **2030-09-13** - Friday * **2030-12-13** - Friday **Tota ...
+[Muse Spark] verify (1.2 s): accept - Answer matches tool output of 9 Friday the 13ths with correct dates listed.
+
+ANSWER: Here are all the Friday the 13ths from 2026-2030 (9 total):
+
+* **2026-02-13** - Friday
+* **2026-03-13** - Friday
+* **2026-11-13** - Friday
+* **2027-08-13** - Friday
+* **2028-10-13** - Friday
+* **2029-04-13** - Friday
+* **2029-07-13** - Friday
+* **2030-09-13** - Friday
+* **2030-12-13** - Friday
+
+**Total count: 9**
+[summary] 1 tool steps, 3 Muse Spark calls (5.1 s), reader not used, total 5.1 s

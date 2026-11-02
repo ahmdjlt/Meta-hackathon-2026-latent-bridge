@@ -1,0 +1,30 @@
+[task] What is the maximum depth of Lake Baikal, and which river flows out of it?
+[config] brain muse-spark-1.1, reader channel = latent, max 8 tool steps
+[Muse Spark] plan (1.4 s): Lake Baikal's depth and outlet river — I'll look up both verified facts.
+[tool 1/8] web_search {"query": "maximum depth of Lake Baikal meters"}
+[tool 1/8] web_search -> 5 results (2.71 s)
+[tool 2/8] web_search {"query": "which river flows out of Lake Baikal"}
+[tool 2/8] web_search -> error: No results found. (2.22 s)
+[Muse Spark] plan (1.7 s): I've found Baikal's maximum depth; now I'll confirm details about its outlet river.
+[tool 3/8] fetch_url {"url": "https://en.wikipedia.org/wiki/Lake_Baikal"}
+[tool 3/8] fetch_url -> doc1, 61,800 chars (1.20 s)
+[tool 4/8] read_and_answer {"source": "doc1", "question": "What is the maximum depth of Lake Baikal and which river flows out of it?"}
+[reader] loading Llama 3.2 1B + bridge + Llama 3.2 3B (4-bit) ...
+[reader] loaded in 28.5 s, warm-up 3.6 s
+[reader] latent, 1B 0.36 s, 6 chunks (of 437), message 266 vectors (1596 KB), 3B 0.96 s -> '1,542 meters, Selenga River.'
+[reader] number check: 1542 not in the source text -> retry over text channel
+[reader] text, 1B 16.04 s, 6 chunks (of 437), message 339 tokens (1427 B), 3B 1.02 s -> '1,642 metres, Selenga River.'
+[tool 4/8] read_and_answer -> 1,642 metres, Selenga River. (53.66 s)
+[Muse Spark] plan (1.9 s): The depth checks out, but the outflow name was off — I'll verify the correct river.
+[tool 5/8] web_search {"query": "Lake Baikal outflow river Angara"}
+[tool 5/8] web_search -> 5 results (1.19 s)
+[Muse Spark] plan (1.6 s): Search suggests the Angara is Baikal's only outflow — I'll fetch a page to confirm.
+[tool 6/8] fetch_url {"url": "https://en.wikipedia.org/wiki/Angara"}
+[tool 6/8] fetch_url -> doc2, 4,348 chars (0.13 s)
+[Muse Spark] answer (1.5 s): Lake Baikal's maximum measured depth is **1,642 metres (5,387 ft)** in its Central Basin. Its sole outflow — it is fed by up to 330 rivers — is the **Angara River**, which drains Baikal and is the headwater tributary of the Yenisey.
+[Muse Spark] verify (2.9 s): accept - Answer depth 1642m and outflow Angara is supported by multiple tool results, correcting the erroneous read_and_answer.
+
+ANSWER: Lake Baikal's maximum measured depth is **1,642 metres (5,387 ft)** in its Central Basin.
+
+Its sole outflow — it is fed by up to 330 rivers — is the **Angara River**, which drains Baikal and is the headwater tributary of the Yenisey.
+[summary] 6 tool steps, 7 Muse Spark calls (11.4 s), reader calls [latent, text]: 16.40 s 1B + 1.99 s 3B, total 72.5 s

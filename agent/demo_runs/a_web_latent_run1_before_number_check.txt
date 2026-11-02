@@ -1,0 +1,33 @@
+[task] What is the maximum depth of Lake Baikal, and which river flows out of it?
+[config] brain muse-spark-1.1, reader channel = latent, max 8 tool steps
+[Muse Spark] plan (1.8 s): Lake Baikal's depth and outflow — I'll look up its official measurements.
+[tool 1/8] web_search {"query": "maximum depth of Lake Baikal"}
+[tool 1/8] web_search -> 5 results (1.20 s)
+[tool 2/8] web_search {"query": "which river flows out of Lake Baikal"}
+[tool 2/8] web_search -> error: No results found. (2.89 s)
+[Muse Spark] plan (2.0 s): I've found Baikal reaches 1,642 meters deep; now I'll verify that figure and confirm its sole outflowing river.
+[tool 3/8] fetch_url {"url": "https://en.wikipedia.org/wiki/Lake_Baikal"}
+[tool 3/8] fetch_url -> doc1, 61,800 chars (1.25 s)
+[tool 4/8] web_search {"query": "Lake Baikal outflow river Angara"}
+[tool 4/8] web_search -> 5 results (1.94 s)
+[Muse Spark] plan (1.4 s): Sources indicate the Angara is Baikal's only outflow; I'll confirm both facts from the documents.
+[tool 5/8] read_and_answer {"source": "doc1", "question": "What is the maximum depth of Lake Baikal in meters?"}
+[reader] loading Llama 3.2 1B + bridge + Llama 3.2 3B (4-bit) ...
+[reader] loaded in 28.4 s, warm-up 3.4 s
+[reader] latent, 1B 0.41 s, 6 chunks (of 437), message 265 vectors (1590 KB), 3B 0.74 s
+[tool 5/8] read_and_answer -> 1,542 meters. (36.10 s)
+[tool 6/8] fetch_url {"url": "https://en.wikipedia.org/wiki/Angara"}
+[tool 6/8] fetch_url -> doc2, 4,348 chars (0.13 s)
+[Muse Spark] plan (2.3 s): The depth reading conflicted with other sources, so I'm double-checking the official measurement before answering.
+[tool 7/8] fetch_url {"url": "https://www.britannica.com/place/Lake-Baikal"}
+[tool 7/8] fetch_url -> failed (0.32 s)
+[tool 8/8] read_and_answer {"source": "doc2", "question": "Does Angara River flow out of Lake Baikal? Is it the only outflow?"}
+[reader] latent, 1B 0.50 s, 6 chunks (of 33), message 266 vectors (1596 KB), 3B 1.03 s
+[tool 8/8] read_and_answer -> No, it's not the only outflow. (1.54 s)
+[Muse Spark] answer (2.7 s): The maximum depth of **Lake Baikal** is **1,642 metres (5,387 feet)** — making it the deepest lake in the world. The **only river that flows out** of Lake Baikal is the **Angara River**, which drains the lake to the northwest and is the headwater tributary of the Yenisey River.
+[Muse Spark] verify (2.1 s): accept - Answer supported by multiple web search snippets and Angara page preview; conflicting read_and_answer results are outweighed.
+
+ANSWER: The maximum depth of **Lake Baikal** is **1,642 metres (5,387 feet)** — making it the deepest lake in the world.
+
+The **only river that flows out** of Lake Baikal is the **Angara River**, which drains the lake to the northwest and is the headwater tributary of the Yenisey River.
+[summary] 8 tool steps, 6 Muse Spark calls (12.2 s), reader latent x2: 0.91 s 1B + 1.77 s 3B, total 57.5 s
