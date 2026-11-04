@@ -7,6 +7,15 @@ Built for the Meta Global AI Developer Hackathon (track: *Push the Frontier*).
 things should be able to work together *like one model*, sharing what they understood instead of
 squeezing it through a written summary. LatentBridge lets them do that on consumer hardware.
 
+**Why it matters.** Teams of small models are how AI runs on hardware people already own: a 4 GB laptop
+GPU, a phone, an edge box, with private documents staying on the device. Today those models talk to each
+other in text, so every hand-off waits for one model to *write* a message. LatentBridge removes that wait:
+the reader's step drops from 2.7 s to 0.06 s, and at the same message size the latent message keeps far more
+of the problem (60% vs 20–25% accuracy at ~20 positions). Meta's Muse models sit around the local team:
+**Muse Spark** plans, checks every answer, and labels new problems with no answer key (96% correct labels,
+up from the team's own 59%; see *Muse Spark improver*). A zero-training version of the channel maps the 1B into **Muse Glimmer 30B**, which has a different tokenizer
+(fit done; GPU evaluation pending, see `glimmer/`).
+
 Multi-agent LLM systems pass messages as text: one model writes a message token by token, the next model
 reads it back. LatentBridge replaces that text channel with a learned **latent channel**. The reader model
 reads its input once, and a small trained *bridge* maps the reader's hidden states straight into the
@@ -33,7 +42,9 @@ Text pipeline for comparison: the 1B *writes* a ~60-token message, the 3B reads 
 
 | Model | Role |
 |---|---|
-| **Muse Spark** (`muse-spark-1.1`, Meta Model API) | Orchestrator: splits each task into reader/solver subtasks (~2.5 s, ~760 tokens per plan, cached) |
+| **Muse Spark** (`muse-spark-1.1`, Meta Model API) | Orchestrator: splits each task into reader/solver subtasks (~2.5 s, ~760 tokens per plan, cached); verifier; agent brain with tool calling |
+| **Muse Spark** (`muse-spark-1.3`, Meta Model API) | Improver/teacher (`improve.py`): checks the team's answers on new problems and writes corrections the bridge trains on; live checker in `chat_app.py` |
+| **Muse Glimmer 30B** (`meta-models/Muse-Glimmer-30B`, open weights) | Solver reading the 1B's vectors through a cross-tokenizer bridge (`glimmer/`; ridge fit done, cloud-GPU evaluation pending) |
 | **Llama 3.2 1B Instruct** (`meta-llama/Llama-3.2-1B-Instruct`) | Reader / sender, 4-bit NF4 |
 | **Llama 3.2 3B Instruct** (`meta-llama/Llama-3.2-3B-Instruct`) | Solver / receiver, 4-bit NF4 |
 
@@ -254,7 +265,36 @@ Outcome: the extended stride-2 checkpoint gained +4.0 points on test (62.6% vs 5
 
 Steps B (1,500 more train problems) and C (more stride-1 epochs) were not run: Step A improved
 rather than stalled, and the remaining GPU budget went to the mandatory single final test
-comparison. Extended training run with Muse Code.
+comparison.
+
+## Muse Spark improver (no answer key)
+
+`improve.py` tests whether Muse Spark can replace the answer key. The local team (1B reader → bridge → 3B
+solver, starting from `bridge_main_token_s2.pt`) solves 300 GSM8K *train* problems it has never trained on
+(rows 1700–1999, no overlap with train or validation). For each answer, `muse-spark-1.3` either accepts it or
+rejects it and writes a corrected solution. The bridge then fine-tunes on accepted answers plus Muse
+corrections (2 epochs, lr 2e-5, same losses as training). Gold answers are used **only to score the labels**,
+never for training.
+
+| Round 1, 300 new problems | Result |
+|---|---|
+| Team correct before Muse | 177/300 (59.0%) |
+| Muse accepted / rejected | 174 / 126 |
+| Wrong team answers Muse caught and fixed | 115 of 123 |
+| Right answers Muse wrongly rejected | 5 of 177 |
+| **Training-label accuracy after Muse** | **96.3%** (285/296 usable labels) |
+| Muse cost | 260K tokens, 4.5 min (6 parallel requests) |
+| Bridge validation, full 200 (before → after) | 62.5% → **58.0%** |
+
+Outcome: **Muse Spark worked as a labeler, but this round did not improve the bridge.** Muse raised
+label quality from 59% (the team's own answers) to 96% with no answer key. Fine-tuning on those 296
+labels still dropped validation by 4.5 points. That is about one standard error on 200 problems, so it is
+likely noise, but it is not a gain, and `bridge_muse_r1.pt` is not used anywhere. Our reading: 296 problems
+is a small set next to the 1,700 gold-labeled problems the bridge was trained on, and Muse's corrections
+are written in its own style, not the 3B's. By contrast, extended training on the original gold labels (above)
+gained 2.5 points on validation. Next steps would be mixing Muse labels into the
+original training set, using a lower learning rate, and running more rounds. We did not have time for these
+before the deadline.
 
 ## Agent demo
 
@@ -326,7 +366,10 @@ python fit_ridge.py --layer 8   # closed-form init for the bridge (seconds, CPU)
 bash run_experiments.sh     # Phase 2-3: main bridge, live timed eval, ablations
 python eval.py --ckpt checkpoints/bridge_main_token.pt   # Phase 3 alone
 python pipeline.py "your word problem"                             # Phase 4: Muse Spark + agents
-python app.py               # Phase 6: Gradio demo at http://127.0.0.1:7860
+python chat_app.py          # chat demo at http://127.0.0.1:7860 (pick text / latent channel; Muse Spark checks answers)
+python demo_cli.py --example 3   # terminal demo: Muse Spark plan -> latent vs text -> Muse Spark verify (cached, no GPU)
+python improve.py --tag muse_r1 --ckpt checkpoints/bridge_main_token_s2.pt --n 300   # Muse Spark improver round
+python glimmer/fetch_embed.py && python glimmer/fit_ridge_glimmer.py && modal run glimmer/modal_eval.py --n 100
 ```
 
 ## Repo layout
@@ -343,7 +386,10 @@ python app.py               # Phase 6: Gradio demo at http://127.0.0.1:7860
 | `train.py` | Phase 2 training |
 | `eval.py` | Phase 3 evaluation and ablations |
 | `pipeline.py` | Phase 4 Muse Spark orchestrator + reader/solver agents |
-| `app.py` | Phase 6 Gradio demo |
+| `chat_app.py` | chat demo: 1B → text or bridge → 3B, animated hand-off, per-token breakdown, Muse Spark check |
+| `demo_cli.py`, `demo/` | terminal demo (rich) replaying cached real runs; `demo/build_cache.py` records them |
+| `improve.py` | Muse Spark improver: solve new problems → Muse Spark checks/corrects → fine-tune the bridge |
+| `glimmer/` | Muse Glimmer 30B solver: embedding download, cross-tokenizer ridge fit, Modal evaluation |
 | `make_plots.py` | figures for this README |
 | `agent/cli.py` | CLI agent: Muse Spark brain + web/reader/python tools (see *Agent demo*) |
 | `agent/reader.py` | latent/text reader tool (chunking, chunk selection, 1B → bridge → 3B) |
@@ -355,3 +401,10 @@ python app.py               # Phase 6: Gradio demo at http://127.0.0.1:7860
 - Fu et al., *Cache-to-Cache: Direct Semantic Communication Between Large Language Models* (C2C, 2025)
 - Zou et al., *Latent Collaboration in Multi-Agent Systems* (LatentMAS, 2025)
 - Alayrac et al., *Flamingo* (Perceiver resampler)
+
+## Tools and contributions
+
+Built during the hackathon (Oct 31 – Nov 4, 2026) by Ahmed Jalilati, with Claude Code (Anthropic) as the
+AI coding assistant for code, experiments and write-up. Meta models used: Muse Spark (Meta Model API;
+planner, verifier, agent brain, improver), Llama 3.2 1B and 3B (open weights; reader and solver), and Muse
+Glimmer 30B (open weights; cross-tokenizer bridge built, see `glimmer/`).
