@@ -9,3 +9,7 @@ matplotlib
 gradio
 openai
 python-dotenv
+rich
+requests
+# optional: Muse Glimmer solver on a cloud GPU (glimmer/modal_eval.py)
+modal

@@ -8,3 +8,7 @@ results/_*.log
 *.pyc
 checkpoints/best_backup/
 agent/sandbox/
+data/glimmer_embed.pt
+data/glimmer_embed.bin
+data/improve_*/hidden_pool.pt
+data/chat_corrections.jsonl
