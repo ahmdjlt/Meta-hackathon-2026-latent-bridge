@@ -12116,5 +12116,652 @@
     "text_tokens": null
    }
   }
+ },
+ "85aa4e169715502c": {
+  "facts": "Janet\u2019s ducks lay 16 eggs per day. She eats three for breakfast every morning and bakes muffins for her friends every day with four. She sells the remainder at the farmers' market daily for $2 per fresh duck egg.",
+  "question": "How much in dollars does she make every day at the farmers' market?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract total eggs laid, eggs eaten, eggs used for muffins, and price per egg."
+   },
+   {
+    "agent": "solver",
+    "task": "Compute remaining eggs after eating and baking, then multiply by price to get daily earnings."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 3.86,
+  "usage": {
+   "completion_tokens": 520,
+   "prompt_tokens": 220,
+   "total_tokens": 740,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 375,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "7e026e394775afc1": {
+  "facts": "John takes care of 10 dogs. Each dog takes .5 hours a day to walk and take care of their business.",
+  "question": "How many hours a week does he spend taking care of dogs?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract number of dogs and hours per dog per day and pass to solver"
+   },
+   {
+    "agent": "solver",
+    "task": "Calculate total weekly hours from reader data and answer with one number"
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.49,
+  "usage": {
+   "completion_tokens": 482,
+   "prompt_tokens": 197,
+   "total_tokens": 679,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 373,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "3ff30195256bc49c": {
+  "facts": "Gretchen has 110 coins. There are 30 more gold coins than silver coins.",
+  "question": "How many gold coins does Gretchen have?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Read the facts and identify total coins and gold-silver difference."
+   },
+   {
+    "agent": "solver",
+    "task": "Solve for number of gold coins using the reader's summary."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.17,
+  "usage": {
+   "completion_tokens": 423,
+   "prompt_tokens": 185,
+   "total_tokens": 608,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 326,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "fdc45103ec76c718": {
+  "facts": "Terry eats 2 yogurts a day. They are currently on sale at 4 yogurts for $5.00.",
+  "question": "How much does he spend on yogurt over 30 days?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract Terry's daily yogurt consumption, sale price, and total number of days"
+   },
+   {
+    "agent": "solver",
+    "task": "Calculate total yogurts needed and total cost from reader's data"
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.33,
+  "usage": {
+   "completion_tokens": 482,
+   "prompt_tokens": 197,
+   "total_tokens": 679,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 372,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "83c608ce2094f308": {
+  "facts": "Jean has 30 lollipops. Jean eats 2 of the lollipops. With the remaining lollipops, Jean wants to package 2 lollipops in one bag.",
+  "question": "How many bags can Jean fill?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Read facts and extract initial count, eaten count, and lollipops per bag."
+   },
+   {
+    "agent": "solver",
+    "task": "Compute remaining lollipops and divide by lollipops per bag to find total bags."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 1.93,
+  "usage": {
+   "completion_tokens": 477,
+   "prompt_tokens": 202,
+   "total_tokens": 679,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 353,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "1416fff2e3e799bd": {
+  "facts": "There are twice as many boys as girls at Dr. Wertz's school.",
+  "question": "If there are 60 girls and 5 students to every teacher, how many teachers are there?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Read the facts and calculate total students from girls and boys, then tell solver the totals"
+   },
+   {
+    "agent": "solver",
+    "task": "Take total students from reader and divide by 5 to find number of teachers"
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 4.14,
+  "usage": {
+   "completion_tokens": 928,
+   "prompt_tokens": 193,
+   "total_tokens": 1121,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 815,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "35b5ea34d709afb2": {
+  "facts": "Cody eats three times as many cookies as Amir eats. If Amir eats 5 cookies,",
+  "question": "how many cookies do both of them eat together?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Read the facts and report to the solver how many cookies Amir eats and how Cody's amount relates to Amir's."
+   },
+   {
+    "agent": "solver",
+    "task": "Calculate how many cookies Cody eats and the total number both eat together."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 3.15,
+  "usage": {
+   "completion_tokens": 772,
+   "prompt_tokens": 187,
+   "total_tokens": 959,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 662,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-be6e8b46b1f4b376": {
+  "verdict": "accept",
+  "reason": "Correctly calculates 15+5=20 total cookies.",
+  "verify_s": 1.24,
+  "usage": {
+   "completion_tokens": 169,
+   "prompt_tokens": 177,
+   "total_tokens": 346,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 136,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "91a435131cdf4eca": {
+  "facts": "Toulouse has twice as many sheep as Charleston. Charleston has 4 times as many sheep as Seattle. How many sheep do Toulouse, Charleston, and Seattle have together if Seattle has 20 sheep?",
+  "question": "How many sheep do Toulouse, Charleston, and Seattle have together if Seattle has 20 sheep?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract Seattle's count and the multipliers for Charleston and Toulouse and pass them to solver"
+   },
+   {
+    "agent": "solver",
+    "task": "Compute Charleston = 4*Seattle, Toulouse = 2*Charleston, then sum Seattle+Charleston+Toulouse"
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 4.21,
+  "usage": {
+   "completion_tokens": 1181,
+   "prompt_tokens": 198,
+   "total_tokens": 1379,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 1033,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-f51b1cf3459cafa6": {
+  "verdict": "accept",
+  "reason": "Calculation is correct: 20 + 80 + 160 = 260 total sheep.",
+  "verify_s": 2.69,
+  "usage": {
+   "completion_tokens": 263,
+   "prompt_tokens": 233,
+   "total_tokens": 496,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 224,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "10083f3a05c4d7cb": {
+  "facts": "A robe takes 2 bolts of blue fiber and half that much white fiber.",
+  "question": "How many bolts in total does it take?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract the amount of blue fiber and the amount of white fiber from the facts and pass them to the solver."
+   },
+   {
+    "agent": "solver",
+    "task": "Add the blue and white fiber amounts to compute the total bolts needed."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 1.71,
+  "usage": {
+   "completion_tokens": 476,
+   "prompt_tokens": 183,
+   "total_tokens": 659,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 371,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "50ec63179828127a": {
+  "facts": "Josh decides to try flipping a house. He buys a house for $80,000 and then puts in $50,000 in repairs. This increased the value of the house by 150%.",
+  "question": "How much profit did he make?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Extract the purchase price, repair costs, and percentage increase in value."
+   },
+   {
+    "agent": "solver",
+    "task": "Calculate total investment, new house value, and profit."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.31,
+  "usage": {
+   "completion_tokens": 590,
+   "prompt_tokens": 206,
+   "total_tokens": 796,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 474,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "12a14825991549eb": {
+  "facts": "James decides to run 3 sprints 3 times a week. He runs 60 meters each sprint.",
+  "question": "How many total meters does he run a week?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Read the facts and extract how many sprints per week and meters per sprint."
+   },
+   {
+    "agent": "solver",
+    "task": "Multiply sprints per week by meters per sprint to get total meters per week."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.42,
+  "usage": {
+   "completion_tokens": 464,
+   "prompt_tokens": 191,
+   "total_tokens": 655,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 356,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "cb8d88a9630126ea": {
+  "facts": "Every day, Wendi feeds each of her chickens three cups of mixed chicken feed, containing seeds, mealworms and vegetables to help keep them healthy. She gives the chickens their feed in three separate meals. In the morning, she gives her flock of chickens 15 cups of feed. In the afternoon, she gives her chickens another 25 cups of feed.",
+  "question": "How many cups of feed does she need to give her chickens in the final meal of the day if the size of Wendi's flock is 20 chickens?",
+  "subtasks": [
+   {
+    "agent": "reader",
+    "task": "Read all facts and calculate total daily feed needed for 20 chickens, and report morning and afternoon amounts to solver."
+   },
+   {
+    "agent": "solver",
+    "task": "Use total feed and morning/afternoon amounts to compute cups needed in final meal, answer with one number."
+   }
+  ],
+  "orchestrator": "muse-spark-1.1",
+  "orchestrator_s": 2.8,
+  "usage": {
+   "completion_tokens": 810,
+   "prompt_tokens": 265,
+   "total_tokens": 1075,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 617,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 113,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "r-a7ae0b6b7c52fc42": {
+  "route": "math",
+  "facts": "Tom has 3 boxes with 12 pens in each box. He gives away 7 pens.",
+  "question": "How many pens does he have left?"
+ },
+ "v-6ba87cb3bbfde840": {
+  "verdict": "accept",
+  "reason": "Calculation 3*12-7=29 is correct.",
+  "verify_s": 1.63,
+  "usage": {
+   "completion_tokens": 235,
+   "prompt_tokens": 189,
+   "total_tokens": 424,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 202,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-54c0728689f1a757": {
+  "verdict": "accept",
+  "reason": "Calculation 3*12=36 minus 7 equals 29 is correct.",
+  "verify_s": 2.22,
+  "usage": {
+   "completion_tokens": 218,
+   "prompt_tokens": 192,
+   "total_tokens": 410,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 181,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "v-05d42bd2acf10163": {
+  "verdict": "accept",
+  "reason": "Calculation 3*12=36 minus 7 equals 29 is correct.",
+  "verify_s": 1.13,
+  "usage": {
+   "completion_tokens": 208,
+   "prompt_tokens": 176,
+   "total_tokens": 384,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 171,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "r-4cfaf288dc1005a2": {
+  "route": "chat"
+ },
+ "r-11c9eb3bf26642fd": {
+  "route": "math",
+  "facts": "A farmer has 4 fields with 25 cows in each field. He sells 18 cows.",
+  "question": "How many cows does he have now?"
+ },
+ "v-266e2ab2b084fb97": {
+  "verdict": "accept",
+  "reason": "4*25=100 total cows minus 18 sold equals 82, so final number is correct.",
+  "verify_s": 1.35,
+  "usage": {
+   "completion_tokens": 232,
+   "prompt_tokens": 189,
+   "total_tokens": 421,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 190,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "r-539094dcb2497ba0": {
+  "route": "chat"
+ },
+ "r-eee070c90ee240aa": {
+  "route": "math",
+  "facts": "A bakery sells muffins for $3 each and cookies for $2 each. On Monday it sold 40 muffins and 25 cookies. On Tuesday it sold twice as many muffins and the same number of cookies.",
+  "question": "How much money did the bakery make on Tuesday?"
+ },
+ "v-ce5224b342ed9a2a": {
+  "verdict": "accept",
+  "reason": "Calculations for 80 muffins at $3 and 25 cookies at $2 correctly total $290.",
+  "verify_s": 0.81,
+  "usage": {
+   "completion_tokens": 239,
+   "prompt_tokens": 208,
+   "total_tokens": 447,
+   "completion_tokens_details": {
+    "accepted_prediction_tokens": null,
+    "audio_tokens": null,
+    "reasoning_tokens": 197,
+    "rejected_prediction_tokens": null,
+    "text_tokens": null
+   },
+   "prompt_tokens_details": {
+    "audio_tokens": null,
+    "cache_write_tokens": null,
+    "cached_tokens": 0,
+    "image_tokens": null,
+    "text_tokens": null
+   }
+  }
+ },
+ "r-5aa0b2e592adb842": {
+  "route": "math",
+  "facts": "A library has 5 shelves with 32 books on each shelf. It lends out 47 books and then receives 15 new books.",
+  "question": "How many books does the library have now?"
+ },
+ "r-ece3f0777fcb14f6": {
+  "route": "math",
+  "facts": "A school trip has 4 buses with 38 students on each bus. 9 students stay home sick. Each student who goes pays $12 for a ticket.",
+  "question": "How much money do the students who go pay in total?"
+ },
+ "r-64c9b108e27be98a": {
+  "route": "math",
+  "facts": "aA library has 5 shelves with 32 books on each shelf. It lends out 47 books and then receives 15 new books.",
+  "question": "How many books does the library have now?"
+ },
+ "r-95e2077e6606863a": {
+  "route": "math",
+  "facts": "Maria plants 6 rows of tomatoes with 8 plants in each row. Each plant gives 5 tomatoes.",
+  "question": "How many tomatoes does she harvest?"
+ },
+ "r-a1c6788366eed4a8": {
+  "route": "math",
+  "facts": "A shop has 120 apples. It sells 45 apples in the morning and 30 apples in the afternoon.",
+  "question": "How many apples are left?"
+ },
+ "r-7949bbe59714b172": {
+  "route": "math",
+  "facts": "A cinema sells 85 tickets on Friday and twice as many on Saturday. Each ticket costs $9.",
+  "question": "How much money does the cinema make on Saturday?"
+ },
+ "r-30b61f201d04ed00": {
+  "route": "math",
+  "facts": "",
+  "question": "what is 10 +11"
+ },
+ "r-12117316a93a8767": {
+  "route": "chat"
  }
 }
