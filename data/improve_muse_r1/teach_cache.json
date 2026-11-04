@@ -1,0 +1,2102 @@
+{
+ "8b088ddde6b89d05": {
+  "verdict": "accept",
+  "reason": "The solution correctly calculates 200 boxes for the second warehouse and 600 total.",
+  "solution": "",
+  "seconds": 3.71,
+  "tokens": 649
+ },
+ "6b3a95df7cdd385b": {
+  "verdict": "accept",
+  "reason": "The sum 420 divided by 5 correctly equals 84.",
+  "solution": "",
+  "seconds": 4.37,
+  "tokens": 675
+ },
+ "a951dcdbb8fe2fae": {
+  "verdict": "accept",
+  "reason": "Final answer 14 matches correct calculation of 50 minus 36.",
+  "solution": "",
+  "seconds": 5.01,
+  "tokens": 607
+ },
+ "7e047a1f65662573": {
+  "verdict": "reject",
+  "reason": "Team used wrong numbers 22123 and 3200 instead of 21122 and 3922.",
+  "solution": "Normal sales are 21122 cards. June sold 21122 plus 3922 which is 25044. July sold the normal 21122. Add June and July together 25044 plus 21122 equals 46166. #### 46166",
+  "seconds": 5.12,
+  "tokens": 835
+ },
+ "677fd05cd97d8be3": {
+  "verdict": "reject",
+  "reason": "Half a dozen means 6 shirts, not 3.",
+  "solution": "A dozen is 12 so half a dozen is 6 shirts. Twenty percent of 50 dollars is 10 dollars so the sale price is 40 dollars per shirt. Six shirts at 40 dollars each cost 240 dollars. #### 240",
+  "seconds": 8.94,
+  "tokens": 1142
+ },
+ "5f7302ddc0a30c78": {
+  "verdict": "reject",
+  "reason": "Team computed 404 for the friend but incorrectly declared Toby the winner.",
+  "solution": "Toby makes 5 baseballs at 80 rotations each for a total of 400 rotations. His friend makes 4 apples at 101 rotations each for a total of 404 rotations. Since 404 is greater than 400, the friend is the winner with 404 rotations. #### 404",
+  "seconds": 5.29,
+  "tokens": 875
+ },
+ "e3d40427bd570408": {
+  "verdict": "accept",
+  "reason": "All calculation steps are correct.",
+  "solution": "",
+  "seconds": 4.37,
+  "tokens": 901
+ },
+ "db34bcf6e8518f7f": {
+  "verdict": "reject",
+  "reason": "Team counted 14 people instead of 10 and omitted the soda cost.",
+  "solution": "Janet has 10 people total with 4 children so there are 6 adults. An adult ticket costs 30 dollars so 6 adults cost 180 dollars. A child ticket costs half of 30 dollars which is 15 dollars so 4 children cost 60 dollars. Tickets total 240 dollars. A 20 percent discount saves 48 dollars leaving 192 dollars for tickets. Adding the 5 dollar soda gives 197 dollars total. #### 197",
+  "seconds": 9.4,
+  "tokens": 1339
+ },
+ "8ad6b371949a7cbe": {
+  "verdict": "accept",
+  "reason": "Payment subtracted first then 20% interest correctly applied to remainder.",
+  "solution": "",
+  "seconds": 5.6,
+  "tokens": 851
+ },
+ "92e13e384ce53d92": {
+  "verdict": "accept",
+  "reason": "The calculation correctly finds Howard's amount and the equal share.",
+  "solution": "",
+  "seconds": 2.78,
+  "tokens": 567
+ },
+ "9e595c55f7bf059a": {
+  "verdict": "accept",
+  "reason": "Dividing $480 by 0.8 correctly reverses the 20% discount.",
+  "solution": "",
+  "seconds": 3.29,
+  "tokens": 512
+ },
+ "b0699e1e3c3503c1": {
+  "verdict": "reject",
+  "reason": "Team incorrectly discounted all three pairs instead of only two.",
+  "solution": "Two pairs normally cost 80 dollars. Ten percent of 80 dollars is 8 dollars discount, so two pairs cost 72 dollars. The third pair costs full price of 40 dollars. Add 72 dollars and 40 dollars to get 112 dollars. #### 112",
+  "seconds": 7.97,
+  "tokens": 1120
+ },
+ "353be8f813872cc2": {
+  "verdict": "reject",
+  "reason": "Team assigned 63 pounds to the wrong dog.",
+  "solution": "Evan's dog weighs 63 pounds. Ivan's dog weighs 63 divided by 7 which is 9 pounds. Together they weigh 63 plus 9 which is 72 pounds. #### 72",
+  "seconds": 5.04,
+  "tokens": 819
+ },
+ "b040c57473bcb5c6": {
+  "verdict": "accept",
+  "reason": "The solution correctly calculates one-fourth of 72 and adds it to 18.",
+  "solution": "",
+  "seconds": 3.34,
+  "tokens": 538
+ },
+ "920a5845455c9d4e": {
+  "verdict": "accept",
+  "reason": "Total cost and 20 percent patient share correctly yield 200.",
+  "solution": "",
+  "seconds": 3.27,
+  "tokens": 725
+ },
+ "6c4477ca8d1cb1c1": {
+  "verdict": "accept",
+  "reason": "The steps correctly compute 100 males minus 10 foreign males equals 90.",
+  "solution": "",
+  "seconds": 3.58,
+  "tokens": 594
+ },
+ "0a970b81847ccd67": {
+  "verdict": "accept",
+  "reason": "The steps correctly compute Jana as 74 inches.",
+  "solution": "",
+  "seconds": 3.2,
+  "tokens": 532
+ },
+ "be80619da093f6ef": {
+  "verdict": "accept",
+  "reason": "The totals and difference are computed correctly.",
+  "solution": "",
+  "seconds": 3.82,
+  "tokens": 611
+ },
+ "8f4d5e1ec6480304": {
+  "verdict": "reject",
+  "reason": "Team misread 0.2 dollars profit as 0.04 dollars.",
+  "solution": "Four pairs cost 8 dollars so 25 percent profit is 2 dollars. Five pairs at 0.2 dollars profit each give 1 dollar profit. Adding gives 3 dollars total profit. #### 3",
+  "seconds": 7.26,
+  "tokens": 1166
+ },
+ "892e62b37c243107": {
+  "verdict": "reject",
+  "reason": "Team used twice Ricciana's running distance instead of twice her jump.",
+  "solution": "Ricciana's jump was 4 feet. Twice that is 8 feet. One foot less is 7 feet, so Margarita jumped 7 feet. Margarita ran 18 feet, so her total is 18 plus 7 which is 25 feet. Ricciana's total was 24 feet, so the difference is 25 minus 24 which is 1 foot. #### 1",
+  "seconds": 3.81,
+  "tokens": 856
+ },
+ "07c0be6efb2782b1": {
+  "verdict": "reject",
+  "reason": "Team stopped at the division without computing the final value.",
+  "solution": "First 3 km at 150 km per hour takes 0.02 hours. Next 2 km at 200 km per hour takes 0.01 hours. Last 1 km at 300 km per hour takes one three-hundredth of an hour. Total time is one thirtieth of an hour. Divide total distance 6 km by total time to get 180 km per hour. #### 180",
+  "seconds": 11.41,
+  "tokens": 1439
+ },
+ "baa8264e04f2280b": {
+  "verdict": "accept",
+  "reason": "Team correctly added per-game averages and multiplied by 5.",
+  "solution": "",
+  "seconds": 2.68,
+  "tokens": 526
+ },
+ "e485435bfbadaede": {
+  "verdict": "accept",
+  "reason": "All item calculations and total sum are correct.",
+  "solution": "",
+  "seconds": 4.32,
+  "tokens": 721
+ },
+ "4cc1ccbc28be7e78": {
+  "verdict": "reject",
+  "reason": "Scorpions are arachnids, not insects, so they must be excluded.",
+  "solution": "Calvin has 12 roaches. Half of 12 is 6 so he has 6 crickets. Twice 3 is 6 so he has 6 caterpillars. Roaches, crickets and caterpillars are insects but scorpions are not. Adding 12 plus 6 plus 6 gives 24. #### 24",
+  "seconds": 10.49,
+  "tokens": 1366
+ },
+ "27d9d3a01ede958c": {
+  "verdict": "reject",
+  "reason": "Team gave one person's share instead of the combined share for two people.",
+  "solution": "Divide 12 bars by 3 people to get 4 bars each. Add Mike's 4 bars and Rita's 4 bars to get 8 bars combined. #### 8",
+  "seconds": 3.97,
+  "tokens": 640
+ },
+ "5c2f0762831318d1": {
+  "verdict": "reject",
+  "reason": "Team solution is incomplete and gives no final number.",
+  "solution": "Mary starts with 3 cartons of 10 scoops for 30 scoops total. Ethan takes 2 scoops. Lucas, Danny and Connor take 6 scoops of chocolate in total. Olivia takes 2 scoops. Shannon takes twice Olivias amount which is 4 scoops. Total taken is 2 plus 6 plus 2 plus 4 equals 14 scoops. Subtract from 30 leaves 16 scoops. #### 16",
+  "seconds": 8.03,
+  "tokens": 1344
+ },
+ "7544c8e4946bd140": {
+  "verdict": "accept",
+  "reason": "The times 3, 6, 2 and 0 correctly sum to 11.",
+  "solution": "",
+  "seconds": 4.53,
+  "tokens": 792
+ },
+ "c12b432c69a7e166": {
+  "verdict": "accept",
+  "reason": "The calculations of 36 apple and 24 cherry pies for a difference of 12 are correct.",
+  "solution": "",
+  "seconds": 2.92,
+  "tokens": 681
+ },
+ "3ac3c9484168098c": {
+  "verdict": "accept",
+  "reason": "Subtracting bus cost then dividing by admission correctly gives 25.",
+  "solution": "",
+  "seconds": 2.61,
+  "tokens": 550
+ },
+ "fea8ac13a964db6a": {
+  "verdict": "accept",
+  "reason": "The multiplication 3 times 3 times 150 equals 1350.",
+  "solution": "",
+  "seconds": 4.21,
+  "tokens": 633
+ },
+ "4c4f2f2fc0bd7bcf": {
+  "verdict": "accept",
+  "reason": "The sum 200 divided by 5 days correctly gives 40.",
+  "solution": "",
+  "seconds": 3.03,
+  "tokens": 590
+ },
+ "ae97fc78f3fd529e": {
+  "verdict": "accept",
+  "reason": "Total shrimp, pounds, and cost calculations are all correct.",
+  "solution": "",
+  "seconds": 3.01,
+  "tokens": 511
+ },
+ "e76c74c869efb855": {
+  "verdict": "reject",
+  "reason": "Team used 150 instead of 450 for Brady's extra earnings.",
+  "solution": "Dwayne makes 1500 dollars in a year. Brady makes 450 dollars more than Dwayne, so Brady makes 1500 plus 450 which is 1950 dollars. Combined they make 1500 plus 1950 which is 3450 dollars. #### 3450",
+  "seconds": 5.19,
+  "tokens": 782
+ },
+ "bc70e4ff230bdf66": {
+  "verdict": "reject",
+  "reason": "Team miscounted clothing types and ignored Adam keeping half.",
+  "solution": "Adam sets aside 4 pants plus 4 jumpers plus 8 pajama pieces from 4 sets plus 20 t-shirts for a total of 36 articles. His 3 friends each give 36 articles for a total of 108 articles. Adam keeps half of his 36, so he donates 18. The total donated is 18 plus 108 which is 126. #### 126",
+  "seconds": 11.62,
+  "tokens": 1633
+ },
+ "89ab940a6edf5253": {
+  "verdict": "accept",
+  "reason": "The equations correctly give T equals 20.",
+  "solution": "",
+  "seconds": 2.55,
+  "tokens": 556
+ },
+ "16fccd6a5e1035cd": {
+  "verdict": "accept",
+  "reason": "All multiplications and subtraction are correct.",
+  "solution": "",
+  "seconds": 2.89,
+  "tokens": 549
+ },
+ "5784b98e7d5ca7ff": {
+  "verdict": "accept",
+  "reason": "The math correctly finds Agnes earns $480 monthly requiring 48 hours for Mila.",
+  "solution": "",
+  "seconds": 4.48,
+  "tokens": 815
+ },
+ "7324b13d46c96074": {
+  "verdict": "accept",
+  "reason": "All arithmetic steps are correct.",
+  "solution": "",
+  "seconds": 3.15,
+  "tokens": 723
+ },
+ "d042998a4bad3f88": {
+  "verdict": "reject",
+  "reason": "Team forgot to divide harvest into bundles before multiplying by price.",
+  "solution": "Potatoes make 250 divided by 25 equals 10 bundles. 10 bundles at 1.90 each gives 19. Carrots make 320 divided by 20 equals 16 bundles. 16 bundles at 2 each gives 32. Adding 19 and 32 gives 51. #### 51",
+  "seconds": 7.2,
+  "tokens": 965
+ },
+ "ad4cf577593c67b7": {
+  "verdict": "reject",
+  "reason": "Team miscalculated monthly hours and final multiplication.",
+  "solution": "Each employee works 10 hours a day for 5 days a week for 4 weeks, so that is 200 hours per month. At 12 dollars per hour, one employee earns 2400 dollars per month. After hiring 200 more, there are 700 employees in total. Total monthly pay is 700 times 2400 which equals 1680000. #### 1680000",
+  "seconds": 5.71,
+  "tokens": 971
+ },
+ "2f99aff543160b3b": {
+  "verdict": "accept",
+  "reason": "The addition and subtraction are calculated correctly.",
+  "solution": "",
+  "seconds": 3.37,
+  "tokens": 621
+ },
+ "27105d84aa65a7ec": {
+  "verdict": "accept",
+  "reason": "The packet count, box count, and total cost are all calculated correctly.",
+  "solution": "",
+  "seconds": 3.01,
+  "tokens": 615
+ },
+ "73a8034679b9559e": {
+  "verdict": "reject",
+  "reason": "Team treated 1000 gallons per hour as per day.",
+  "solution": "The sewers hold 240000 gallons and each hour adds 1000 gallons, so they hold for 240 hours. There are 24 hours in a day, so 240 divided by 24 is 10 days. #### 10",
+  "seconds": 5.22,
+  "tokens": 848
+ },
+ "3f163179068722ac": {
+  "verdict": "accept",
+  "reason": "The subtraction and fraction calculations are correct.",
+  "solution": "",
+  "seconds": 3.63,
+  "tokens": 668
+ },
+ "e547e60b0914d231": {
+  "verdict": "reject",
+  "reason": "Team confused correct question count with marks and never gave a total.",
+  "solution": "Jose got 50 minus 5 equals 45 questions right. At 2 marks each that is 90 marks. Meghan scored 20 less than Jose so she scored 70 marks. Alisson scored 40 less than Jose so she scored 50 marks. The combined total is 90 plus 70 plus 50 equals 210. #### 210",
+  "seconds": 7.37,
+  "tokens": 1307
+ },
+ "1ef63e5cc25de71e": {
+  "verdict": "accept",
+  "reason": "All calculations are correct.",
+  "solution": "",
+  "seconds": 4.36,
+  "tokens": 759
+ },
+ "79a86fa7fc6925a8": {
+  "verdict": "reject",
+  "reason": "Aimee's score was calculated as twice Nathalie alone instead of twice Lizzie and Nathalie combined.",
+  "solution": "Lizzie scored 4 points. Nathalie scored 3 more than Lizzie, so Nathalie scored 7 points. Lizzie and Nathalie combined scored 11 points. Aimee scored twice that combined total, so Aimee scored 22 points. The three together scored 33 points. The team scored 50 in total, so the teammates scored 50 minus 33 which is 17. #### 17",
+  "seconds": 4.81,
+  "tokens": 918
+ },
+ "b3103b115efe0e34": {
+  "verdict": "accept",
+  "reason": "Both multiplications and the sum are calculated correctly.",
+  "solution": "",
+  "seconds": 3.2,
+  "tokens": 668
+ },
+ "903059993fab9eea": {
+  "verdict": "accept",
+  "reason": "The calculation 50 minus 33 equals 17 is correct.",
+  "solution": "",
+  "seconds": 3.19,
+  "tokens": 639
+ },
+ "8e738b0eac13410c": {
+  "verdict": "reject",
+  "reason": "Solution is truncated with no final total and mislabels the last segment.",
+  "solution": "The first to second store is 6 miles. Two thirds of 6 is 4, so the second to third store is 6 plus 4 which is 10 miles. House to first store is 4 miles and third store to work is 4 miles. Add 4 plus 6 plus 10 plus 4 to get 24. #### 24",
+  "seconds": 7.29,
+  "tokens": 1185
+ },
+ "78f81979c2f335f2": {
+  "verdict": "reject",
+  "reason": "2060 divided by 15 is 137.33, not 138.",
+  "solution": "First add 1200 plus 400 plus 200 plus 60 plus 200 to get 2060 total needed. Then divide 2060 by 15 to get about 137.33 hours. #### 137.33",
+  "seconds": 11.62,
+  "tokens": 1495
+ },
+ "4daeb8190ff38556": {
+  "verdict": "accept",
+  "reason": "The subtraction 30 minus 15 minus 6 correctly gives 9 minutes.",
+  "solution": "",
+  "seconds": 3.74,
+  "tokens": 640
+ },
+ "80c740e5f09f1bb4": {
+  "verdict": "accept",
+  "reason": "The paid totals and subtraction from 300 are computed correctly.",
+  "solution": "",
+  "seconds": 6.6,
+  "tokens": 889
+ },
+ "224c22d7848cb4ff": {
+  "verdict": "accept",
+  "reason": "Total needed is 54 and on hand is 20, so 34 more is correct.",
+  "solution": "",
+  "seconds": 5.46,
+  "tokens": 862
+ },
+ "52fcb69af5d29c96": {
+  "verdict": "reject",
+  "reason": "Team added only 50 miles and ignored the 50 miles needed to get back on track.",
+  "solution": "Johns normal speed is 150 miles in 3 hours which is 50 miles per hour. He drove 50 miles out of the way and must drive 50 miles back, so the extra distance is 100 miles. The total distance is 150 plus 100 which is 250 miles. At 50 miles per hour, 250 miles takes 5 hours. #### 5",
+  "seconds": 15.46,
+  "tokens": 1788
+ },
+ "2526af9284b5419f": {
+  "verdict": "accept",
+  "reason": "The calculations 45 x 2.4 = 108 and 45 + 108 = 153 are correct.",
+  "solution": "",
+  "seconds": 3.66,
+  "tokens": 614
+ },
+ "a0762ed334e2946f": {
+  "verdict": "reject",
+  "reason": "Team used 7 days instead of 213 days for the season length.",
+  "solution": "First fisherman catches 3 fish each day for 213 days for a total of 639 fish. Second fisherman catches 30 fish in the first 30 days and 120 fish in the next 60 days. The remaining season is 123 days at 4 fish each day for 492 fish. Second fisherman total is 642 fish, which is 3 more than the first. #### 3",
+  "seconds": 7.87,
+  "tokens": 1267
+ },
+ "30e0d2ba482ea2f4": {
+  "verdict": "reject",
+  "reason": "The solution forgot to subtract the 3 parsley rows.",
+  "solution": "Juvy has 20 rows total. Parsley uses 3 rows and rosemary uses 2 rows, so chives use 20 minus 3 minus 2 which is 15 rows. Each row has 10 plants, so 15 times 10 equals 150 chives. #### 150",
+  "seconds": 4.87,
+  "tokens": 855
+ },
+ "3e79d3a8291d3918": {
+  "verdict": "reject",
+  "reason": "The team subtracted incoming cats instead of adding them.",
+  "solution": "Jeff starts with 20 cats. On Monday he adds 2 kittens to get 22 cats. On Tuesday he adds 1 cat to get 23 cats. On Wednesday 6 cats are adopted, leaving 23 minus 6 which is 17. #### 17",
+  "seconds": 4.54,
+  "tokens": 804
+ },
+ "123c6bed9faeeddc": {
+  "verdict": "accept",
+  "reason": "All calculations correctly yield 800 words per section.",
+  "solution": "",
+  "seconds": 3.37,
+  "tokens": 665
+ },
+ "29ad22e991ace932": {
+  "verdict": "accept",
+  "reason": "Total path distance is 150 miles so 150 divided by 25 is 6 hours.",
+  "solution": "",
+  "seconds": 3.82,
+  "tokens": 602
+ },
+ "6f65cf703d445a6f": {
+  "verdict": "accept",
+  "reason": "The final number 9 is correct.",
+  "solution": "",
+  "seconds": 5.81,
+  "tokens": 1053
+ },
+ "a029066d64e433aa": {
+  "verdict": "accept",
+  "reason": "The calculation 12 minus 8 equals 4 is correct.",
+  "solution": "",
+  "seconds": 3.63,
+  "tokens": 782
+ },
+ "d0b6b26c7b048cac": {
+  "verdict": "accept",
+  "reason": "The calculation of 13 times 2 times 5 equals 130 is correct.",
+  "solution": "",
+  "seconds": 3.2,
+  "tokens": 628
+ },
+ "35de592868e3d4bf": {
+  "verdict": "reject",
+  "reason": "Apple pie was priced at 4 dollars instead of 2 dollars.",
+  "solution": "Five cupcakes at 2 dollars each cost 10 dollars. Six doughnuts at 1 dollar each cost 6 dollars. Four slices at 2 dollars each cost 8 dollars. Fifteen cookies at 0.60 dollars each cost 9 dollars. Adding 10 plus 6 plus 8 plus 9 gives 33 dollars in total. #### 33",
+  "seconds": 7.19,
+  "tokens": 1085
+ },
+ "eccf7839f0c09320": {
+  "verdict": "reject",
+  "reason": "The team mistook a third more for 3 more instead of one third of 12.",
+  "solution": "The first student counted 12 squirrels. One third of 12 is 4, so the second student counted 12 plus 4 which is 16 squirrels. Together they counted 12 plus 16 which is 28 squirrels. #### 28",
+  "seconds": 4.81,
+  "tokens": 749
+ },
+ "b6098cbe11f853f8": {
+  "verdict": "accept",
+  "reason": "Revenue minus cost correctly gives 22.",
+  "solution": "",
+  "seconds": 3.33,
+  "tokens": 594
+ },
+ "d0e454cb6ca13c54": {
+  "verdict": "accept",
+  "reason": "The math correctly calculates 1460 dreams this year and double last year.",
+  "solution": "",
+  "seconds": 4.3,
+  "tokens": 679
+ },
+ "035ace4a24c1e94b": {
+  "verdict": "reject",
+  "reason": "Team claims 74 percent keeps the average at 74 percent and still earns the party which needs 75 percent.",
+  "solution": "29 students averaged 74 percent so their total is 29 times 74 which is 2146. For 30 students to average 75 the total must be 30 times 75 which is 2250. William must score 2250 minus 2146 which is 104. #### 104",
+  "seconds": 7.26,
+  "tokens": 1091
+ },
+ "c646328df0c68c2b": {
+  "verdict": "accept",
+  "reason": "The calculations for pizza price and total are correct.",
+  "solution": "",
+  "seconds": 3.83,
+  "tokens": 676
+ },
+ "4463ab73a26c9b36": {
+  "verdict": "accept",
+  "reason": "All steps and total 195 are correct.",
+  "solution": "",
+  "seconds": 2.93,
+  "tokens": 601
+ },
+ "4ed3ba85331bb2ac": {
+  "verdict": "accept",
+  "reason": "Subtraction 22 minus 7 minus 5 equals 10 is correct.",
+  "solution": "",
+  "seconds": 3.17,
+  "tokens": 593
+ },
+ "dca61d14cad0b052": {
+  "verdict": "accept",
+  "reason": "Regular and overtime hours are correctly multiplied by $13.50 and summed to $675.",
+  "solution": "",
+  "seconds": 8.82,
+  "tokens": 1132
+ },
+ "483abde0aecfd70f": {
+  "verdict": "reject",
+  "reason": "It ignored the sale of the remaining 21 backpacks and miscalculated cost.",
+  "solution": "The remainder is 48 minus 17 minus 10 which is 21 backpacks. Revenue from the three groups is 17 times 18 equals 306 plus 10 times 25 equals 250 plus 21 times 22 equals 462 for a total of 1018. Profit is total revenue 1018 minus cost 576 which is 442. #### 442",
+  "seconds": 8.14,
+  "tokens": 1240
+ },
+ "b5dac13e8034fe80": {
+  "verdict": "reject",
+  "reason": "Team used three quarters instead of one third and invented rounding.",
+  "solution": "One third of 90 is 30 lollipops, so the rest is 60 candy canes. 30 lollipops at 3 per boy gives 10 boys. 60 candy canes at 2 per girl gives 30 girls. 10 plus 30 is 40 altogether. #### 40",
+  "seconds": 5.49,
+  "tokens": 979
+ },
+ "aaebeec76373ceb0": {
+  "verdict": "accept",
+  "reason": "The time for sausages and eggs is calculated correctly and sums to 39.",
+  "solution": "",
+  "seconds": 3.08,
+  "tokens": 570
+ },
+ "1dfe0d622cc887c3": {
+  "verdict": "reject",
+  "reason": "Team double-counted and applied 3/5 to 500 instead of 250.",
+  "solution": "He started with 500 lychees. He sold half which is 250, so 250 remained to take home. They ate 3 fifths of 250 which is 150. Subtracting 150 from 250 leaves 100. #### 100",
+  "seconds": 4.98,
+  "tokens": 915
+ },
+ "6db429b24121f3fb": {
+  "verdict": "reject",
+  "reason": "Team omitted the 10 cards from the first trade and miscalculated holdings.",
+  "solution": "First trade Padma gave 2 cards and received 10 cards, so 12 cards changed hands. Second trade Robert gave 8 cards and received 15 cards, so 23 cards changed hands. Add 12 and 23 to get 35 total traded cards. #### 35",
+  "seconds": 4.95,
+  "tokens": 885
+ },
+ "015b10364874ecfd": {
+  "verdict": "accept",
+  "reason": "Calculation of remaining delegates and half is correct.",
+  "solution": "",
+  "seconds": 3.46,
+  "tokens": 657
+ },
+ "0a4da61bff46e069": {
+  "verdict": "accept",
+  "reason": "The steps correctly sum to 3/10 which is 30 percent.",
+  "solution": "",
+  "seconds": 9.44,
+  "tokens": 1201
+ },
+ "b264af849303a5da": {
+  "verdict": "accept",
+  "reason": "Total time 24 hours and 3600 divided by 24 equals 150 is correct.",
+  "solution": "",
+  "seconds": 3.29,
+  "tokens": 670
+ },
+ "b9e678330d0af790": {
+  "verdict": "reject",
+  "reason": "Misinterpreted 'four times more' as 4x instead of original plus 4x.",
+  "solution": "The first wave had 300 infections per day. Four times that amount is 1200, which is the amount of the increase. Add the increase to the original to get 1500 infections per day in the second wave. Two weeks is 14 days. Multiply 1500 by 14 to get 21000. #### 21000",
+  "seconds": 6.23,
+  "tokens": 1001
+ },
+ "4b1c891420c0856c": {
+  "verdict": "reject",
+  "reason": "The team misadded the non-basketball items and missed the extra basketballs from the hoops.",
+  "solution": "There are 300 total donations. Subtract 60 hoops and 120 floats and 50 footballs and 40 tennis balls to leave 30 donations that are basketballs alone. Half of the 60 hoops is 30, and each of those also included a basketball. Add the 30 alone basketballs and the 30 hoop basketballs to get 60. #### 60",
+  "seconds": 19.71,
+  "tokens": 2306
+ },
+ "681ba8c8d6483aaa": {
+  "verdict": "accept",
+  "reason": "The solution correctly calculates Joshua's share as 30 dollars.",
+  "solution": "",
+  "seconds": 3.25,
+  "tokens": 611
+ },
+ "000891b7964487b4": {
+  "verdict": "accept",
+  "reason": "The total was correctly calculated as 60 plus 50 equals 110.",
+  "solution": "",
+  "seconds": 3.26,
+  "tokens": 534
+ },
+ "93e1ebd01f17060d": {
+  "verdict": "accept",
+  "reason": "Calculations for both stores and $50 difference are correct.",
+  "solution": "",
+  "seconds": 2.81,
+  "tokens": 714
+ },
+ "fa3fd66c7e16e0f6": {
+  "verdict": "reject",
+  "reason": "Mistook an 80 percent drop for subtracting 80 pounds.",
+  "solution": "Start with 500 pounds. An 80 percent drop leaves 20 percent, so 20 percent of 500 is 100 pounds. Tripling 100 pounds gives 300 pounds. #### 300",
+  "seconds": 4.84,
+  "tokens": 820
+ },
+ "8ae50df200eec64c": {
+  "verdict": "accept",
+  "reason": "The steps and final count of 21 are correct.",
+  "solution": "",
+  "seconds": 3.03,
+  "tokens": 647
+ },
+ "24af77d36f5fc2ab": {
+  "verdict": "reject",
+  "reason": "Lilies must be twice the 3 snapdragons, so 6 not 4.",
+  "solution": "Each arrangement has 3 snapdragons, so twice as many lilies means 6 lilies. One table needs 8 roses and 12 daisies and 3 snapdragons and 6 lilies, which is 29 flowers. Ten tables need 10 times 29, which is 290. #### 290",
+  "seconds": 10.51,
+  "tokens": 1460
+ },
+ "2da129f45bbabf4f": {
+  "verdict": "reject",
+  "reason": "Team added Jenny's red marbles instead of blue and used the wrong value for Anie.",
+  "solution": "Jenny collected 25 blue marbles. Anie collected twice Jenny's blue marbles, so Anie collected 50 blue marbles. Mary collected half of Anie's blue marbles, so Mary collected 25 blue marbles. Adding them gives 25 plus 50 plus 25 equals 100. #### 100",
+  "seconds": 9.57,
+  "tokens": 1382
+ },
+ "4406a37c0fbd9c69": {
+  "verdict": "reject",
+  "reason": "The team ignored the two spit out rocks and kept the count at 5.",
+  "solution": "Dennis started with 10 rocks. Half of 10 is 5 so the fish ate 5 rocks and 5 were left uneaten. The fish spit 2 rocks back out so add 2 to 5 to get 7 rocks left. #### 7",
+  "seconds": 8.24,
+  "tokens": 1077
+ },
+ "b85be0dcd82493f2": {
+  "verdict": "accept",
+  "reason": "The calculation correctly totals 8 dice and 48 sides.",
+  "solution": "",
+  "seconds": 3.12,
+  "tokens": 539
+ },
+ "3cd39827e6a4a829": {
+  "verdict": "accept",
+  "reason": "The steps correctly compute 60 eggs, 45 hatched, plus 20 originals.",
+  "solution": "",
+  "seconds": 3.08,
+  "tokens": 604
+ },
+ "f79707d8b81833dd": {
+  "verdict": "accept",
+  "reason": "The calculation of 5 plus 10 is correct.",
+  "solution": "",
+  "seconds": 3.49,
+  "tokens": 586
+ },
+ "b18a9cf90c8ad2b2": {
+  "verdict": "reject",
+  "reason": "Team used 60 instead of 10 as the number moving inside.",
+  "solution": "Two thirds of 90 is 60 in the cafeteria at first, leaving 30 outside. One third of the 30 outside is 10 who run inside, while 3 go outside. So the cafeteria now has 60 plus 10 minus 3 equals 67. #### 67",
+  "seconds": 5.72,
+  "tokens": 889
+ },
+ "51095e96e221a481": {
+  "verdict": "reject",
+  "reason": "Team misattributed Brent's score to Leo and added mistakes to points.",
+  "solution": "Madeline has 2 mistakes so Leo has 4 mistakes. Brent has 1 more mistake than Leo so Brent has 5 mistakes. Brent scored 25 with 5 mistakes so the full total is 30. Madeline has 2 mistakes so her score is 30 minus 2. #### 28",
+  "seconds": 10.58,
+  "tokens": 1396
+ },
+ "71b8e7659244a1bb": {
+  "verdict": "accept",
+  "reason": "The sum 273 divided by 3 correctly gives 91.",
+  "solution": "",
+  "seconds": 2.59,
+  "tokens": 501
+ },
+ "0b049b283c9f63a8": {
+  "verdict": "reject",
+  "reason": "Team swapped the collections and treated 48 as the total.",
+  "solution": "Battle Gremlins has 48 cards, which is three times Alien Baseball, so Alien Baseball has 48 divided by 3 which is 16 cards. Monster Club is twice Alien Baseball, so twice 16 is 32. #### 32",
+  "seconds": 5.02,
+  "tokens": 886
+ },
+ "7f9c4239194fa3bf": {
+  "verdict": "reject",
+  "reason": "It gives only Swanson's total instead of the difference.",
+  "solution": "Ms Swanson class has 25 kids averaging 5 zits each so total is 25 times 5 which is 125 zits. Mr Jones class has 32 kids averaging 6 zits each so total is 32 times 6 which is 192 zits. Subtract to find the difference 192 minus 125 equals 67. #### 67",
+  "seconds": 5.23,
+  "tokens": 795
+ },
+ "1b6b52ad24918cd7": {
+  "verdict": "accept",
+  "reason": "The subtraction 9 minus 6 equals 3 is correct.",
+  "solution": "",
+  "seconds": 2.74,
+  "tokens": 577
+ },
+ "96a940de358a5ee3": {
+  "verdict": "accept",
+  "reason": "The calculations for tomatoes, carrots, and total are all correct.",
+  "solution": "",
+  "seconds": 2.74,
+  "tokens": 557
+ },
+ "603502e4e2d5a08b": {
+  "verdict": "accept",
+  "reason": "Total of 20 and 5/20 equals 25% is correct.",
+  "solution": "",
+  "seconds": 2.84,
+  "tokens": 492
+ },
+ "2330507cde709271": {
+  "verdict": "reject",
+  "reason": "Team skipped the daily doubling on days 3, 5 and 7.",
+  "solution": "Start with 6 fish. Day 2 double to 12. Day 3 double to 24 then take out one third leaving 16. Day 4 double to 32. Day 5 double to 64 then take out one fourth leaving 48. Day 6 double to 96. Day 7 double to 192 then add 15 to get 207. #### 207",
+  "seconds": 14.11,
+  "tokens": 1742
+ },
+ "f104f83d50f57004": {
+  "verdict": "reject",
+  "reason": "Team miscalculated glue count and remaining supplies.",
+  "solution": "8 students need 3 pieces each so that is 24 pieces of construction paper. Adding 6 bottles of glue makes 30 supplies in total. Losing half leaves 15 supplies. Buying 5 more pieces makes 20 supplies left. #### 20",
+  "seconds": 5.81,
+  "tokens": 1089
+ },
+ "8da8b2dede6a46e0": {
+  "verdict": "reject",
+  "reason": "Team set up incorrect equations and never gave a final number.",
+  "solution": "He sells 80 dollars worth of 100 mg capsules at 5 dollars each, so that is 16 capsules per week. He sells 60 dollars worth of 500 mg capsules at 2 dollars each, so that is 30 capsules per week. Together that is 46 capsules per week. Over 2 weeks that is 92 capsules. #### 92",
+  "seconds": 7.53,
+  "tokens": 1226
+ },
+ "3ec5c5d4c1cc224b": {
+  "verdict": "reject",
+  "reason": "The total misses Wednesday's 12 peppers, so 68 is wrong.",
+  "solution": "Add each day: 7 plus 12 plus 14 plus 12 plus 5 plus 18 plus 12 equals 80 peppers total. 20 percent are hot, so 80 percent are not hot. Multiply 80 by 0.8 to get 64 non-hot peppers. #### 64",
+  "seconds": 5.09,
+  "tokens": 870
+ },
+ "7d55b194af6d6a0f": {
+  "verdict": "reject",
+  "reason": "Olives were charged for 1/2 pound instead of 1/4 pound.",
+  "solution": "Two sandwiches cost 15.50. Salami is 4.00. Brie is three times salami so 12.00. A quarter pound of olives at 10 per pound is 2.50. Half a pound of feta at 8 per pound is 4.00. Bread is 2.00. Adding 15.50 plus 4 plus 12 plus 2.50 plus 4 plus 2 gives 40. #### 40",
+  "seconds": 6.09,
+  "tokens": 1135
+ },
+ "428d04a50de715ac": {
+  "verdict": "reject",
+  "reason": "Team missed one empty tire and confused present air with needed air.",
+  "solution": "Each tire holds 500 cubic inches. The two empty tires need 500 each for a total of 1000. The 40 percent full tire already has 200 so it needs 300 more. The 70 percent full tire already has 350 so it needs 150 more. Total needed is 1000 plus 300 plus 150 equals 1450. Dividing 1450 by 50 per pump gives 29 pumps. #### 29",
+  "seconds": 7.75,
+  "tokens": 1126
+ },
+ "c4ffd594bd7c36b8": {
+  "verdict": "accept",
+  "reason": "The calculations correctly show 6 students remain.",
+  "solution": "",
+  "seconds": 2.47,
+  "tokens": 540
+ },
+ "fb7d039fd3b178c6": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated 100 plus 300 plus 410 equals 810.",
+  "solution": "",
+  "seconds": 4.0,
+  "tokens": 670
+ },
+ "d533fb3346c2630b": {
+  "verdict": "reject",
+  "reason": "Team invented extra rows and skipped the yearly plantings from age 10 to 15.",
+  "solution": "Jim starts with 2 rows of 4 which is 8 trees. He plants a row of 4 trees on each birthday at ages 10, 11, 12, 13, 14, and 15. That is 6 rows of 4 which is 24 trees planted. 8 plus 24 is 32 trees after planting on his 15th birthday. He then doubles to 64 trees. #### 64",
+  "seconds": 13.29,
+  "tokens": 1703
+ },
+ "1db0dd19601a207b": {
+  "verdict": "reject",
+  "reason": "Team mistook 3 boxes for a capacity of 3 instead of 15 per box.",
+  "solution": "Nida has 50 chocolates total and 5 are loose, so 45 are in boxes. Those 45 are in 3 boxes, so each box holds 45 divided by 3 which is 15. Total chocolates with friend is 50 plus 25 which is 75. Boxes needed for 75 is 75 divided by 15 which is 5. She already has 3 boxes, so she needs 5 minus 3 which is 2 more. #### 2",
+  "seconds": 10.4,
+  "tokens": 1631
+ },
+ "3b04bcc2e1844b8f": {
+  "verdict": "reject",
+  "reason": "The team ignored the one-third sentence extension.",
+  "solution": "Convert 2 years to 24 months. Add the 3 months for assault to get 27 months. Extend by one third, which is 9 months, to get 36 months total. #### 36",
+  "seconds": 4.72,
+  "tokens": 816
+ },
+ "1feb2072d6f82c18": {
+  "verdict": "reject",
+  "reason": "Team counted three people instead of two.",
+  "solution": "Johnny is one person so he has 2 legs. His son joins him so that is a second person with 2 legs. The two dogs have 4 legs each which is 8 legs. Adding 2 plus 2 plus 8 gives 12 total. #### 12",
+  "seconds": 14.12,
+  "tokens": 1657
+ },
+ "27bb725fb4745b58": {
+  "verdict": "reject",
+  "reason": "Del Monte donated 60 bottles, not 30.",
+  "solution": "Foster Farms donated 45 chickens. American Summits donated twice that in water, so 90 bottles. Hormel donated three times Foster, so 135 chickens. Boudin donated one third of Hormel, so 45 chickens. Del Monte donated 30 fewer than American, so 90 minus 30 equals 60 bottles. Add all items to get 45 plus 90 plus 135 plus 45 plus 60 equals 375. #### 375",
+  "seconds": 7.15,
+  "tokens": 1256
+ },
+ "6bf4e1e1650cc179": {
+  "verdict": "reject",
+  "reason": "Thursday should be half of 26, not 26.",
+  "solution": "Monday she did 5 push-ups. Tuesday she did 7 push-ups. Wednesday she did twice Tuesday which is 14 push-ups. The total for the first three days is 26 push-ups. Thursday she did half of that which is 13 push-ups. The total for the first four days is 39 push-ups. Friday she did that total which is 39 push-ups. #### 39",
+  "seconds": 5.06,
+  "tokens": 876
+ },
+ "a31cecc3aa015c26": {
+  "verdict": "reject",
+  "reason": "Team ignored insurance premiums and miscalculated out-of-pocket cost.",
+  "solution": "Insurance premiums cost 24 months times 20 dollars per month which is 480 dollars. The out of pocket share is 20 percent of 5000 dollars which is 1000 dollars. Total cost with insurance is 480 plus 1000 which is 1480 dollars. Without insurance the cost would be 5000 dollars. Savings is 5000 minus 1480 which is 3520 dollars. #### 3520",
+  "seconds": 7.75,
+  "tokens": 1068
+ },
+ "0f752d048c2200b5": {
+  "verdict": "reject",
+  "reason": "Gold prices were added as silver without converting at 9 silver per gold.",
+  "solution": "Five spellbooks at 5 gold each cost 25 gold which is 225 silvers. Three kits at 20 silver each cost 60 silvers. One owl at 28 gold costs 252 silvers. Adding 225 plus 60 plus 252 gives 537. #### 537",
+  "seconds": 5.56,
+  "tokens": 798
+ },
+ "90faef3a5fd6edd9": {
+  "verdict": "reject",
+  "reason": "Daily eggs and number of cooking days are both miscalculated.",
+  "solution": "Lisa makes 8 eggs for her 4 children plus 3 eggs for her husband plus 2 eggs for herself, which is 13 eggs per day. She cooks Monday through Friday, which is 5 days per week for 52 weeks, or 260 days per year. Multiply 13 eggs by 260 days to get 3380. #### 3380",
+  "seconds": 7.73,
+  "tokens": 1076
+ },
+ "eb029e161e7c5b65": {
+  "verdict": "accept",
+  "reason": "Two coats require 1200 sq ft which needs exactly 3 gallons.",
+  "solution": "",
+  "seconds": 2.95,
+  "tokens": 557
+ },
+ "171261d20af868ec": {
+  "verdict": "accept",
+  "reason": "30 pounds needs three 10-pound $3 packs for $9 total.",
+  "solution": "",
+  "seconds": 6.37,
+  "tokens": 999
+ },
+ "b48275fb90e2e661": {
+  "verdict": "reject",
+  "reason": "Team reversed the pens-pencils relation and never computed a final total.",
+  "solution": "First find pencils by multiplying 15 boxes by 80 to get 1200 pencils. Next find pens as twice the pencils plus 300, so double 1200 to get 2400 and add 300 to get 2700 pens. Then the pencil cost is 1200 times 4 dollars to get 4800 dollars. The pen cost is 2700 times 5 dollars to get 13500 dollars. Finally add 4800 and 13500 to get 18300 dollars. #### 18300",
+  "seconds": 7.85,
+  "tokens": 1208
+ },
+ "f659627fd5c4f5e0": {
+  "verdict": "reject",
+  "reason": "Team used wrong basketball count and omitted baseballs entirely.",
+  "solution": "Soccer balls are 20. Basketballs are five more than soccer balls, which is 25. Tennis balls are twice soccer balls, which is 40. Baseballs are ten more than soccer balls, which is 30. The sum of those is 20 plus 25 plus 40 plus 30 equals 115. Volleyballs are 145 minus 115 equals 30. #### 30",
+  "seconds": 5.84,
+  "tokens": 947
+ },
+ "6a8a46fe52802411": {
+  "verdict": "reject",
+  "reason": "It charged Jimmy the full cabin rate instead of his one-third share.",
+  "solution": "Hostel cost is 3 days times 15 dollars per night equals 45 dollars. Cabin cost is 45 dollars total per night shared by 3 people, so Jimmy pays 15 dollars per night. For 2 days that is 30 dollars. Adding both stays gives 45 plus 30 equals 75 dollars. #### 75",
+  "seconds": 6.56,
+  "tokens": 996
+ },
+ "769c2c67863960a3": {
+  "verdict": "reject",
+  "reason": "Team used wrong starting amount for Billy and wrong remainder for Andy.",
+  "solution": "Billy started with 6 and received 8 more for a total of 14. Caleb started with 11 and received 11 more for a total of 22. The father gave out 8 plus 11 which is 19, so Andy receives 36 minus 19 which is 17. Andy started with 9 so he now has 9 plus 17 which is 26. Andy has 26 minus 22 which is 4 more than Caleb. #### 4",
+  "seconds": 6.16,
+  "tokens": 1082
+ },
+ "872a5fadf5077402": {
+  "verdict": "reject",
+  "reason": "Coin counts were incorrectly treated as dollar values.",
+  "solution": "Teagan saved 200 pennies which is 200 cents which is 2 dollars. Rex saved 100 nickels which is 500 cents which is 5 dollars. Toni saved 330 dimes which is 3300 cents which is 33 dollars. Adding 2 plus 5 plus 33 gives 40 altogether. #### 40",
+  "seconds": 6.46,
+  "tokens": 889
+ },
+ "0a4593284d19ba19": {
+  "verdict": "accept",
+  "reason": "Final total 75 is correct despite swapped color labels.",
+  "solution": "",
+  "seconds": 4.55,
+  "tokens": 815
+ },
+ "4a6bac714fcfd316": {
+  "verdict": "accept",
+  "reason": "The weight conversions and percentage calculation are correct.",
+  "solution": "",
+  "seconds": 3.39,
+  "tokens": 565
+ },
+ "b47e372c082cd364": {
+  "verdict": "accept",
+  "reason": "The calculation of 180 minus 40 equals 140 is correct.",
+  "solution": "",
+  "seconds": 4.94,
+  "tokens": 904
+ },
+ "e342fad4a2f57895": {
+  "verdict": "accept",
+  "reason": "Calculations for cents given and nickels remaining are correct.",
+  "solution": "",
+  "seconds": 3.1,
+  "tokens": 580
+ },
+ "025f9115edacaa1c": {
+  "verdict": "accept",
+  "reason": "Team correctly calculated 10 mpg and 30 gallons for the trip.",
+  "solution": "",
+  "seconds": 2.77,
+  "tokens": 574
+ },
+ "df1e5d8898c4ccc8": {
+  "verdict": "accept",
+  "reason": "The total cost is 100 and 100 minus 75 is 25.",
+  "solution": "",
+  "seconds": 3.46,
+  "tokens": 658
+ },
+ "fdaebb575a78eeba": {
+  "verdict": "reject",
+  "reason": "It adds no interest for the monthly deposits.",
+  "solution": "Start with 1000 dollars. After one year at 10 percent it becomes 1100 dollars. Add 1200 dollars for 12 monthly deposits to get 2300 dollars after year one. After the second year at 10 percent the 2300 dollars becomes 2530 dollars. Add another 1200 dollars for the second year monthly deposits to get 3730 dollars. #### 3730",
+  "seconds": 22.63,
+  "tokens": 2325
+ },
+ "f800825e07354362": {
+  "verdict": "accept",
+  "reason": "Discounts and total are calculated correctly.",
+  "solution": "",
+  "seconds": 3.24,
+  "tokens": 637
+ },
+ "1cd26fdcfaaffb9f": {
+  "verdict": "accept",
+  "reason": "Total 45 minus 5 torn minus 25 used correctly leaves 15.",
+  "solution": "",
+  "seconds": 6.81,
+  "tokens": 882
+ },
+ "ce6976c7ce7699d8": {
+  "verdict": "reject",
+  "reason": "The team solution is incomplete and never computes the total loss.",
+  "solution": "A dime is 10 cents so 3 dimes are 30 cents for a 25 cent quarter, a loss of 5 cents each. For 20 quarters that loss is 100 cents which is 1 dollar. A nickel is 5 cents so 7 nickels are 35 cents for a 25 cent quarter, a loss of 10 cents each. For 20 quarters that loss is 200 cents which is 2 dollars. The total loss is 1 plus 2 equals 3 dollars. #### 3",
+  "seconds": 7.95,
+  "tokens": 1305
+ },
+ "6e0790a54c6ca7c2": {
+  "verdict": "accept",
+  "reason": "The total 4 plus 4 plus 5 minus 3 equals 10 is correct.",
+  "solution": "",
+  "seconds": 2.98,
+  "tokens": 583
+ },
+ "7597b5b3ef279241": {
+  "verdict": "reject",
+  "reason": "Team divided by 100 instead of the total 90 vehicles.",
+  "solution": "Total vehicles are 50 trucks plus 40 cars which is 90. Red trucks are half of 50 which is 25. Black trucks are 20 percent of 50 which is 10. White trucks are 50 minus 25 minus 10 which is 15. Chance is 15 out of 90 times 100 which is about 16.7 percent, rounded to 17. #### 17",
+  "seconds": 10.52,
+  "tokens": 1328
+ },
+ "4c107bb1a60b2f7e": {
+  "verdict": "accept",
+  "reason": "Each day's sales and the total of 60 are calculated correctly.",
+  "solution": "",
+  "seconds": 4.42,
+  "tokens": 678
+ },
+ "9d5da85b7d3fd6b0": {
+  "verdict": "accept",
+  "reason": "Area and leftover calculations are correct.",
+  "solution": "",
+  "seconds": 4.07,
+  "tokens": 700
+ },
+ "7014cd695f8762da": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated 80 kangaroos needed at 2 per day equals 40 days.",
+  "solution": "",
+  "seconds": 3.47,
+  "tokens": 676
+ },
+ "81e0fbbf0677f9af": {
+  "verdict": "accept",
+  "reason": "The ratio, plant count, and multiplication are all correct.",
+  "solution": "",
+  "seconds": 5.18,
+  "tokens": 673
+ },
+ "b0b79efd330479d2": {
+  "verdict": "accept",
+  "reason": "The steps correctly convert bushels to total pounds and then to cobs.",
+  "solution": "",
+  "seconds": 3.3,
+  "tokens": 511
+ },
+ "f2237203ab9212fd": {
+  "verdict": "accept",
+  "reason": "The calculation correctly adds 30 and 15 to get 45.",
+  "solution": "",
+  "seconds": 3.0,
+  "tokens": 621
+ },
+ "36c6de70d8da566b": {
+  "verdict": "reject",
+  "reason": "Team counted only one-way trips and ignored the return home.",
+  "solution": "On the first day she goes 5 miles there and 5 miles back for 10 miles total. On the second day she goes 15 miles there and 15 miles back for 30 miles total. Adding 10 and 30 gives 40 miles total. #### 40",
+  "seconds": 9.38,
+  "tokens": 1099
+ },
+ "141004001be00f24": {
+  "verdict": "reject",
+  "reason": "Children were calculated from female adults only instead of total adults.",
+  "solution": "There are 100 male adults. Female adults are 100 plus 50 which is 150. Total adults are 100 plus 150 which is 250. Children are twice the total adults, so 2 times 250 is 500. Total attendance is 100 plus 150 plus 500 which is 750. #### 750",
+  "seconds": 5.14,
+  "tokens": 794
+ },
+ "2e61128e8b8a0e80": {
+  "verdict": "accept",
+  "reason": "The team correctly found 100 dogs and multiplied by 4 legs.",
+  "solution": "",
+  "seconds": 3.11,
+  "tokens": 576
+ },
+ "338da85114f24f17": {
+  "verdict": "reject",
+  "reason": "Team ignored that second house costs twice the first and guessed half the total.",
+  "solution": "Let the first house cost F. The second costs twice as much, so 2 times F. Together that is 3 times F which equals 600000. Divide 600000 by 3 to get F equals 200000. They bought the first house, so they paid 200000. #### 200000",
+  "seconds": 5.8,
+  "tokens": 971
+ },
+ "fd937f463ee093e3": {
+  "verdict": "accept",
+  "reason": "Final answer 11 hours matches 6 times 110 minutes.",
+  "solution": "",
+  "seconds": 5.05,
+  "tokens": 843
+ },
+ "5f4df62cf438f106": {
+  "verdict": "reject",
+  "reason": "Team mistook 4 dozen for 12 cupcakes and assumed 4 cousins.",
+  "solution": "One dozen equals 12 cupcakes so 4 dozen equals 48 cupcakes. Divide 48 cupcakes by 3 cupcakes for each cousin to get 16 cousins. #### 16",
+  "seconds": 3.88,
+  "tokens": 720
+ },
+ "09b124bd7bbd526d": {
+  "verdict": "reject",
+  "reason": "Team misread 30 people as 30 percent and never gave a correct total.",
+  "solution": "Let the total be x. Then 60 percent of x own a pet. 50 percent of x own a dog. 30 people own a cat. Dogs and cats are the pets, so pet owners equal dog owners plus cat owners. So 60 percent of x equals 50 percent of x plus 30. So 10 percent of x equals 30. So x equals 300. #### 300",
+  "seconds": 10.68,
+  "tokens": 1470
+ },
+ "f5bf33e0f0088a34": {
+  "verdict": "accept",
+  "reason": "The steps correctly calculate Raven's current age as 55.",
+  "solution": "",
+  "seconds": 4.21,
+  "tokens": 596
+ },
+ "c66aeb388cda6538": {
+  "verdict": "accept",
+  "reason": "Distance 330 km divided by 110 km/h correctly gives 3 hours.",
+  "solution": "",
+  "seconds": 4.6,
+  "tokens": 609
+ },
+ "28bf68a9db8c49d9": {
+  "verdict": "accept",
+  "reason": "All steps correctly calculate 10 girls on the playground.",
+  "solution": "",
+  "seconds": 3.82,
+  "tokens": 716
+ },
+ "6368a8c5cea679d2": {
+  "verdict": "reject",
+  "reason": "Team confused stitches with minutes and misread the item counts.",
+  "solution": "First find total stitches for 1 Godzilla and 3 unicorns and 50 flowers. That is 800 plus 540 plus 3000 which equals 4340 stitches. Divide by 4 stitches per minute to get 1085 minutes. #### 1085",
+  "seconds": 4.38,
+  "tokens": 885
+ },
+ "c1a731dbe4251cb2": {
+  "verdict": "reject",
+  "reason": "Team confused quarters with nickels and miscalculated the total.",
+  "solution": "Linda starts with 2 dimes plus 6 quarters plus 5 nickels which is 13 coins. Her mother gives 2 dimes plus 10 quarters plus twice 5 nickels which is 10 nickels for 22 coins. Adding 13 and 22 gives 35 coins altogether. #### 35",
+  "seconds": 5.31,
+  "tokens": 967
+ },
+ "c29e306a19d8b935": {
+  "verdict": "accept",
+  "reason": "The steps correctly solve for C as 40 and B as 80.",
+  "solution": "",
+  "seconds": 3.91,
+  "tokens": 691
+ },
+ "2443db0b8c9d09dc": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated 80 pens and 110 items total.",
+  "solution": "",
+  "seconds": 3.2,
+  "tokens": 579
+ },
+ "b97ea61ee992394f": {
+  "verdict": "reject",
+  "reason": "The team stopped after buying clothes and never subtracted the video game cost.",
+  "solution": "Francie earns 40 dollars from 8 weeks at 5 dollars per week. She earns 36 dollars from 6 weeks at 6 dollars per week. Her total is 76 dollars. Half for clothes is 38 dollars, leaving 38 dollars. After buying the 35 dollar video game, she has 3 dollars left. #### 3",
+  "seconds": 5.66,
+  "tokens": 984
+ },
+ "2ea56617bccf0442": {
+  "verdict": "reject",
+  "reason": "Team used wrong distances and did not multiply by number of birds.",
+  "solution": "Each bird flies 50 miles in the first season and 60 miles in the second season. So each bird flies 110 miles in total. There are 20 birds, so the combined distance is 110 times 20 which is 2200 miles. #### 2200",
+  "seconds": 3.9,
+  "tokens": 705
+ },
+ "c9fe46f6db1edc21": {
+  "verdict": "accept",
+  "reason": "The subtractions 45-12-9-7 correctly equal 17.",
+  "solution": "",
+  "seconds": 3.44,
+  "tokens": 596
+ },
+ "c3a5a7bf20e45d98": {
+  "verdict": "reject",
+  "reason": "Team treated 150 as the current sum instead of the sum in three years.",
+  "solution": "Jeremy is 40 now, so in three years he will be 43. Sebastian is 4 years older than Jeremy, so he is 44 now and will be 47 in three years. The future sum of Jeremy and Sebastian is 43 plus 47 which is 90. Subtract 90 from the future total of 150 to get Sophia's future age of 60. #### 60",
+  "seconds": 7.36,
+  "tokens": 1111
+ },
+ "f8aa38dc43eb6974": {
+  "verdict": "reject",
+  "reason": "The head-start gap is 5 miles not 20 miles and relative speed was not used.",
+  "solution": "The cat runs for 0.25 hours alone and covers 20 times 0.25 which is 5 miles. The rabbit gains on the cat at 25 minus 20 which is 5 miles per hour. To close 5 miles takes 5 divided by 5 which is 1 hour. #### 1",
+  "seconds": 4.76,
+  "tokens": 883
+ },
+ "4ecc4c17ea88fc3c": {
+  "verdict": "reject",
+  "reason": "Team ignored the 20 average bags and subtracted 10 twice.",
+  "solution": "Carl expects 50 plus 40 equals 90 people, so he needs 90 bags. He already made 10 extravagant plus 20 average equals 30 bags. He still needs 90 minus 30 equals 60 more bags. #### 60",
+  "seconds": 5.93,
+  "tokens": 1005
+ },
+ "e1c521c50ba62ff7": {
+  "verdict": "reject",
+  "reason": "The team incorrectly added the 9-year gap instead of subtracting it.",
+  "solution": "Emma is 7 so her sister is 7 plus 9 which is 16. The sister is always 9 years older. When the sister is 56, Emma will be 56 minus 9 which is 47. #### 47",
+  "seconds": 4.55,
+  "tokens": 789
+ },
+ "cb9395f10de4882b": {
+  "verdict": "accept",
+  "reason": "Total 60 divided by 3 correctly gives 20.",
+  "solution": "",
+  "seconds": 3.48,
+  "tokens": 756
+ },
+ "ea9523395d4afb8b": {
+  "verdict": "reject",
+  "reason": "The team used 400 pages per book instead of 300.",
+  "solution": "Last week Maya read 5 books of 300 pages, which is 1500 pages. This week she read twice as much, which is 3000 pages. Adding both weeks gives 4500 pages in total. #### 4500",
+  "seconds": 7.86,
+  "tokens": 1033
+ },
+ "59e36b300b13e6f7": {
+  "verdict": "accept",
+  "reason": "The multiplication 7 times 5 times 4 correctly equals 140.",
+  "solution": "",
+  "seconds": 2.67,
+  "tokens": 527
+ },
+ "c990bfbe54d7d79f": {
+  "verdict": "reject",
+  "reason": "The team skipped one halving and used rolling speed as running speed.",
+  "solution": "Cory drives at 12 miles per hour which is twice Milo's rolling speed, so Milo rolls at 6 miles per hour. Milo rolls at twice his running speed, so Milo runs at 3 miles per hour. In two hours Milo runs 6 miles. #### 6",
+  "seconds": 5.26,
+  "tokens": 922
+ },
+ "23236c8643fcbfdf": {
+  "verdict": "accept",
+  "reason": "The calculation correctly adds bananas cut to bananas left on tree.",
+  "solution": "",
+  "seconds": 3.76,
+  "tokens": 694
+ },
+ "c4362a05d7603329": {
+  "verdict": "accept",
+  "reason": "The calculation correctly totals 200 coins for 25 per hour.",
+  "solution": "",
+  "seconds": 3.52,
+  "tokens": 649
+ },
+ "ee8e179895d4029f": {
+  "verdict": "accept",
+  "reason": "Father depth, target depth, and time calculations are all correct.",
+  "solution": "",
+  "seconds": 3.0,
+  "tokens": 707
+ },
+ "e52799f785cea456": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated 100 cars per month and 5 months total.",
+  "solution": "",
+  "seconds": 3.16,
+  "tokens": 619
+ },
+ "824722707a366797": {
+  "verdict": "accept",
+  "reason": "All steps and arithmetic are correct.",
+  "solution": "",
+  "seconds": 2.93,
+  "tokens": 710
+ },
+ "2b2a1a166285c9c3": {
+  "verdict": "accept",
+  "reason": "The multiplication and subtraction are correct.",
+  "solution": "",
+  "seconds": 3.6,
+  "tokens": 664
+ },
+ "af4d195dd6e022e5": {
+  "verdict": "accept",
+  "reason": "Calculations for Reed, Quinn and 4-year total are correct.",
+  "solution": "",
+  "seconds": 3.13,
+  "tokens": 701
+ },
+ "8f1dd7eb441127ff": {
+  "verdict": "accept",
+  "reason": "Combined hourly totals of 36 plus 30 plus 21 equal 87 correctly.",
+  "solution": "",
+  "seconds": 3.26,
+  "tokens": 757
+ },
+ "aeaa6f34007fdc50": {
+  "verdict": "accept",
+  "reason": "Calculation correctly applies 80% fill and 40% extra density.",
+  "solution": "",
+  "seconds": 8.08,
+  "tokens": 1086
+ },
+ "9056e670671e2ac3": {
+  "verdict": "accept",
+  "reason": "Distances 360 and 275 and difference 85 are correct.",
+  "solution": "",
+  "seconds": 3.09,
+  "tokens": 651
+ },
+ "09dddc27b3212624": {
+  "verdict": "accept",
+  "reason": "Earnings and fuel cost calculations are correct.",
+  "solution": "",
+  "seconds": 2.77,
+  "tokens": 609
+ },
+ "daec4b7a57dc3017": {
+  "verdict": "accept",
+  "reason": "Final total 150 correctly adds 100 shared to 50 remaining.",
+  "solution": "",
+  "seconds": 5.47,
+  "tokens": 698
+ },
+ "c7ae521d910a51d2": {
+  "verdict": "reject",
+  "reason": "Team treats even as 200 apart and mis-adds the final gap.",
+  "solution": "Even means the gap starts at zero, not 200. The middle leads are replaced by the final lead. The last event leaves Alex 440 feet ahead of Max. So Max needs 440 feet to catch up. #### 440",
+  "seconds": 26.3,
+  "tokens": 2749
+ },
+ "4c221a0511bfad2d": {
+  "verdict": "reject",
+  "reason": "Thursday was calculated as Tuesday plus Wednesday instead of Monday plus Wednesday.",
+  "solution": "Monday she rode 40 km. Tuesday she rode 50 km. Wednesday is 50 percent fewer than Tuesday, so half of 50 km which is 25 km. Thursday is Monday plus Wednesday, so 40 km plus 25 km which is 65 km. Total is 40 plus 50 plus 25 plus 65 which equals 180. #### 180",
+  "seconds": 4.99,
+  "tokens": 917
+ },
+ "11ca160fd5ddfb37": {
+  "verdict": "reject",
+  "reason": "Team used 320 MB downloaded instead of 310 MB.",
+  "solution": "Mason needs 880 MB total and already has 310 MB, so 570 MB remains. At 3 MB per minute, divide 570 by 3 to get 190 minutes. #### 190",
+  "seconds": 4.02,
+  "tokens": 730
+ },
+ "7b8899c5553e4a74": {
+  "verdict": "accept",
+  "reason": "Total and cooking time calculations are correct.",
+  "solution": "",
+  "seconds": 3.57,
+  "tokens": 728
+ },
+ "9443714d62ad6943": {
+  "verdict": "reject",
+  "reason": "Solution is incomplete and omits Monday Chihuahuas time.",
+  "solution": "Monday takes 4 times 2 hours for poodles plus 2 times 1 hour for Chihuahuas for 10 hours total. Wednesday takes 4 times 3 hours for Labradors for 12 hours total. Together Monday and Wednesday use 22 hours, leaving 10 hours for Tuesday out of 32 hours. Tuesday needs 2 times 1 hour for Chihuahuas, leaving 8 hours for poodles. At 2 hours each, she can walk 4 poodles. #### 4",
+  "seconds": 6.9,
+  "tokens": 1262
+ },
+ "413a46b5a5a47161": {
+  "verdict": "accept",
+  "reason": "Ratios, total count, and grape count are all computed correctly.",
+  "solution": "",
+  "seconds": 3.39,
+  "tokens": 704
+ },
+ "073d09dd68f44455": {
+  "verdict": "reject",
+  "reason": "Team confuses '3 times more than' with '3 times as many'.",
+  "solution": "Bruce scored 4 goals. Three times 4 is 12, so 3 times more than 4 means 4 plus 12 which is 16 for Michael. Adding Bruce and Michael gives 4 plus 16 which is 20. #### 20",
+  "seconds": 9.24,
+  "tokens": 1200
+ },
+ "ec15f37d1997226f": {
+  "verdict": "accept",
+  "reason": "Total and division are computed correctly.",
+  "solution": "",
+  "seconds": 2.83,
+  "tokens": 541
+ },
+ "8beb87517543bef1": {
+  "verdict": "reject",
+  "reason": "The team used 30 yards per throw on Sunday instead of 40 yards.",
+  "solution": "On Saturday each throw is 20 yards, so 20 throws give 400 yards. On Sunday each throw goes twice as far, so 40 yards each, and 30 throws give 1200 yards. The total is 400 plus 1200 which is 1600. #### 1600",
+  "seconds": 5.86,
+  "tokens": 974
+ },
+ "4a56f31df610c91b": {
+  "verdict": "reject",
+  "reason": "The remaining 150 miles takes 3 hours at the same speed, and lunch time was omitted.",
+  "solution": "They first drove one quarter of 200 miles which is 50 miles in 1 hour, so their speed is 50 miles per hour. The remaining distance is 200 minus 50 which is 150 miles. At 50 miles per hour, 150 miles takes 3 hours. Add 1 hour for the first drive plus 1 hour for lunch plus 3 hours for the rest to get 5 hours. #### 5",
+  "seconds": 5.42,
+  "tokens": 955
+ },
+ "24b39755e71aec83": {
+  "verdict": "reject",
+  "reason": "Team used the differences as absolute counts instead of adding them.",
+  "solution": "Antelopes are 80. Rabbits are 34 more than antelopes so 114. Antelopes and rabbits together are 194 so hyenas are 42 fewer than that which is 152. Wild dogs are 50 more than hyenas so 202. Leopards are half the rabbits so 57. Add 80 plus 114 plus 152 plus 202 plus 57 to get 605. #### 605",
+  "seconds": 5.19,
+  "tokens": 985
+ },
+ "798d2587916c93d2": {
+  "verdict": "accept",
+  "reason": "Mid-size and smallest lengths are computed correctly.",
+  "solution": "",
+  "seconds": 2.25,
+  "tokens": 502
+ },
+ "eea2c4b484dc47a8": {
+  "verdict": "accept",
+  "reason": "The calculation 54 divided by 0.6 equals 90 is correct.",
+  "solution": "",
+  "seconds": 3.61,
+  "tokens": 688
+ },
+ "2d09c8e91efd0f14": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated 8 bolts, 16 washers used, and 4 remaining.",
+  "solution": "",
+  "seconds": 4.25,
+  "tokens": 870
+ },
+ "90f9bb59cb1f2af7": {
+  "verdict": "reject",
+  "reason": "Team used wrong day counts and forgot to multiply doubled rate by days.",
+  "solution": "June has 30 days so halfway is 15 days. The first 15 days at 10 hours per day gives 150 hours. Doubling means 20 hours per day for the remaining 15 days, which gives 300 hours. Add 150 plus 300 to get 450. #### 450",
+  "seconds": 8.31,
+  "tokens": 1308
+ },
+ "ce66f76bb52490df": {
+  "verdict": "accept",
+  "reason": "Total correctly adds Taylor's, three friends', and two friends' pets.",
+  "solution": "",
+  "seconds": 4.27,
+  "tokens": 753
+ },
+ "c33b06a1d2140455": {
+  "verdict": "accept",
+  "reason": "All arithmetic steps are correct.",
+  "solution": "",
+  "seconds": 2.85,
+  "tokens": 575
+ },
+ "a3a160983c1a1564": {
+  "verdict": "accept",
+  "reason": "The calculation of 1200 plus 150 equals 1350 is correct.",
+  "solution": "",
+  "seconds": 3.59,
+  "tokens": 604
+ },
+ "9235f839b74068c8": {
+  "verdict": "reject",
+  "reason": "Team treated 80 corn every two months as 80 corn per month.",
+  "solution": "Johnson gets 80 corn every two months, so six months gives 3 harvests for 240 corn. Neighbor gets twice as much per hectare, so 160 corn every two months per hectare. With two hectares that is 320 corn per harvest. Three harvests give 960 corn. Together 240 plus 960 equals 1200. #### 1200",
+  "seconds": 5.48,
+  "tokens": 861
+ },
+ "a280366b0bbf0d0f": {
+  "verdict": "reject",
+  "reason": "Team equated box count to weight and ignored truck capacity.",
+  "solution": "Three trucks hold 2000 pounds each for 6000 pounds total per delivery. One light box plus one heavy box weighs 50 pounds. Dividing 6000 by 50 gives 120 pairs. Two boxes per pair gives 240 boxes total. #### 240",
+  "seconds": 5.91,
+  "tokens": 1138
+ },
+ "9aff350ad818a202": {
+  "verdict": "accept",
+  "reason": "Calculation of 2 percent increase is correct.",
+  "solution": "",
+  "seconds": 3.52,
+  "tokens": 664
+ },
+ "e30a4d604136562a": {
+  "verdict": "accept",
+  "reason": "The repeated halving from 96 correctly gives 3 feet.",
+  "solution": "",
+  "seconds": 3.59,
+  "tokens": 675
+ },
+ "02b6cb0c7b1c549c": {
+  "verdict": "accept",
+  "reason": "The 20% down and 30% of remainder are correctly computed to leave $56,000.",
+  "solution": "",
+  "seconds": 3.38,
+  "tokens": 736
+ },
+ "4197b1284ca78ac2": {
+  "verdict": "reject",
+  "reason": "It only counted the Donaldsons job and ignored the other two families.",
+  "solution": "Layla earned 105 dollars from the Donaldsons because 15 times 7 equals 105. She earned 108 dollars from the Merck family because 18 times 6 equals 108. She earned 60 dollars from the Hille family because 20 times 3 equals 60. Adding 105 plus 108 plus 60 gives 273. #### 273",
+  "seconds": 7.11,
+  "tokens": 1062
+ },
+ "af6537e4a79f5a34": {
+  "verdict": "accept",
+  "reason": "All subtractions are correct and 15 minus 13 equals 2.",
+  "solution": "",
+  "seconds": 3.12,
+  "tokens": 569
+ },
+ "dded0f57326a7cbf": {
+  "verdict": "accept",
+  "reason": "Weekly total of 9 candies divides evenly into 36 for 4 weeks.",
+  "solution": "",
+  "seconds": 3.95,
+  "tokens": 778
+ },
+ "bcbdafa2de055898": {
+  "verdict": "accept",
+  "reason": "The earnings total 56 and 80 minus 56 is 24.",
+  "solution": "",
+  "seconds": 3.39,
+  "tokens": 640
+ },
+ "147c2d997be05867": {
+  "verdict": "accept",
+  "reason": "The steps correctly calculate 4 under 6 minutes, 12 more under 8 minutes, leaving 24, with one-sixth equal to 4.",
+  "solution": "",
+  "seconds": 16.28,
+  "tokens": 1854
+ },
+ "58b9af8f5a7eb2d6": {
+  "verdict": "accept",
+  "reason": "The calculation correctly finds 60 pouches at 20 cents each.",
+  "solution": "",
+  "seconds": 2.85,
+  "tokens": 578
+ },
+ "aa78543a3b8bacae": {
+  "verdict": "reject",
+  "reason": "Team mistook miles and mph for minutes.",
+  "solution": "There were 5 lake races and 5 ocean races. Each lake race takes 3 miles divided by 3 miles per hour which is 1 hour, so 5 lake races take 5 hours. Each ocean race takes 3 miles divided by 2.5 miles per hour which is 1.2 hours, so 5 ocean races take 6 hours. Adding gives 5 plus 6 equals 11 hours. #### 11",
+  "seconds": 6.16,
+  "tokens": 995
+ },
+ "01d919cfff4458fa": {
+  "verdict": "accept",
+  "reason": "All calculations for Mike and Leo are correct.",
+  "solution": "",
+  "seconds": 4.24,
+  "tokens": 835
+ },
+ "3e98fa42336de88c": {
+  "verdict": "reject",
+  "reason": "Team double-counted Katrina's referral bonus and missed her own signup bonus.",
+  "solution": "Katrina earns 5 dollars for signing up herself. She referred 5 plus 7 equals 12 friends. She earns 5 dollars per referred friend, so 12 times 5 is 60 dollars in referrals. Her total is 5 plus 60 equals 65 dollars. Each of the 12 friends earns 5 dollars, so they earn 60 dollars together. The combined total is 65 plus 60 equals 125 dollars. #### 125",
+  "seconds": 8.49,
+  "tokens": 1377
+ },
+ "33470ca01caa850e": {
+  "verdict": "accept",
+  "reason": "The solution correctly finds Sydney has 20 and total is 320.",
+  "solution": "",
+  "seconds": 2.68,
+  "tokens": 601
+ },
+ "61f925b2564fadd0": {
+  "verdict": "reject",
+  "reason": "The team reached a contradiction and gave no numeric answer.",
+  "solution": "Each of the 30 rounds awards 5 points, so the combined total is 30 times 5 which is 150. Three fifths of 150 is 90. Taro scored 4 less than that, so Taro scored 86. Vlad scored the rest, which is 150 minus 86 which is 64. #### 64",
+  "seconds": 8.69,
+  "tokens": 1363
+ },
+ "5281ec1db7f31e4f": {
+  "verdict": "accept",
+  "reason": "The multiplication of 60 by 40 by 8 correctly gives 19200.",
+  "solution": "",
+  "seconds": 2.78,
+  "tokens": 534
+ },
+ "4422efe9ce4a1680": {
+  "verdict": "reject",
+  "reason": "The team solution is incomplete and gives no final number.",
+  "solution": "First 30 minutes gives 3 times 2 cups equals 6 cups. Next 30 minutes gives another 6 cups for a total of 12 cups. Next 60 minutes gives 6 times 4 cups equals 24 cups for a grand total of 36 cups. Dumping half leaves 18 cups. #### 18",
+  "seconds": 5.95,
+  "tokens": 1128
+ },
+ "9da499ff2d076066": {
+  "verdict": "accept",
+  "reason": "Final total 640 correctly equals four round trips of 160 passengers each.",
+  "solution": "",
+  "seconds": 8.38,
+  "tokens": 1250
+ },
+ "578e4f2a84652896": {
+  "verdict": "reject",
+  "reason": "It subtracted only one filling instead of two fillings.",
+  "solution": "The total bill is five times 120 dollars, which is 600 dollars. The cleaning plus two fillings cost 70 dollars plus 240 dollars, which is 310 dollars. The extraction cost is 600 dollars minus 310 dollars, which is 290 dollars. #### 290",
+  "seconds": 6.03,
+  "tokens": 877
+ },
+ "5825503ac99f42d9": {
+  "verdict": "reject",
+  "reason": "Team used wrong division giving fractional shirts instead of counting sales.",
+  "solution": "The shop is open 12 hours which is 720 minutes. Women's shirts sell every 30 minutes so that is 720 divided by 30 which is 24 shirts per day. 24 times 18 dollars is 432 dollars per day. Men's shirts sell every 40 minutes so that is 720 divided by 40 which is 18 shirts per day. 18 times 15 dollars is 270 dollars per day. Total per day is 432 plus 270 which is 702 dollars. For 7 days that is 702 times 7 which is 4914 dollars. #### 4914",
+  "seconds": 7.61,
+  "tokens": 1197
+ },
+ "d63dd0e497e35378": {
+  "verdict": "reject",
+  "reason": "Team calculated only one year per period instead of 3 years and 2 years.",
+  "solution": "First 3 years are 36 months at 300 dollars per month for a total of 10800 dollars. Last 2 years are 24 months at 350 dollars per month for a total of 8400 dollars. Adding both gives 19200 dollars. #### 19200",
+  "seconds": 7.04,
+  "tokens": 1172
+ },
+ "1bc4798f74a751e6": {
+  "verdict": "accept",
+  "reason": "Totals give 34 bought minus 31 sold equals 3.",
+  "solution": "",
+  "seconds": 3.73,
+  "tokens": 724
+ },
+ "ab12102b4e5c73bc": {
+  "verdict": "accept",
+  "reason": "Calculations and final answer are correct.",
+  "solution": "",
+  "seconds": 3.67,
+  "tokens": 578
+ },
+ "07ac31c01ca459c6": {
+  "verdict": "accept",
+  "reason": "The equation correctly solves to 11000 initial savings.",
+  "solution": "",
+  "seconds": 7.6,
+  "tokens": 1196
+ },
+ "da566b179d278503": {
+  "verdict": "accept",
+  "reason": "Total 86 minus gifts 32 equals 54 is correct.",
+  "solution": "",
+  "seconds": 3.85,
+  "tokens": 679
+ },
+ "38bba7d4798d1482": {
+  "verdict": "accept",
+  "reason": "Totals correctly sum to 34 legs.",
+  "solution": "",
+  "seconds": 3.31,
+  "tokens": 606
+ },
+ "1d7e369877febb16": {
+  "verdict": "reject",
+  "reason": "Team miscounted people and badly miscalculated the total pot.",
+  "solution": "There are Josh plus 7 friends making 8 people in total. Each puts in 5 dollars so the pot is 8 times 5 dollars which is 40 dollars. First place gets 80 percent of 40 dollars which is 32 dollars. That leaves 8 dollars left. Second and third split it equally so third gets 4 dollars. #### 4",
+  "seconds": 6.74,
+  "tokens": 1137
+ },
+ "70c2f0d2e3b837a9": {
+  "verdict": "accept",
+  "reason": "All steps correctly compute Kayla as 54 and Saheed as 216.",
+  "solution": "",
+  "seconds": 3.16,
+  "tokens": 568
+ },
+ "541de573c930cda4": {
+  "verdict": "accept",
+  "reason": "The calculations 2 times 25 equals 50 and 85 minus 75 equals 10 are correct.",
+  "solution": "",
+  "seconds": 3.56,
+  "tokens": 682
+ },
+ "b3eec52e21c67dee": {
+  "verdict": "accept",
+  "reason": "The $3 savings from 10% off $30 is calculated correctly.",
+  "solution": "",
+  "seconds": 4.56,
+  "tokens": 803
+ },
+ "0592f4b824130a40": {
+  "verdict": "accept",
+  "reason": "The monthly and yearly spending math is correct.",
+  "solution": "",
+  "seconds": 3.25,
+  "tokens": 640
+ },
+ "f415372f0f49006e": {
+  "verdict": "accept",
+  "reason": "The team correctly subtracted the 3 pounds from 20.",
+  "solution": "",
+  "seconds": 4.49,
+  "tokens": 690
+ },
+ "e9c5bf574602c931": {
+  "verdict": "accept",
+  "reason": "Caleb has 36, Sophie has 18, total 54 is correct.",
+  "solution": "",
+  "seconds": 3.55,
+  "tokens": 630
+ },
+ "aec91a4cf36c8ede": {
+  "verdict": "accept",
+  "reason": "Entrance and attraction costs for 4 kids and 3 adults sum to 55 correctly.",
+  "solution": "",
+  "seconds": 7.77,
+  "tokens": 1175
+ },
+ "3f308d5857880b4b": {
+  "verdict": "accept",
+  "reason": "The calculation correctly finds $3 per bag.",
+  "solution": "",
+  "seconds": 3.51,
+  "tokens": 672
+ },
+ "a98e9a785573093b": {
+  "verdict": "accept",
+  "reason": "Total cost and subtraction are calculated correctly.",
+  "solution": "",
+  "seconds": 4.78,
+  "tokens": 685
+ },
+ "f87d0825f93c3e1a": {
+  "verdict": "accept",
+  "reason": "Total of 120 bars at 10 cents correctly equals 12 dollars.",
+  "solution": "",
+  "seconds": 3.77,
+  "tokens": 751
+ },
+ "a83f214af1a6f7e7": {
+  "verdict": "reject",
+  "reason": "Team confused 24 dollars worth with 24 cups of medium lemonade.",
+  "solution": "Small sales were 11 dollars and medium sales were 24 dollars. Together that is 35 dollars. Subtract from 50 dollars total to get 15 dollars from large. Each large costs 3 dollars, so divide 15 by 3 to get 5 cups. #### 5",
+  "seconds": 5.86,
+  "tokens": 962
+ },
+ "60dfc0eb602711d1": {
+  "verdict": "accept",
+  "reason": "The total of 12 burrs plus 72 ticks is correctly 84.",
+  "solution": "",
+  "seconds": 3.13,
+  "tokens": 561
+ },
+ "ada78d6e92959731": {
+  "verdict": "accept",
+  "reason": "Calculations 40, 100, and difference 60 are correct.",
+  "solution": "",
+  "seconds": 2.11,
+  "tokens": 499
+ },
+ "f33501da39740c0b": {
+  "verdict": "accept",
+  "reason": "Final answer 10 is correct because she eats 10 chips per day in total.",
+  "solution": "",
+  "seconds": 6.97,
+  "tokens": 1072
+ },
+ "42702d338932e231": {
+  "verdict": "accept",
+  "reason": "The calculation 11 minus 2 minus 3 equals 6 is correct.",
+  "solution": "",
+  "seconds": 2.52,
+  "tokens": 513
+ },
+ "9d82ff21cd1f146d": {
+  "verdict": "reject",
+  "reason": "The team applied the 5 percent discount to the count of models instead of the price.",
+  "solution": "The school bought 2 models for kindergarten and twice as many for elementary, which is 4 models, for 6 models in total. At 100 dollars each the full price is 600 dollars. A 5 percent reduction on a 100 dollar model is 5 dollars off per model. For 6 models the total discount is 30 dollars. The amount paid is 600 dollars minus 30 dollars which is 570 dollars. #### 570",
+  "seconds": 7.67,
+  "tokens": 945
+ },
+ "43292bbfdab897fc": {
+  "verdict": "reject",
+  "reason": "Store is open 4 days per week, not 5.",
+  "solution": "Normal mice cost 120 dollars. 30 percent of 120 is 36, so left-handed mice cost 156 dollars. The store is closed 3 days so it is open 4 days a week. Selling 25 a day gives 100 mice a week. 100 times 156 equals 15600. #### 15600",
+  "seconds": 7.83,
+  "tokens": 1158
+ },
+ "acfffe09dc721ab7": {
+  "verdict": "reject",
+  "reason": "Mistook speed ratio for time ratio, but time is inverse to speed.",
+  "solution": "For the same distance, time is inverse to speed. Prejean speed is three quarters of Rickey speed, so Prejean time is four thirds of Rickey time. Let Rickey time be R minutes, then Prejean time is 4 over 3 times R. Their sum is 7 over 3 times R equals 70 minutes. So R equals 70 times 3 over 7 which is 30. #### 30",
+  "seconds": 6.15,
+  "tokens": 1048
+ },
+ "141142c91f841a72": {
+  "verdict": "accept",
+  "reason": "The division steps are correct and yield 8 days.",
+  "solution": "",
+  "seconds": 3.52,
+  "tokens": 636
+ },
+ "c5c60ee461328dc1": {
+  "verdict": "reject",
+  "reason": "Team used wrong buy quantity and wrong unit cost.",
+  "solution": "John sells 80 percent of 500 newspapers which is 400 newspapers. At 2 dollars each that is 800 dollars revenue. Each newspaper costs 75 percent less than 2 dollars which is 50 cents. For all 500 newspapers the cost is 250 dollars. Profit is 800 minus 250 which is 550. #### 550",
+  "seconds": 8.9,
+  "tokens": 1203
+ },
+ "658f933cb3e1030d": {
+  "verdict": "accept",
+  "reason": "The math correctly adds 60 new paintings to the initial 20.",
+  "solution": "",
+  "seconds": 3.67,
+  "tokens": 573
+ },
+ "30021b806edc85c6": {
+  "verdict": "reject",
+  "reason": "The team used 50 rotten oranges as the total instead of 300.",
+  "solution": "First calculate total oranges as 10 bags times 30 oranges equals 300 oranges. Then remove 50 rotten oranges leaving 250 good oranges. Then keep 30 for juice leaving 220 to be sold. #### 220",
+  "seconds": 7.35,
+  "tokens": 1224
+ },
+ "3597eede01ec74f3": {
+  "verdict": "accept",
+  "reason": "The calculation 2 times 3 equals 6 is correct.",
+  "solution": "",
+  "seconds": 3.13,
+  "tokens": 589
+ },
+ "38c60023e77bb135": {
+  "verdict": "reject",
+  "reason": "Team used 2400 instead of 24000 so commission and savings are ten times too small.",
+  "solution": "First find earnings as 12 percent of 24000 which is 2880. Savings share is 100 minus 60 equals 40 percent. Multiply 40 percent of 2880 to get 1152. #### 1152",
+  "seconds": 5.81,
+  "tokens": 915
+ },
+ "6424ed20883833c8": {
+  "verdict": "accept",
+  "reason": "Steps correctly compute 10 cats for Paw and 30 for Meow totaling 40.",
+  "solution": "",
+  "seconds": 3.88,
+  "tokens": 666
+ },
+ "a8aa6cc805041c28": {
+  "verdict": "reject",
+  "reason": "Team gave only Wednesday's amount instead of the total by Wednesday.",
+  "solution": "Guise ate 10 hot dogs on Monday. On Tuesday he ate 2 more, so 12 hot dogs. On Wednesday he ate 2 more than Tuesday, so 14 hot dogs. The total eaten by Wednesday is 10 plus 12 plus 14 which is 36. #### 36",
+  "seconds": 4.09,
+  "tokens": 716
+ },
+ "21430ac4d44320b7": {
+  "verdict": "reject",
+  "reason": "The team miscalculated 28 minus 3 plus 6 as 34 instead of 31.",
+  "solution": "Year 1 ends with 4 statues. Year 2 quadruples that to 16 statues. Year 3 adds 12 to reach 28, then 3 break and are thrown away leaving 25. Year 4 adds twice the 3 broken, which is 6, to reach 31. #### 31",
+  "seconds": 6.67,
+  "tokens": 1087
+ },
+ "59bd4ef8e83cae18": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated 4 slices left.",
+  "solution": "",
+  "seconds": 3.26,
+  "tokens": 639
+ },
+ "9b7bf38342a9a47b": {
+  "verdict": "reject",
+  "reason": "Team misread the 7-less condition as applying to Stacy instead of Steve.",
+  "solution": "Stacy started with 32 berries. After taking 4 berries Steve has 7 less than 32, so Steve has 32 minus 7 equals 25 berries. Those 25 include the 4 he took, so he started with 25 minus 4 equals 21. #### 21",
+  "seconds": 5.64,
+  "tokens": 960
+ },
+ "02249d45c273f53f": {
+  "verdict": "accept",
+  "reason": "The team correctly calculated the smallest frog and the weight difference.",
+  "solution": "",
+  "seconds": 3.37,
+  "tokens": 623
+ },
+ "6957a3a4fca48ef7": {
+  "verdict": "reject",
+  "reason": "Team priced two 10-dollar shirts as 10 dollars total and got an impossible fractional answer.",
+  "solution": "She earned 15 dollars from 3 pants and 15 dollars from 5 shorts for 30 dollars before shirts. Let the shirts sold be x, adding 4 times x dollars. She then spent 20 dollars on 2 shirts at 10 dollars each and left with 30 dollars. So 30 plus 4 times x minus 20 equals 30, which gives 4 times x equals 20, so x is 5. #### 5",
+  "seconds": 8.43,
+  "tokens": 1316
+ },
+ "c657291d99bb7b56": {
+  "verdict": "accept",
+  "reason": "The steps correctly sum to 6X equals 120 giving X equals 20.",
+  "solution": "",
+  "seconds": 3.53,
+  "tokens": 755
+ },
+ "411375730ff2719f": {
+  "verdict": "accept",
+  "reason": "All sequential percentage deductions and final division are calculated correctly.",
+  "solution": "",
+  "seconds": 4.95,
+  "tokens": 959
+ },
+ "0ed6e27eaccf818f": {
+  "verdict": "accept",
+  "reason": "All calculations correctly lead to 690.",
+  "solution": "",
+  "seconds": 3.37,
+  "tokens": 716
+ },
+ "089633290455d6a2": {
+  "verdict": "accept",
+  "reason": "The calculation of 6 eaten leaving 22 after shooting 2 is correct.",
+  "solution": "",
+  "seconds": 3.74,
+  "tokens": 590
+ },
+ "c4a6c38f5d1acd03": {
+  "verdict": "reject",
+  "reason": "Team ignored the word twice when computing senior year allowance.",
+  "solution": "Middle school allowance is 8 plus 2 which is 10 dollars. Senior year allowance is twice 10 dollars plus 5 dollars which is 25 dollars. Increase is 25 minus 10 which is 15 dollars. Percentage increase is 15 divided by 10 times 100 which is 150 percent. #### 150",
+  "seconds": 4.89,
+  "tokens": 808
+ },
+ "98a8d1043454345c": {
+  "verdict": "accept",
+  "reason": "22 miles per day times 5 days equals 110 miles.",
+  "solution": "",
+  "seconds": 4.18,
+  "tokens": 821
+ },
+ "4ffdd9b6d5c100ef": {
+  "verdict": "accept",
+  "reason": "40 slices times 40 seeds per slice correctly equals 1600.",
+  "solution": "",
+  "seconds": 3.89,
+  "tokens": 685
+ },
+ "150ff1e4c8272c0f": {
+  "verdict": "accept",
+  "reason": "Total of 28 songs times 5 MB correctly gives 140 MB.",
+  "solution": "",
+  "seconds": 2.72,
+  "tokens": 560
+ },
+ "40c575f3733e57d4": {
+  "verdict": "accept",
+  "reason": "All multiplications, addition, and subtraction are correct.",
+  "solution": "",
+  "seconds": 3.62,
+  "tokens": 704
+ },
+ "b168325a096a22e2": {
+  "verdict": "accept",
+  "reason": "Total and difference calculations are correct.",
+  "solution": "",
+  "seconds": 2.66,
+  "tokens": 571
+ },
+ "2a8ab52d2c597475": {
+  "verdict": "accept",
+  "reason": "The sum 2 times 4 plus 2 times 6 correctly equals 20 meters.",
+  "solution": "",
+  "seconds": 4.38,
+  "tokens": 773
+ },
+ "2b0c180592ad10a8": {
+  "verdict": "reject",
+  "reason": "Team used leak rate instead of net inflow rate.",
+  "solution": "Water flows in at 24 gallons per second and leaks out at 4 gallons per second, so the net fill rate is 20 gallons per second. Divide the basin capacity of 260 gallons by 20 gallons per second to get 13 seconds. #### 13",
+  "seconds": 4.68,
+  "tokens": 715
+ },
+ "231f6dcb17dca809": {
+  "verdict": "accept",
+  "reason": "All steps and the final count of 32 are correct.",
+  "solution": "",
+  "seconds": 3.26,
+  "tokens": 593
+ },
+ "31213e5efaaa6154": {
+  "verdict": "accept",
+  "reason": "All calculations and the final difference are correct.",
+  "solution": "",
+  "seconds": 2.85,
+  "tokens": 608
+ },
+ "22add5b8f4a9577a": {
+  "verdict": "reject",
+  "reason": "Team calculated one fifth of 180 instead of one fifth of 240.",
+  "solution": "Samuel received three quarters of 240 dollars which is 180 dollars. He spent one fifth of the original 240 dollars which is 48 dollars. Subtract the spending from his share to get 180 dollars minus 48 dollars equals 132 dollars. #### 132",
+  "seconds": 5.95,
+  "tokens": 965
+ },
+ "f1a066b69af95043": {
+  "verdict": "accept",
+  "reason": "The math 150 plus 66 equals 216 is correct.",
+  "solution": "",
+  "seconds": 12.43,
+  "tokens": 1321
+ },
+ "b73b9606411382b2": {
+  "verdict": "reject",
+  "reason": "Broccoli was counted as meat and orange count and cabbage price are wrong.",
+  "solution": "Broccoli costs 3 times 4 dollars which is 12 dollars. Oranges cost 3 times 0.75 dollars which is 2.25 dollars. Cabbage costs 3.75 dollars. Bacon costs 3 dollars. Chicken costs 2 times 3 dollars which is 6 dollars. Total groceries are 27 dollars. Meat is bacon plus chicken which is 9 dollars. 9 divided by 27 is one third which is 33 percent rounded. #### 33",
+  "seconds": 9.64,
+  "tokens": 1440
+ },
+ "11d7bf8dc16a74ca": {
+  "verdict": "reject",
+  "reason": "Team incorrectly used 1977 instead of 1970 for the first car.",
+  "solution": "First car was made in 1970. Second car was made 10 years later so 1970 plus 10 is 1980. Third car was made 20 years after the second so 1980 plus 20 is 2000. #### 2000",
+  "seconds": 4.22,
+  "tokens": 802
+ },
+ "1b75272a7555c431": {
+  "verdict": "accept",
+  "reason": "All calculations for Georgia, Robert, and total are correct.",
+  "solution": "",
+  "seconds": 3.85,
+  "tokens": 650
+ },
+ "b728de2e365a74dc": {
+  "verdict": "reject",
+  "reason": "Team used 32 instead of 31 for babysitting and miscalculated the cost.",
+  "solution": "Add both revenues to get total revenue of 47 plus 31 equals 78 dollars. Profit equals revenue minus cost, so cost equals revenue minus profit. Subtract 44 from 78 to get 34 dollars. #### 34",
+  "seconds": 5.58,
+  "tokens": 919
+ },
+ "914c3f1681902af0": {
+  "verdict": "reject",
+  "reason": "Team solved for one ounce instead of one half ounce.",
+  "solution": "Dawn makes 200000 bubbles per ounce. Bronners makes twice as many, so 400000 bubbles per ounce. One half ounce of equal mixture has one quarter ounce of each. One quarter ounce of Dawn makes 50000 bubbles. One quarter ounce of Bronners makes 100000 bubbles. Together that is 150000 bubbles. #### 150000",
+  "seconds": 5.9,
+  "tokens": 1043
+ },
+ "118f97eade74671a": {
+  "verdict": "accept",
+  "reason": "The calculations for oranges and apples left correctly total 65.",
+  "solution": "",
+  "seconds": 3.83,
+  "tokens": 723
+ },
+ "7843b25a3170ec33": {
+  "verdict": "accept",
+  "reason": "The calculation 4 plus 8 plus 8 equals 20 is correct.",
+  "solution": "",
+  "seconds": 3.58,
+  "tokens": 693
+ },
+ "00e85362f8f8980d": {
+  "verdict": "accept",
+  "reason": "100 minus 20 is 80 and 80 divided by 5 is 16.",
+  "solution": "",
+  "seconds": 3.39,
+  "tokens": 547
+ },
+ "57b11a79030c118d": {
+  "verdict": "accept",
+  "reason": "The equation 2x+5=15 is correctly solved to get 5.",
+  "solution": "",
+  "seconds": 2.92,
+  "tokens": 484
+ },
+ "3b92e0fdc5249b15": {
+  "verdict": "reject",
+  "reason": "Team used 1/10 instead of 1/100 for Milton's amount.",
+  "solution": "Penelope eats 20 pounds per day. Greta eats 10 times less, so 20 divided by 10 is 2 pounds. Milton eats 1 hundredth of Greta, so 2 divided by 100 is 0.02 pounds. Elmer eats 4000 times Milton, so 4000 times 0.02 is 80 pounds. The difference is 80 minus 20 which is 60. #### 60",
+  "seconds": 6.42,
+  "tokens": 1131
+ },
+ "7bad18f86272f41a": {
+  "verdict": "reject",
+  "reason": "Team changed 100 to 1000 and ignored the 300 target.",
+  "solution": "Eighteen hours ago they took 100 photographs. Twenty percent fewer means 80 percent of 100, which is 80 photographs today. Together that is 180 photographs taken. The target is 300, so 300 minus 180 leaves 120 still needed. #### 120",
+  "seconds": 7.82,
+  "tokens": 1168
+ },
+ "e529030f62356737": {
+  "verdict": "accept",
+  "reason": "The calculations for 22 circles and 32 squares totaling 54 are correct.",
+  "solution": "",
+  "seconds": 3.4,
+  "tokens": 694
+ },
+ "90e3b5cdcc5ca1dc": {
+  "verdict": "accept",
+  "reason": "All distance, gallons, and cost calculations are correct.",
+  "solution": "",
+  "seconds": 3.44,
+  "tokens": 655
+ },
+ "cd8dab2459c915de": {
+  "verdict": "accept",
+  "reason": "The math correctly gives 125 packages requiring 5 boxes.",
+  "solution": "",
+  "seconds": 3.37,
+  "tokens": 631
+ },
+ "e8295a67b97b11db": {
+  "verdict": "accept",
+  "reason": "Total 300 minus 170 leaves 130 split equally as 65.",
+  "solution": "",
+  "seconds": 3.49,
+  "tokens": 708
+ },
+ "3027b3a61b703064": {
+  "verdict": "reject",
+  "reason": "The team calculated gas cost but forgot to add it to the total.",
+  "solution": "First divide 165 miles by 30 miles per gallon to get 5.5 gallons. Then multiply 5.5 gallons by 3 dollars per gallon to get 16.5 dollars for gas. Then add 10 for parking plus 55 for admission plus 25 for meal plus 16.5 for gas to get 106.5 total cost. Then subtract 28 already saved to get 78.5 still needed. #### 78.5",
+  "seconds": 17.23,
+  "tokens": 2068
+ },
+ "2cc9794cad06a85c": {
+  "verdict": "accept",
+  "reason": "The $10 yearly increase from $80 correctly reaches $130 in year six.",
+  "solution": "",
+  "seconds": 3.77,
+  "tokens": 627
+ },
+ "255157dc07541e19": {
+  "verdict": "reject",
+  "reason": "Team ignored books sold before the loss and miscalculated the halfway point.",
+  "solution": "Tara goal is 90 dollars, so halfway is 45 dollars. She starts with 10 dollars, so she needs 35 dollars more to reach 45 dollars, which is 7 books at 5 dollars each. Then she loses all savings and starts at 0, so she needs the full 90 dollars, which is 18 books. Adding both phases gives 7 plus 18 equals 25. #### 25",
+  "seconds": 9.1,
+  "tokens": 1306
+ },
+ "39e4eff9ba3f3afe": {
+  "verdict": "accept",
+  "reason": "The total of 23 lambs is correctly calculated.",
+  "solution": "",
+  "seconds": 3.06,
+  "tokens": 535
+ },
+ "70b978cf777fa5da": {
+  "verdict": "reject",
+  "reason": "Team wrongly treated 18 cups as half the total.",
+  "solution": "Work backwards from the end. She drank 1 cup last. She gave 9 cups to friends, which is half of 18. So before giving to friends she had 10 cups. She sold 18 cups to kids, so before that she had 28 cups. That 28 cups was what remained after selling half to the crew, so the starting total was double 28, which is 56. #### 56",
+  "seconds": 6.83,
+  "tokens": 1015
+ },
+ "32ce38ccf2564760": {
+  "verdict": "accept",
+  "reason": "Time and water calculations are correct.",
+  "solution": "",
+  "seconds": 3.25,
+  "tokens": 656
+ },
+ "902cdaf4d6aacce5": {
+  "verdict": "reject",
+  "reason": "Team swapped oysters and pearls and divided backwards.",
+  "solution": "Jamie collects 16 oysters per dive. 25 percent of them contain pearls, so he gets 4 pearls per dive. To collect 56 pearls he needs 56 divided by 4 which is 14 dives. #### 14",
+  "seconds": 5.31,
+  "tokens": 945
+ },
+ "26406f69fcfff703": {
+  "verdict": "accept",
+  "reason": "All calculations are correct.",
+  "solution": "",
+  "seconds": 3.38,
+  "tokens": 619
+ },
+ "100cfb76ddd28172": {
+  "verdict": "reject",
+  "reason": "Team reversed the woodwind-brass ratio and rounded a non-integer.",
+  "solution": "Let the number of brass players be b. Then woodwinds are twice brass, so 2 times b. Percussion are 4 times woodwinds, so 8 times b. The total is b plus 2b plus 8b equals 11b, which equals 110, so b equals 10. #### 10",
+  "seconds": 5.1,
+  "tokens": 924
+ },
+ "6b841020e8fe9d27": {
+  "verdict": "reject",
+  "reason": "Team confused 30 tokens per dollar with 30 dollars per game.",
+  "solution": "There are 4 friends playing 60 games each for a total of 240 games. Each game uses 2 tokens so 480 tokens are needed. Since 30 tokens cost 1 dollar, divide 480 by 30 to get 16 dollars. #### 16",
+  "seconds": 5.65,
+  "tokens": 832
+ },
+ "93b6f2f37cad917f": {
+  "verdict": "accept",
+  "reason": "All steps and arithmetic are correct.",
+  "solution": "",
+  "seconds": 3.47,
+  "tokens": 643
+ }
+}

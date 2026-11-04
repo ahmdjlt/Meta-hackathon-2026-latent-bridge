@@ -1,2 +1,3 @@
 {"tag": "old_s2", "ckpt": "checkpoints/best_backup/bridge_main_token_s2.pt", "n": 200, "accuracy": 0.625, "ts": 1793553040.7381592}
 {"tag": "ext_s2_best", "ckpt": "checkpoints/bridge_ext_s2_best.pt", "n": 200, "accuracy": 0.65, "ts": 1793554972.5365524}
+{"tag": "muse_r1", "ckpt": "checkpoints/bridge_muse_r1.pt", "n": 200, "accuracy": 0.58, "ts": 1793777157.565246}

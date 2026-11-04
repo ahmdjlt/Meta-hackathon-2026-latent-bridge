@@ -1,0 +1,16 @@
+{
+ "tag": "muse_r1",
+ "ckpt": "checkpoints/best_backup/bridge_main_token_s2.pt",
+ "n": 300,
+ "offset": 0,
+ "muse": "muse-spark-1.3",
+ "workers": 6,
+ "epochs": 2,
+ "lr": 2e-05,
+ "accum": 8,
+ "layer": 8,
+ "max_new": 200,
+ "vram_gb": 3.9,
+ "seed": 0,
+ "stop_after": "train"
+}
